@@ -1,6 +1,5 @@
 <template>
   <div class="user">
-    <!--    <comment-wrapper />-->
     <slot></slot>
 
     <foot></foot>
