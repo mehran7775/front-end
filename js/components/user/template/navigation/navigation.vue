@@ -652,7 +652,7 @@ hr {
 }
 #form_join_damirco {
   width: 100%;
-  height: 640px;
+  height: 740px;
   position: absolute;
   top: 0;
   left: 0;
