@@ -3,7 +3,7 @@ const {VueLoaderPlugin} = require('vue-loader')
 module.exports = {
   entry:{
     "userScript":"./js/userApp.js",
-    "userPanelApp":"./js/userPanelApp.js",
+    "userPanelApp":"./js/userpanelApp.js",
     "signupApp":"./js/signup.js",
     "landingPage":"./js/landingPageApp.js",
     "landingRegisterSupplier":"./js/landingRegisterSupplierPage.js",
@@ -15,7 +15,7 @@ module.exports = {
       path:path.resolve(__dirname,"public"),
       filename:"[name].js",
       // publicPath:"/"
-    publicPath:"/static/public/"
+      publicPath:"/static/public/"
   },
   mode:'development',
     // mode: 'production',
@@ -112,6 +112,7 @@ module.exports = {
       },
       {
         test:/\.(png|jpeg|jpg)$/i,
+        include: /images/,
         use:[
           {
             loader: 'file-loader',
