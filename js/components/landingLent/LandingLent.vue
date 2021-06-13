@@ -19,7 +19,7 @@
       <div id="body">
         <div
           class="item"
-          v-for="product in JSON.parse(products)"
+          v-for="product in products"
           v-bind:key="product.id"
         >
           <item
@@ -122,16 +122,35 @@
 import Item from "./Item.vue";
 export default {
   name: "LandingLent",
-  props: ["products"],
+  // props: ["products"],
   data() {
     return {
       whole_cost: "",
-      p_id:0
+      p_id:0,
+      products:[{
+        id:1,
+        title:'لنت عقب پراید',
+        image:'/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg',
+        whole_price:50000,
+        retail_price:15000
+      }
+      ,
+      {
+         id:2,
+        title:'لنت جلو پراید',
+        image:'/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg',
+        whole_price:60000,
+        retail_price:16000
+      }
+      ]
     };
   },
   components: {
     // Counter,
     Item,
+  },
+  created(){
+    console.log("lent")
   },
   methods: {
     set_wholeCost(value) {
