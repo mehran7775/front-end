@@ -86,22 +86,24 @@ module.exports = {
         // include: /images/,
         use: [
           {
-            loader:'file-loader',
+            loader: 'file-loader',
             options: {
               name: '[name].[hash:6].[ext]',
               outputPath: "assets/images",
-              esModule:false
+              esModule: false,
+              // emitFile: true,
               // publicPath:"assets/images",
-              // emitFile:true,
             }
           }
-          ,
-          {
-            loader: 'webp-loader',
-            options: {
-              // quality: 13
-            }
-          }
+          // ,
+          // {
+          //   loader: 'webp-loader',
+          //   options: {
+          //     esModule: false,
+          //     // emitFile: true,
+          //     // quality: 13
+          //   }
+          // }
         ]
       },
       {
@@ -112,8 +114,9 @@ module.exports = {
             options: {
               name: '[name].[hash:6].[ext]',
               outputPath: "assets/images",
+              esModule: false,
+              emitFile: true,
               // publicPath: '/static/public/images',
-              esModule: false
             }
           }
         ]
