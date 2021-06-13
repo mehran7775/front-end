@@ -354,7 +354,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"export default &quot;./fa-brands-400.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg?");
+eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-brands-400.216edb.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg?");
 
 /***/ }),
 
@@ -413,7 +413,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"export default &quot;./fa-regular-400.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg?");
+eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-regular-400.19e27d.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg?");
 
 /***/ }),
 
@@ -472,7 +472,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"export default &quot;./fa-solid-900.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg?");
+eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-solid-900.13de59.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg?");
 
 /***/ }),
 

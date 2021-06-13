@@ -7,31 +7,32 @@
       <div class="swiper-container-customers">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
+            <!-- <img alt="گلرنگ" title="گلرنگ" src="require('assets/images/ours1.png').default"> -->
+            <img alt="گلرنگ" title="گلرنگ" src="../../../../assets/images/ours1.png">
           </div>
           <div class="swiper-slide">
-            <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours2.png">
+            <img alt="شرکت نفتت" title="شرکت نفتت" src="../../../../assets/images/ours2.png">
           </div>
           <div class="swiper-slide">
-            <img alt="سایپا" title="سایپا" src="/static/public/images/ours3.png">
+            <img alt="سایپا" title="سایپا" src="../../../../assets/images/ours3.png">
           </div>
           <div class="swiper-slide">
-            <img alt="شیرین عسل" title="شیرین عسل" src="/static/public/images/ours4.png">
+            <img alt="شیرین عسل" title="شیرین عسل" src="../../../../assets/images/ours4.png">
           </div>
           <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/ours5.png">
+            <img alt="ایران خودرو" title="ایران خودرو" src="../../../../assets/images/ours5.png">
           </div>
           <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pakshoo.png">
+            <img alt="ایران خودرو" title="ایران خودرو" src="../../../../assets/images/pakshoo.png">
           </div>
           <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pishgaman.png">
+            <img alt="ایران خودرو" title="ایران خودرو" src="../../../../assets/images/pishgaman.png">
           </div>
           <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/delveseh.png">
+            <img alt="ایران خودرو" title="ایران خودرو" src="../../../../assets/images/delveseh.png">
           </div>
           <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">
+            <img alt="ایران خودرو" title="ایران خودرو" src="../../../../assets/images/mina.png">
           </div>
         </div>
         <!-- Add Arrows -->

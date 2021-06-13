@@ -1,24 +1,24 @@
-const path=require("path");
-const {VueLoaderPlugin} = require('vue-loader')
+const path = require("path");
+const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
-  entry:{
-    "userScript":"./js/userApp.js",
-    "userPanelApp":"./js/userpanelApp.js",
-    "signupApp":"./js/signup.js",
-    "landingPage":"./js/landingPageApp.js",
-    "landingRegisterSupplier":"./js/landingRegisterSupplierPage.js",
-    'factoreApp':"./js/components/factores/factoreApp.js",
-    "testMy":"./js/test.js",
-    "app":"./js/app.js"
+  entry: {
+    "userScript": "./js/userApp.js",
+    "userPanelApp": "./js/userpanelApp.js",
+    "signupApp": "./js/signup.js",
+    "landingPage": "./js/landingPageApp.js",
+    "landingRegisterSupplier": "./js/landingRegisterSupplierPage.js",
+    'factoreApp': "./js/components/factores/factoreApp.js",
+    "testMy": "./js/test.js",
+    "app": "./js/app.js"
   },
-  output:{
-      path:path.resolve(__dirname,"public"),
-      filename:"[name].js",
-      // publicPath:"/"
-      publicPath:"/static/public/"
+  output: {
+    path: path.resolve(__dirname, "public"),
+    filename: "[name].js",
+    // publicPath:"/"
+    publicPath: "/static/public/"
   },
-  mode:'development',
-    // mode: 'production',
+  mode: 'development',
+  // mode: 'production',
   module: {
     rules: [
       {
@@ -41,13 +41,13 @@ module.exports = {
         ]
       },
       {
-        test:/\.scss$/,
-        use:[
+        test: /\.scss$/,
+        use: [
           'vue-style-loader',
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
       // {
       //   test: /\.sass$/,
       //   use: [
@@ -81,53 +81,51 @@ module.exports = {
       //     }
       //   ]
       // }
-      ,
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(png|jpeg|jpg)$/i,
+        // include: /images/,
         use: [
           {
-            loader: 'file-loader',
+            loader:'file-loader',
             options: {
-              name: '[name].[ext]',
-              publicPath: './',
+              name: '[name].[hash:6].[ext]',
+              outputPath: "assets/images",
+              esModule:false
+              // publicPath:"assets/images",
+              // emitFile:true,
+            }
+          }
+          ,
+          {
+            loader: 'webp-loader',
+            options: {
+              // quality: 13
             }
           }
         ]
       },
       {
         test: /\.(svg|gif)$/,
-        include: /images/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[hash:6].[ext]',
-              // outputPath: '/static/public/images',
+              outputPath: "assets/images",
               // publicPath: '/static/public/images',
-              emitFile:true,
-              esModule:false
+              esModule: false
             }
           }
         ]
       },
       {
-        test:/\.(png|jpeg|jpg)$/i,
-        include: /images/,
-        use:[
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:6].[ext]',
-              // outputPath: '/images/',
-              // publicPath: '/images/',
-              // emitFile:true,
-              // esModule:false
-            }
-          },
-          {
-            loader:'webp-loader',
-            options:{
-              quality:13
+              name: '[name].[ext]',
+              publicPath: './',
             }
           }
         ]

@@ -1,5 +1,104 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
 
+/***/ "./js/assets/images/delveseh.png":
+/*!***************************************!*\
+  !*** ./js/assets/images/delveseh.png ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/delveseh.382c5d.png\";\n\n//# sourceURL=webpack:///./js/assets/images/delveseh.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/mina.png":
+/*!***********************************!*\
+  !*** ./js/assets/images/mina.png ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/mina.235cc2.png\";\n\n//# sourceURL=webpack:///./js/assets/images/mina.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/ours1.png":
+/*!************************************!*\
+  !*** ./js/assets/images/ours1.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/ours1.2e1546.png\";\n\n//# sourceURL=webpack:///./js/assets/images/ours1.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/ours2.png":
+/*!************************************!*\
+  !*** ./js/assets/images/ours2.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/ours2.7ab180.png\";\n\n//# sourceURL=webpack:///./js/assets/images/ours2.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/ours3.png":
+/*!************************************!*\
+  !*** ./js/assets/images/ours3.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/ours3.dd8dc9.png\";\n\n//# sourceURL=webpack:///./js/assets/images/ours3.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/ours4.png":
+/*!************************************!*\
+  !*** ./js/assets/images/ours4.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/ours4.4c3f33.png\";\n\n//# sourceURL=webpack:///./js/assets/images/ours4.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/ours5.png":
+/*!************************************!*\
+  !*** ./js/assets/images/ours5.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/ours5.d721eb.png\";\n\n//# sourceURL=webpack:///./js/assets/images/ours5.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/pakshoo.png":
+/*!**************************************!*\
+  !*** ./js/assets/images/pakshoo.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/pakshoo.af33d5.png\";\n\n//# sourceURL=webpack:///./js/assets/images/pakshoo.png?");
+
+/***/ }),
+
+/***/ "./js/assets/images/pishgaman.png":
+/*!****************************************!*\
+  !*** ./js/assets/images/pishgaman.png ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/images/pishgaman.e64b4d.png\";\n\n//# sourceURL=webpack:///./js/assets/images/pishgaman.png?");
+
+/***/ }),
+
 /***/ "./js/components/user/index/card/Card2.vue":
 /*!*************************************************!*\
   !*** ./js/components/user/index/card/Card2.vue ***!
@@ -632,7 +731,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  mounted() {\n    var swiper = new Swiper('.swiper-container-customers', {\n      slidesPerView: 3,\n      loopAdditionalSlides: 100,\n      loop: true,\n      spaceBetween: 30,\n      pagination: {\n        el: '.swiper-pagination',\n        clickable: true\n      },\n      navigation: {\n        nextEl: '.swiper-button-next',\n        prevEl: '.swiper-button-prev'\n      },\n      breakpoints: {\n        // // when window width is >= 480px\n        1000: {\n          slidesPerView: 4,\n          spaceBetween: 30,\n          slidesPerGroup: 4\n        },\n        // // when window width is >= 640px\n        660: {\n          slidesPerView: 3,\n          spaceBetween: 10,\n          slidesPerGroup: 3\n        },\n        430: {\n          slidesPerView: 2,\n          spaceBetween: 10,\n          slidesPerGroup: 3\n        },\n        1: {\n          slidesPerView: 1,\n          slidesPerGroup: 1\n        }\n      }\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./js/components/user/index/customers/customers.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  mounted() {\n    var swiper = new Swiper('.swiper-container-customers', {\n      slidesPerView: 3,\n      loopAdditionalSlides: 100,\n      loop: true,\n      spaceBetween: 30,\n      pagination: {\n        el: '.swiper-pagination',\n        clickable: true\n      },\n      navigation: {\n        nextEl: '.swiper-button-next',\n        prevEl: '.swiper-button-prev'\n      },\n      breakpoints: {\n        // // when window width is >= 480px\n        1000: {\n          slidesPerView: 4,\n          spaceBetween: 30,\n          slidesPerGroup: 4\n        },\n        // // when window width is >= 640px\n        660: {\n          slidesPerView: 3,\n          spaceBetween: 10,\n          slidesPerGroup: 3\n        },\n        430: {\n          slidesPerView: 2,\n          spaceBetween: 10,\n          slidesPerGroup: 3\n        },\n        1: {\n          slidesPerView: 1,\n          slidesPerGroup: 1\n        }\n      }\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./js/components/user/index/customers/customers.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -896,7 +995,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _vm._m(0)\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"customers\" } }, [\n      _c(\"div\", { attrs: { id: \"customersWrapper\" } }, [\n        _c(\"div\", { staticClass: \"title\" }, [_c(\"h1\", [_vm._v(\"مشتریان ما\")])]),\n        _vm._v(\" \"),\n        _c(\"div\", { staticClass: \"swiper-container-customers\" }, [\n          _c(\"div\", { staticClass: \"swiper-wrapper\" }, [\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"گلرنگ\",\n                  title: \"گلرنگ\",\n                  src: \"/static/public/images/ours1.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"شرکت نفتت\",\n                  title: \"شرکت نفتت\",\n                  src: \"/static/public/images/ours2.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"سایپا\",\n                  title: \"سایپا\",\n                  src: \"/static/public/images/ours3.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"شیرین عسل\",\n                  title: \"شیرین عسل\",\n                  src: \"/static/public/images/ours4.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: \"/static/public/images/ours5.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: \"/static/public/images/pakshoo.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: \"/static/public/images/pishgaman.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: \"/static/public/images/delveseh.png\"\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: \"/static/public/images/mina.png\"\n                }\n              })\n            ])\n          ]),\n          _vm._v(\" \"),\n          _c(\"div\", { staticClass: \"swiper-button-next\" }),\n          _vm._v(\" \"),\n          _c(\"div\", { staticClass: \"swiper-button-prev\" })\n        ])\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./js/components/user/index/customers/customers.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _vm._m(0)\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"customers\" } }, [\n      _c(\"div\", { attrs: { id: \"customersWrapper\" } }, [\n        _c(\"div\", { staticClass: \"title\" }, [_c(\"h1\", [_vm._v(\"مشتریان ما\")])]),\n        _vm._v(\" \"),\n        _c(\"div\", { staticClass: \"swiper-container-customers\" }, [\n          _c(\"div\", { staticClass: \"swiper-wrapper\" }, [\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"گلرنگ\",\n                  title: \"گلرنگ\",\n                  src: __webpack_require__(/*! ../../../../assets/images/ours1.png */ \"./js/assets/images/ours1.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"شرکت نفتت\",\n                  title: \"شرکت نفتت\",\n                  src: __webpack_require__(/*! ../../../../assets/images/ours2.png */ \"./js/assets/images/ours2.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"سایپا\",\n                  title: \"سایپا\",\n                  src: __webpack_require__(/*! ../../../../assets/images/ours3.png */ \"./js/assets/images/ours3.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"شیرین عسل\",\n                  title: \"شیرین عسل\",\n                  src: __webpack_require__(/*! ../../../../assets/images/ours4.png */ \"./js/assets/images/ours4.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: __webpack_require__(/*! ../../../../assets/images/ours5.png */ \"./js/assets/images/ours5.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: __webpack_require__(/*! ../../../../assets/images/pakshoo.png */ \"./js/assets/images/pakshoo.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: __webpack_require__(/*! ../../../../assets/images/pishgaman.png */ \"./js/assets/images/pishgaman.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: __webpack_require__(/*! ../../../../assets/images/delveseh.png */ \"./js/assets/images/delveseh.png\")\n                }\n              })\n            ]),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"swiper-slide\" }, [\n              _c(\"img\", {\n                attrs: {\n                  alt: \"ایران خودرو\",\n                  title: \"ایران خودرو\",\n                  src: __webpack_require__(/*! ../../../../assets/images/mina.png */ \"./js/assets/images/mina.png\")\n                }\n              })\n            ])\n          ]),\n          _vm._v(\" \"),\n          _c(\"div\", { staticClass: \"swiper-button-next\" }),\n          _vm._v(\" \"),\n          _c(\"div\", { staticClass: \"swiper-button-prev\" })\n        ])\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./js/components/user/index/customers/customers.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 

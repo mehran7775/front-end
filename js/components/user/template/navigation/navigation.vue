@@ -15,7 +15,7 @@
           >
             <img
               id="profImg"
-              src="/static/public/images/defUser.png"
+              src="../../../../assets/images/defUser.png"
               alt="تصویر ناقص است"
             />
             <div v-if="showProf" class="profile">

@@ -4,7 +4,7 @@
       <form action="/search" method="get">
         <input type="" placeholder="جست و جو ..." name="q">
         <button class='magnifier'>
-          <img src="/static/public/images/mag.png" alt="">
+          <img src="../../../../assets/images/mag.png" alt="">
         </button>
       </form>
     </div>

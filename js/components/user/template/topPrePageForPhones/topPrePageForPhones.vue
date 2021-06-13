@@ -6,7 +6,7 @@
       </div>
       <search-bar></search-bar>
       <div class="logo">
-        <img src="/static/public/images/logo.png" alt="">
+        <img src="../../../../assets/images/logo.png" alt="">
       </div>
     </div>
       <transition name="comeOn">
