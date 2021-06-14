@@ -3,7 +3,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
   entry: {
     "userScript": "./js/userApp.js",
-    "userPanelApp": "./js/userpanelApp.js",
+    "userPanelApp": "./js/userPanelApp.js",
     "signupApp": "./js/signup.js",
     "landingPage": "./js/landingPageApp.js",
     "landingRegisterSupplier": "./js/landingRegisterSupplierPage.js",
