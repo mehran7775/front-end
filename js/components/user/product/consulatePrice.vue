@@ -2,7 +2,7 @@
     
         <div class="productConsulate" @click='closeConsulate'>
                 <div class="productConsulateWrapper" @click="preventDefault($event)">
-                    <form action="">
+                    <form action="" name="esteelam">
                       <input type="hidden" name="csrfmiddlewaretoken" :value="csrf">
                         <div id="email" class="inputs">
                             <div class='formInputsWrapper'>
@@ -17,6 +17,7 @@
                             </div>
                             <p class="inputError">فرمت شماره اشتباه است</p> 
                         </div>
+                        <input type="hidden" id="slug" name="slug"> <input type="hidden" id="slug" name="slug"> 
                         <div class="sendReq">
                             <button @click.prevent="sendPriceRequest" class="submit">ثبت</button>
                         </div>

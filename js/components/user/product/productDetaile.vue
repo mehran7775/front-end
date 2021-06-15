@@ -204,6 +204,9 @@ export default {
       targetBtn.style.color = "orangered";
     },
     getPriceRequest() {
+      let slug=document.querySelector("form #slug")
+      // console.log('slug',slug)
+      slug.value=this.productDet.slug
       const consulet = document.querySelector(".consulate");
       const wrapper = document.querySelector(".consulateWrapper");
       consulet.style.display = "block";
