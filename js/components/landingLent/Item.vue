@@ -5,7 +5,7 @@
     </div>
     <div class="digit" id="picture">
       <!-- <img :src="image" alt="" /> -->
-      <img src="/static/public/images/lent/12389630_511-600x338.jpg" alt="" />
+      <img :src="image" alt="" />
     </div>
     <!-- <div class="digit" id="rete">
               <div class="rate"></div>
@@ -19,6 +19,7 @@
           <counter
             :wholesale="true"
             :cost="whole_price"
+            :min_amount="min_amount"
             @change_price="cost_w = $event"
           />
         </div>
@@ -64,7 +65,7 @@
 import Counter from "./Counter.vue";
 export default {
   name: "Item",
-  props: ["id","title", "image", "whole_price", "retail_price"],
+  props: ["id","title", "image", "whole_price", "retail_price","min_amount"],
   components: {
     Counter,
   },

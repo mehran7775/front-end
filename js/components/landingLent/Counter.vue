@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "Counter",
-  props: ["wholesale","cost"],
+  props: ["wholesale","cost","min_amount"],
   data() {
     return {
       number: 0,
@@ -27,8 +27,8 @@ export default {
   methods: {
     increaser() {
       if (this.wholesale) {
-        let n=parseInt(this.number)
-        this.number=n+20
+        let n=parseInt(this.min_amount)
+        this.number+=n
       } else {
         this.number++;
       }
@@ -39,7 +39,7 @@ export default {
         if (this.number == 0) {
           null
         } else {
-          this.number -= 20;
+          this.number -= parseInt(this.min_amount);
         }
       } else {
         if (this.number === 0) {

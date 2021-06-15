@@ -19,7 +19,7 @@
       <div id="body">
         <div
           class="item"
-          v-for="product in products"
+          v-for="product in items"
           v-bind:key="product.id"
         >
           <item
@@ -28,6 +28,7 @@
             :image="product.image"
             :whole_price="product.whole_price"
             :retail_price="product.retail_price"
+            :min_amount="product.min_amount"
             @whole_cost="set_wholeCost"
           ></item>
         </div>
@@ -149,7 +150,12 @@ export default {
     Item,
   },
   created() {
-    console.log("lent",this.products);
+    console.log("lent",JSON.parse(this.products));
+  },
+  computed:{
+    items(){
+      return JSON.parse(this.products)
+    }
   },
   methods: {
     set_wholeCost(value) {
