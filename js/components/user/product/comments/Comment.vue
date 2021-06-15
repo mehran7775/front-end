@@ -20,7 +20,7 @@
       <div class="replay" @click="replay(comment.id)">پاسخ</div>
     </div>
     <div id="body" class="p-1 pr-5">
-      <p v-text="comment.content">nhnh</p>
+      <p v-text="comment.content"></p>
     </div>
     <!--    <div>-->
     <!--      {{sub_comments(comment.id)}}-->
@@ -28,10 +28,12 @@
     <div
       class="subComments"
       v-if="comment.subs !== 'None'"
-      v-for="subComment in comment.subs"
-      v-bind:key="subComment.id"
+    
     >
-      <comments-replay :subComment="subComment" />
+      <comments-replay  
+       v-for="subComment in comment.subs"
+      v-bind:key="subComment.id"
+       :subComment="subComment" />
     </div>
   </div>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
@@ -53,14 +55,6 @@ export default {
     return {
       replayStatus: false,
     };
-  },
-  computed: {
-    // subComments() {
-    //   return this.$store.getters.get_subComments(this.id);
-    // }
-  },
-  created() {
-    // console.log(this.comment.is_buyers)
   },
   methods: {
     replay(id) {
@@ -174,12 +168,13 @@ export default {
 .date {
   width: 100%;
 }
-#username_date{
+#username_date {
   width: 200px;
   display: flex;
   flex-direction: column;
 }
-.name p,.date p{
+.name p,
+.date p {
   padding: 5px 10px;
 }
 </style>

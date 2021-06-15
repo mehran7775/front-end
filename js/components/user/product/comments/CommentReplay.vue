@@ -1,6 +1,6 @@
 <template>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn"> -->
-  <div id="comments" :class="subComment.is_buyers ? 'buyer' : null">
+  <div id="comments" :class="comment.is_buyers ? 'buyer' : null">
     <div class="info">
       <div id="info">
         <div class="profile">
@@ -11,8 +11,8 @@
         </div>
         <div id="username_date">
           <div class="name">
-            <p v-text="subComment.username"></p>
-            <p v-if="subComment.is_buyers">(خریدار)</p>
+            <p v-text="comment.username"></p>
+            <p v-if="comment.is_buyers">(خریدار)</p>
           </div>
           <div class="date">
             <p v-text="comment.timestamp"></p>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div id="body" class="p-1 pr-5">
-      <p v-text="subComment.content"></p>
+      <p v-text="comment.content"></p>
     </div>
     <!-- <div class="subComment" v-for="comment in subComments" v-bind:key="comment.id">
       <comment :body="comment.body" :id="comment.id" :name="comment.name" />
@@ -37,14 +37,19 @@ export default {
     return {};
   },
   methods: {
-    replay(id_comment) {
-      let comment_box = document.getElementById("comment");
-      comment_box.focus();
-      comment_box.value = "@" + id_comment + ": ";
-    },
+    // replay(id_comment) {
+    //   let comment_box = document.getElementById("comment");
+    //   comment_box.focus();
+    //   comment_box.value = "@" + id_comment + ": ";
+    // },
+  },
+  computed:{
+    comment(){
+      return this.subComment
+    }
   },
   created() {
-    console.log("subbbs", this.subComment);
+    console.log("subbbs", this.comment);
   },
 };
 </script>

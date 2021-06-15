@@ -47,7 +47,7 @@
               <div class="for_buyer" v-if="is_staff"> 
                 <label for="for_buyer" class="checkbox-inline">
                   <span>ثبت نظر به عنوان خریدار</span>
-                  <input type="checkbox" name="comment_buyer" id="for_buyer" />
+                  <input type="checkbox" name="comment_buyer" id="is_buyer" />
                 </label>
               </div>
             </div>
@@ -99,11 +99,11 @@ export default {
       comment: "",
       validated: {
         email: "",
-        username,
+        username:"",
       },
       inValidate: {
         email: "",
-        username,
+        username:"",
       },
       statesValidate: {
         email: 0,
@@ -128,13 +128,15 @@ export default {
       }
     },
     sendComment() {
-      let ch = document.getElementById("for_buyer");
-      console.log(ch.checked);
-      if (!ch.checked) {
-        ch.value = "off";
-      } else {
-        ch.value = "on";
+      if (this.is_staff) {
+        let ch = document.getElementById("is_buyer");
+        if (!ch.checked) {
+          ch.value = "off";
+        } else {
+          ch.value = "on";
+        }
       }
+      document.forms["form_comment"].submit();
     },
   },
 };

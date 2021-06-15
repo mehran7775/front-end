@@ -2,7 +2,7 @@
   <div id="about_supplier">
     <div id="main_top">
       <div class="title">
-        <h1 v-text="JSON.parse(company).title">شرکت نوین گستر فلان</h1>
+        <h1 v-text="JSON.parse(company).title"></h1>
       </div>
       <div id="description">
         <div id="desc">
@@ -103,10 +103,10 @@
       </div>
       <div
         class="comments"
-        v-for="comment in comments"
-        v-bind:key="comment.id"
       >
-        <comment />
+        <comment-my 
+        :comments="JSON.parse(company).comments"
+        />
       </div>
     </div>
   </div>
@@ -125,27 +125,30 @@ const exampleItems = [
   },
 ];
 import Paginate from "../mainCategories/paginate/Paginate.vue";
-import Comment from "../product/comments/Comment.vue";
+import CommentMy from "../product/comments/CommentMy.vue";
 export default {
-  props:{
-    company:{
-      type:String,
-      required:true
-    }
+  props: {
+    company: {
+      type: String,
+      required: true,
+    },
   },
-  created(){
-    console.log(JSON.parse(this.company))
+  created() {
+    console.log(JSON.parse(this.company));
   },
-  computed:{
-    products(){
-      return JSON.parse(this.company).products
-    }
+  computed: {
+    products() {
+      return JSON.parse(this.company).products;
+    },
+    comments() {
+      return JSON.parse(this.company).comments;
+    },
   },
   data() {
     return {
       exampleItems,
       pageOfItems: [],
-       myStyle: {
+      myStyle: {
         li: {
           margin: "3px!important",
           padding: "3px!important",
@@ -155,12 +158,12 @@ export default {
           padding: "5px!important",
         },
       },
-      comments:'None'
+      // comments:'None'
     };
   },
   components: {
     Paginate,
-    Comment,
+    CommentMy,
   },
   methods: {
     onChangePage(pageOfItems) {
@@ -449,8 +452,9 @@ item {
   width: 90%;
   margin: auto;
   padding: 10px;
-  display: flex;
+  direction: ltr;
+  /* display: flex;
   flex-direction: column-reverse;
-  position: relative;
+  position: relative; */
 }
 </style>
