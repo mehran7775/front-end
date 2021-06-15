@@ -80,7 +80,10 @@
             {{ order.phone_number }}
           </td>
           <td v-else class="unDon">
-            <button @click.prevent="getPhone(order.id, $event)">
+            <button @click.prevent="getPhone({
+              id:order.id,
+              user_id:order.user_id
+            }, $event)">
               تایید مشتری
             </button>
           </td>
@@ -128,7 +131,8 @@
       </div>
     </div>
     <form name="verify" method="post" action="">
-      <input type="hidden" name="id">
+      <input type="hidden" name="id" id="id">
+      <input type="hidden" name="user_id" id="user_id">
     </form>
   </div>
 </template>
@@ -156,6 +160,7 @@ export default {
       searchText: null,
       searchByType: "name",
       id: 0,
+      user_id:0
     };
   },
   components: {
@@ -176,7 +181,7 @@ export default {
   created() {
     JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
     this.actualOrders = JSON.parse(this.orders);
-    console.log(this.actualOrders);
+    console.log(JSON.parse(this.orders));
     this.shouldShow = this.actualOrders;
     this.starterCheck();
     eventBus.$on("nowGetPhone", this.nowGetPhone);
@@ -240,8 +245,9 @@ export default {
       return false;
     },
     changed(e) {},
-    getPhone(id, e) {
-      this.id = id;
+    getPhone(obj, e) {
+      this.id =obj.id;
+      this.user_id=obj.user_id
       // console.log(this.id)
       // this.$store.state.getPhoneId.id=id
       // this.$store.state.getPhoneId.el=e
@@ -317,11 +323,10 @@ export default {
     },
     verify_from() {
       // console.log("id", this.id);
-      document.querySelector('form input').value=this.id
+      document.querySelector('form #id').value=this.id
+      document.querySelector('form #user_id').value=this.user_id
       let form=document.forms['verify'];
       form.submit();
-
-      
     },
   },
   computed: {

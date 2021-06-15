@@ -121,40 +121,40 @@
 <script>
 import Item from "./Item.vue";
 export default {
-  // props: ["products"],
+  props: ["products"],
   data() {
     return {
-      whole_cost: "",
-      p_id:0,
-      products:[{
-        id:1,
-        title:'لنت عقب پراید',
-        image:'/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg',
-        whole_price:50000,
-        retail_price:15000
-      }
-      ,
-      {
-         id:2,
-        title:'لنت جلو پراید',
-        image:'/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg',
-        whole_price:60000,
-        retail_price:16000
-      }
-      ]
+      whole_cost:"",
+      p_id: 0,
+      // products: [
+      //   {
+      //     id: 1,
+      //     title: "لنت عقب پراید",
+      //     image: "/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg",
+      //     whole_price: 50000,
+      //     retail_price: 15000,
+      //   },
+      //   {
+      //     id: 2,
+      //     title: "لنت جلو پراید",
+      //     image: "/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg",
+      //     whole_price: 60000,
+      //     retail_price: 16000,
+      //   },
+      // ],
     };
   },
   components: {
     // Counter,
     Item,
   },
-  created(){
-    console.log("lent")
+  created() {
+    console.log("lent",this.products);
   },
   methods: {
     set_wholeCost(value) {
       this.whole_cost = value[0];
-      this.p_id=value[1]
+      this.p_id = value[1];
     },
     register_form() {
       // console.log(document.forms["form"]);

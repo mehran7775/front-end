@@ -2,15 +2,11 @@
   <div id="about_supplier">
     <div id="main_top">
       <div class="title">
-        <h1>شرکت نوین گستر فلان</h1>
+        <h1 v-text="JSON.parse(company).title">شرکت نوین گستر فلان</h1>
       </div>
       <div id="description">
         <div id="desc">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat,
-            esse nostrum aperiam nisi praesentium aut, assumenda ducimus labore,
-            voluptates totam quo? Quae, incidunt. Dolores libero culpa deleniti
-            expedita quos pariatur.
+          <p v-text="JSON.parse(company).bio">
           </p>
         </div>
         <div id="information">
@@ -44,7 +40,7 @@
                 <div class="item-origin">
                   <div class="pic">
                     <!-- <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است"> -->
-                    <img :src="item.product_image" alt="تصویر ناقص است" />
+                    <img :src="item.thumbnail" alt="تصویر ناقص است" />
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
@@ -95,7 +91,7 @@
       <div class="text-center">
         <paginate
           class="m-auto"
-          :items="exampleItems"
+          :items="products"
           @changePage="onChangePage"
           :styles="myStyle"
         ></paginate>
@@ -131,6 +127,20 @@ const exampleItems = [
 import Paginate from "../mainCategories/paginate/Paginate.vue";
 import Comment from "../product/comments/Comment.vue";
 export default {
+  props:{
+    company:{
+      type:String,
+      required:true
+    }
+  },
+  created(){
+    console.log(JSON.parse(this.company))
+  },
+  computed:{
+    products(){
+      return JSON.parse(this.company).products
+    }
+  },
   data() {
     return {
       exampleItems,
