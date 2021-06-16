@@ -463,7 +463,7 @@ item {
 #logo{
   width: 100px;
   height: 100px;
-  background-color: black;
+  /* background-color: black; */
   border-radius: 50%;
   margin-right: 18px;
 }
