@@ -10,7 +10,7 @@
       <div id="title_pro">
         <p v-text="title"></p>
       </div>
-      <form class="consulateForm" action="/merchandise/miniorder" method="get">
+      <form class="consulateForm" action="/merchandise/miniorder" method="post">
         <input type="hidden" name="csrfmiddlewaretoken" :value="csrf" />
         <!-- <div id="email" class="inputs">
           <div class="formInputsWrapper">
