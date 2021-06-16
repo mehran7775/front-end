@@ -17,7 +17,6 @@
                             </div>
                             <p class="inputError">فرمت شماره اشتباه است</p> 
                         </div>
-                        <input type="hidden" id="slug" name="slug"> <input type="hidden" id="slug" name="slug"> 
                         <div class="sendReq">
                             <button @click.prevent="sendPriceRequest" class="submit">ثبت</button>
                         </div>

@@ -98,21 +98,21 @@
 // import ImageZoom from 'js-image-zoom'
 import doneMessage from "../../user/template/doneMessage/doneMessage.vue";
 import consulate from "../prodcuts/consulate.vue";
-import {keepStay} from "../../user/mixIns/keepStay.js";
-import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js";
+import { keepStay } from "../../user/mixIns/keepStay.js";
+import { adjustElFromTop } from "../../user/mixIns/adjustElFromTop.js";
 
 export default {
   props: ["productDet"],
   mounted() {
-    var mySwiper = new Swiper('.swiper-container', {
+    var mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
-      direction: 'horizontal',
+      direction: "horizontal",
       loop: true,
       slidesPerView: 1,
       // Navigation arrows
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       keyboard: {
         enabled: true,
@@ -120,17 +120,17 @@ export default {
       },
       // And if we need scrollbar
       scrollbar: {
-        el: '.swiper-scrollbar',
+        el: ".swiper-scrollbar",
       },
       preventClicksPropagation: false,
       preventClicks: false,
-    })
+    });
 
-    window.addEventListener('click', e => {
-      if (e.target.classList.contains('ShouldZoomImage')) {
-        this.zoomInOnPhoto()
+    window.addEventListener("click", (e) => {
+      if (e.target.classList.contains("ShouldZoomImage")) {
+        this.zoomInOnPhoto();
       }
-    })
+    });
   },
   mixins: [keepStay, adjustElFromTop],
   components: {
@@ -142,21 +142,21 @@ export default {
       payWay: null,
       packetType: null,
       sendWay: null,
-      user: userInfo
+      user: userInfo,
     };
   },
   methods: {
     getAlt(alt) {
       if (alt == null) {
-        return this.productDet.title
+        return this.productDet.title;
       }
-      return alt
+      return alt;
     },
     getData(data) {
       if (data == null) {
-        return "-"
+        return "-";
       }
-      return data
+      return data;
     },
     zoomIn() {
       const photo = document.querySelector(".photo");
@@ -165,14 +165,14 @@ export default {
       this.$store.state.url = url;
       const zoom = document.querySelector(".zoomIn");
       const wrapper = zoom.querySelector(".zoomInWrapper");
-      const img = wrapper.querySelector("img")
+      const img = wrapper.querySelector("img");
       wrapper.style.top = window.scrollY + "px";
       img.setAttribute("src", url);
       zoom.style.display = "block";
     },
     zoomInOnPhoto(e) {
-      let el = document.querySelector('.swiper-slide-active img');
-      console.log("el", el)
+      let el = document.querySelector(".swiper-slide-active img");
+      console.log("el", el);
       // // if(!el.classList.contains('ShouldZoomImage')){
       // //     el=el.querySelector('img')
       // // }
@@ -204,13 +204,13 @@ export default {
       targetBtn.style.color = "orangered";
     },
     getPriceRequest() {
-      let slug=document.querySelector("form #slug")
-      // console.log('slug',slug)
-      slug.value=this.productDet.slug
       const consulet = document.querySelector(".consulate");
       const wrapper = document.querySelector(".consulateWrapper");
       consulet.style.display = "block";
       this.adjustFromTop(wrapper, false, true);
+      let slug = document.querySelector(".consulateForm #slug");
+      // console.log('slug',slug)
+      slug.value = this.productDet.slug;
       // document.body.style.overflow = "hidden";
     },
     sendPriceRequest() {
@@ -228,30 +228,29 @@ export default {
       const el = e.target;
       const img = el.querySelector("img");
       const src = el.getAttribute("src");
-      const photo = document.querySelector(".photo")
+      const photo = document.querySelector(".photo");
       photo.setAttribute("src", src);
     },
     getImgSrc() {
       return this.productDet.product_image;
     },
     prevent(e) {
-      e.stopPropagation()
-      e.preventDefault()
+      e.stopPropagation();
+      e.preventDefault();
     },
     separate(Number) {
-      Number += '';
-      Number = Number.replace(',', '');
-      let x = Number.split('.');
+      Number += "";
+      Number = Number.replace(",", "");
+      let x = Number.split(".");
       let y = x[0];
-      let z = x.length > 1 ? '.' + x[1] : '';
-      var rgx = /(\d+)(\d{3})/;//ینی چهار رقم وجودداشته باشد
+      let z = x.length > 1 ? "." + x[1] : "";
+      var rgx = /(\d+)(\d{3})/; //ینی چهار رقم وجودداشته باشد
       while (rgx.test(y))
-          // console.log()
-          // console.log(rgx)
-        y = y.replace(rgx, '$1' + ',' + '$2');
+        // console.log()
+        // console.log(rgx)
+        y = y.replace(rgx, "$1" + "," + "$2");
       return y + z;
-    }
-
+    },
   },
 };
 </script>
@@ -516,20 +515,23 @@ div#actualImage img {
   transform: translateY(-50%);
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   align-items: center !important;
   /*background: rgba(0,0,0,0.4) !important;*/
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
-  content: '';
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  content: "";
 }
 
 .swiper-slide {
   width: 100% !important;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   top: calc(40% - -25px);
 }
 

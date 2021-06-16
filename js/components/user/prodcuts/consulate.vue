@@ -10,7 +10,7 @@
       <div id="title_pro">
         <p v-text="title"></p>
       </div>
-      <form class="consulateForm" action="/merchandise/miniorder" method="post">
+      <form class="consulateForm" action="/merchandise/miniorder" method="get">
         <input type="hidden" name="csrfmiddlewaretoken" :value="csrf" />
         <!-- <div id="email" class="inputs">
           <div class="formInputsWrapper">
@@ -80,11 +80,11 @@
             rows="10"
             placeholder="توضیحات خود را وارد کنید"
           ></textarea>
+           <input type="hidden" id="slug" name="slug" />
         </div>
         <div>
           <button id="submitConsulate" type="submit" class="submit">ثبت</button>
         </div>
-        <input type="hidden" :value="productId" name="product_slug" />
       </form>
     </div>
   </div>
@@ -253,7 +253,7 @@ textarea {
   /* text-align: left; */
   /* float: left; */
 }
-label{
-    font-weight: bold;
+label {
+  font-weight: bold;
 }
 </style>
