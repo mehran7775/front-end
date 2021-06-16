@@ -23,8 +23,8 @@
                 <th>شماره تلفن</th>
               </tr>
               <tr>
-                <td>کوچه تهه تلخی</td>
-                <td>0464654648</td>
+                <td v-text="JSON.parse(company).address"></td>
+                <td v-text="JSON.parse(company).phone_number"></td>
               </tr>
             </table>
           </div>
