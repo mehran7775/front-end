@@ -4,7 +4,7 @@
       <a class="log_out" href="/users/logout">
           <i id="logout" class="fas fa-sign-out-alt fa-2x fa-rotate-180" title="خروج"
           ></i>
-        </a>
+      </a>
          
       <div id="profile">
         <div id="image">
@@ -43,7 +43,7 @@ export default {
       } else {
         this.$store.state.sideMenuOpen = true;
       }
-    }
+    },
   },
   mounted() {
     this.watchInner();
