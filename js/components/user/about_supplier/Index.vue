@@ -4,6 +4,9 @@
       <div class="title">
         <h1 v-text="JSON.parse(company).title"></h1>
       </div>
+        <div id="logo">
+          <img :src="JSON.parse(company).logo" alt="لوگو">
+        </div>
       <div id="description">
         <div id="desc">
           <p v-text="JSON.parse(company).bio">
@@ -456,5 +459,17 @@ item {
   /* display: flex;
   flex-direction: column-reverse;
   position: relative; */
+}
+#logo{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 50%;
+  margin-right: 18px;
+}
+#logo img{
+  width:100%;
+  height: 100%;
+  border-radius: 50%;
 }
 </style>
