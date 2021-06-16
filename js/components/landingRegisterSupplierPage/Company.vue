@@ -14,7 +14,7 @@
               id="name"
               name="name"
               ref="name"
-              maxlength="20"
+              maxlength="64"
               @input="validate('name')"
               placeholder="نام شرکت را وارد کنید"
               :class="[
@@ -36,7 +36,7 @@
               name="address"
               ref="address"
               @input="validate('address')"
-              maxlength="50"
+              maxlength="150"
               placeholder="آدرس شرکت را وارد کنید"
               :class="[
                 inValidated.address ? 'is-invalid' : null,
@@ -49,11 +49,57 @@
         > -->
         </div>
         <div class="form-group">
+          <label for="province">استان</label>
+          <input
+              type="text"
+              id="province"
+              maxlength="25"
+              name="province"
+              ref="province"
+              placeholder="نام استان را به فارسی وارد کنید"
+              @input="validate('province')"
+              :class="[
+                inValidated.province ? 'is-invalid' : null,
+                validated.province ? 'is-valid' : null,
+                'form-control',
+              ]"
+          />
+          <!-- <small
+          class="form-text text-danger pr-2"
+
+        >
+        tyjkytfgjhnrfj
+        </small> -->
+        </div>
+        <div class="form-group">
+          <label for="city">شهر</label>
+          <input
+              type="text"
+              id="city"
+              maxlength="25"
+              name="city"
+              ref="city"
+              placeholder="نام شهر را به فارسی وارد کنید"
+              @input="validate('city')"
+              :class="[
+                inValidated.city ? 'is-invalid' : null,
+                validated.city ? 'is-valid' : null,
+                'form-control',
+              ]"
+          />
+          <!-- <small
+          class="form-text text-danger pr-2"
+
+        >
+        tyjkytfgjhnrfj
+        </small> -->
+        </div>
+        <div class="form-group">
           <label for="semat">سمت در شرکت</label>
           <input
               type="text"
               id="semat"
-              maxlength="20"
+              maxlength="25"
               name="semat"
               ref="semat"
               placeholder="به فارسی وارد کنید"
@@ -80,11 +126,11 @@
 </template>
 
 <script>
-import ProgressBar from 'vue-simple-progress';
+import ProgressBar from "vue-simple-progress";
 
 export default {
   name: "Compoany",
-  components: {ProgressBar},
+  components: { ProgressBar },
   data() {
     return {
       btnStatus: true,
@@ -92,11 +138,15 @@ export default {
         name: false,
         address: false,
         semat: false,
+        province: false,
+        city: false,
       },
       inValidated: {
         name: false,
         address: false,
         semat: false,
+        province: false,
+        city: false,
       },
     };
   },
@@ -116,7 +166,9 @@ export default {
           case "name": {
             // this.$store.commit("RESET_EXIST_USER",'username');
             let name = this.$refs.name.value;
-            let res = name.match(this.$store.state.regularExpression.regNameCompany);
+            let res = name.match(
+              this.$store.state.regularExpression.regNameCompany
+            );
             if (res) {
               this.validated.name = true;
               this.inValidated.name = false;
@@ -129,7 +181,9 @@ export default {
           case "address": {
             // this.$store.commit("RESET_EXIST_USER",'username');
             let address = this.$refs.address.value;
-            let res = address.match(this.$store.state.regularExpression.regNameCompany);
+            let res = address.match(
+              this.$store.state.regularExpression.regAddressCompany
+            );
             if (res) {
               this.validated.address = true;
               this.inValidated.address = false;
@@ -152,12 +206,38 @@ export default {
             }
             break;
           }
+          case "province": {
+            // this.$store.commit("RESET_EXIST_USER",'username');
+            let province = this.$refs.province.value;
+            let res = province.match(this.$store.state.regularExpression.regName);
+            if (res) {
+              this.validated.province = true;
+              this.inValidated.province = false;
+            } else {
+              this.validated.province = false;
+              this.inValidated.province = true;
+            }
+            break;
+          }
+          case "city": {
+            // this.$store.commit("RESET_EXIST_USER",'username');
+            let city = this.$refs.city.value;
+            let res = city.match(this.$store.state.regularExpression.regName);
+            if (res) {
+              this.validated.city = true;
+              this.inValidated.city = false;
+            } else {
+              this.validated.city = false;
+              this.inValidated.city = true;
+            }
+            break;
+          }
         }
       }
       this.btnStatus = !(
-          this.validated.name &&
-          this.validated.address &&
-          this.validated.semat
+        this.validated.name &&
+        this.validated.address &&
+        this.validated.semat && this.validated.province && this.validated.city 
       );
     },
   },
@@ -174,14 +254,18 @@ form {
   direction: rtl;
   text-align: right;
 }
-::placeholder{
+::placeholder {
   height: 100%;
 }
 .--blue {
+  width: 60px;
   background-color: var(--blue) !important;
 }
-@media screen and (max-width: 576px){
-  #progress{
+label{
+  font-weight: bold;
+}
+@media screen and (max-width: 576px) {
+  #progress {
     width: 90% !important;
   }
 }

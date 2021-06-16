@@ -299,7 +299,7 @@ span {
   right: 230px;
   direction: rtl;
   text-align: right;
-  background: red;
+  /* background: red; */
   padding: 0 15px;
   box-sizing: border-box;
 }
