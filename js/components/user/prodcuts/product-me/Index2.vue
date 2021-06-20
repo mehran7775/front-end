@@ -6,7 +6,7 @@
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
-              <a :href="'/product/' + item.slug" class="link-item">
+              <a :href="'/products/product-detail/' + item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
                     <!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->

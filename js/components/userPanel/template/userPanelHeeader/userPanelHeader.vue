@@ -1,5 +1,6 @@
 <template>
   <div id="userPanelHeader">
+    <notification v-if="is_notify"/>
     <div id="userPanelHeaderWrapper" class="maxIs">
       <a class="log_out" href="/users/logout">
           <i id="logout" class="fas fa-sign-out-alt fa-2x fa-rotate-180" title="خروج"
@@ -24,8 +25,17 @@
 
 <script>
 import { mapActions } from "vuex";
+import Notification from '../../notification/Notification.vue'
 export default {
   name: "userPanelHeader",
+  components:{
+    Notification
+  },
+   computed: {
+    is_notify() {
+      return this.$store.state.toggle_notification_df_msg;
+    },
+  },
   methods: {
     ...mapActions([
       // 'toggleSubMenu'

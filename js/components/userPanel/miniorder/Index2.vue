@@ -87,7 +87,7 @@
                 :key="p.id"
               >
                 <div id="title_order">
-                  <h3 v-text="p.product.title"></h3>
+                  <h3 v-text="p.title"></h3>
                 </div>
                 <div id="image_order">
                   <img :src="p.product_image" :alt="p.image_alt" />
@@ -189,7 +189,7 @@
                 </form>
               </div> -->
               <p class="text_content" v-text="note.content">
-                قرار حضوری گزاشته شد
+                <!-- قرار حضوری گزاشته شد -->
               </p>
             </div>
             <div class="cr">
@@ -209,10 +209,12 @@
         </div>
       </div>
     </div>
+    <notification />
   </div>
 </template>
 
 <script>
+// import Notification from '../notification/Notification.vue'
 export default {
   data() {
     return {
@@ -224,6 +226,9 @@ export default {
     };
   },
   props: ["order", "customer", "default_msg", "current_user"],
+  components:{
+    // Notification
+  },
   created() {
     JSON.parse(this.current_user).is_producer
       ? (this.user.supplier = true)

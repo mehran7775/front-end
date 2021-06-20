@@ -51,7 +51,8 @@ export const store = new Vuex.Store({
             persianPrice: "",
             factorDescs: ""
         },
-        getPhoneId: {id: null, el: null}
+        getPhoneId: {id: null, el: null},
+        toggle_notification_df_msg:false
     },
     getters: {
         isSubMenuOpen: state => {
@@ -67,6 +68,9 @@ export const store = new Vuex.Store({
         },
         fillCatsFromCreaeProduct: (state, payload) => {
             state.vars = payload
+        },
+        TOGGLE_NOTIFICATION_DF_MSG: (state,payload) =>{
+            state.toggle_notification_df_msg=payload
         }
     },
     actions: {
@@ -79,7 +83,9 @@ export const store = new Vuex.Store({
         select_default_msg({commit},payload){
             EventService.select_default_msg(payload)
             .then(response =>{
-                console.log(response)
+                if(response.status==200){
+                    commit('TOGGLE_NOTIFICATION_DF_MSG',true)
+                }
             })
             .catch(error =>[
                 console.log('e',error.response)
