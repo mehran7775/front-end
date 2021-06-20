@@ -258,7 +258,8 @@ form {
   }
 }
 legend {
-  font-size: 21px !important;
+  font-size: 19px !important;
+  font-weight: bold;
 }
 label {
   font-weight: bold;
