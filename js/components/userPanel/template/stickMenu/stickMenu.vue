@@ -96,7 +96,7 @@
         </template>
         <template v-else-if="user.buyer">
            <li :class="[active.my_estealam ? 'active' : null, 'single']">
-            <a href="/users/profile/orders" id="my_estealam">
+            <a href="/userpanel/orders/" id="my_estealam">
              استعلام های من <customers></customers
             ></a>
           </li>
@@ -329,7 +329,10 @@ img {
   position: absolute;
   top: 1px;
   background: white;
-  height: 100%;
+  /* height: 100%; */
+  min-height: 500px;
+  max-height: 700px;
+  overflow: scroll;
   margin-top: 70px;
   z-index: 555;
   width: 230px;

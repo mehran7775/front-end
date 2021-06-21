@@ -320,11 +320,11 @@ export default {
 }
 
 #editVariationWrapper {
-  display: flex;
+  /* display: flex; */
   width: 100%;
 
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
 th {
@@ -411,8 +411,6 @@ label {
 }
 
 #editVariation {
-  display: flex;
-  justify-content: flex-start;
   width: 100%;
 }
 
@@ -437,6 +435,7 @@ label {
   justify-content: flex-end;
 }
 .edit{
-  width: 83%;
+  width: 85%;
+  margin: auto;
 }
 </style>

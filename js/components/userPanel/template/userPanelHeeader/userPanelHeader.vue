@@ -57,16 +57,16 @@ export default {
   },
   mounted() {
     this.watchInner();
-    window.addEventListener("resize", () => {
-      const sideMenu = document.querySelector("#sideMenu");
-      if (window.innerWidth <= 1100) {
-        this.$store.state.sideMenuOpen = false;
-      } else {
-        this.$store.state.sideMenuOpen = true;
-        // sideMenu.style.right='0'
-        // sideMenu.style.width="17%"
-      }
-    });
+    // window.addEventListener("resize", () => {
+    //   const sideMenu = document.querySelector("#sideMenu");
+    //   if (window.innerWidth <= 1100) {
+    //     this.$store.state.sideMenuOpen = false;
+    //   } else {
+    //     this.$store.state.sideMenuOpen = true;
+    //     // sideMenu.style.right='0'
+    //     // sideMenu.style.width="17%"
+    //   }
+    // });
   },
   created() {
     window.addEventListener("beforeinstallprompt", async (event) => {

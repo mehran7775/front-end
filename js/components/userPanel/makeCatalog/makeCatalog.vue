@@ -1,6 +1,6 @@
 <template>
-    <div id="makeCatalog" class="panelItem">
-        <p class="hint">کاربر محترم این بخش از سایت هنوز برای شما فعال نمیباشد</p>
+    <div id="makeCatalog">
+        <p>کاربر محترم این بخش از سایت هنوز برای شما فعال نمیباشد</p>
         <div id="makeCatalogWrapper">
             <p>از بین قالب های زیر یک قالب را انتخاب کنید تا وارد مرحله ساخت کاتالوگ برای محصول خود شوید</p>
             <div id="templates">
@@ -80,10 +80,8 @@ name: "makeCatalog",
     margin-top: 50px;
     width: 100%;
     padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-
-    align-items: flex-end;
+    direction: ltr;
+    text-align: right;
 }
 p{
     text-align: right;

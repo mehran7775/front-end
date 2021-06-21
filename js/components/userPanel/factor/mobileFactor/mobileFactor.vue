@@ -1,5 +1,5 @@
 <template>
-  <div id="phoneFactor" class="panelItem">
+  <div id="phoneFactor">
     <div id="phonefactorWrapper">
       <row1 @fileChanged="fileChanged($event)" @titleChanged="titleChanged($event)"></row1>
       <from-and-to></from-and-to>

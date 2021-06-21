@@ -1,5 +1,5 @@
 <template>
-    <div id="userProfile" class='userPanelComp panelItem'>
+    <div id="userProfile" class='userPanelComp'>
       <form action="" enctype="multipart/form-data">
         <div id="profileWrapper" class="maxIs">
 

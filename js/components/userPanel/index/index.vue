@@ -1,6 +1,5 @@
 <template>
-  <div id="dashboardIndex" class="panelItem">
-    <div id="dashboardIndexWrapper">
+  <div id="dashboardIndex">
       <!-- <menu-items></menu-items> -->
       <div class="w-100">
         <info-user :user="user" />
@@ -8,7 +7,6 @@
       <div class="w-100">
         <ResetPassword />
       </div>
-    </div>
   </div>
 </template>
 

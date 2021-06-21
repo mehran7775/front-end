@@ -1,5 +1,5 @@
 <template>
-  <div id="miniOrders" class="userPanelItem panelItem">
+  <div id="miniOrders" class="userPanelItem">
     <div class="searchWrapper">
       <div class="orderByStatus">
         <div class="searchBySome">
@@ -74,7 +74,7 @@
           <th>شماره درخواست</th>
         </tr>
 
-        <tr v-for="(order, i) in getOrders" :key="order.id">
+        <tr v-for="order in getOrders" :key="order.id">
           <td class="orderId">{{ order.id }}</td>
           <td v-if="order.is_confirmed == true" class="don">
             {{ order.phone_number }}
@@ -97,16 +97,18 @@
     <div v-else-if="user.buyer && shouldShow.length > 0" class="table">
       <table v-if="showTable">
         <tr>
+          <th></th>
           <th>وضعیت</th>
           <th>توضیحات</th>
           <th>نام دستگاه</th>
           <th>شماره</th>
         </tr>
-        <tr>
-          <td>مشاهده شده</td>
-          <td>bntnfdsbnmmjjy,mui,svsbrtnntynmm</td>
-          <td>thtysrhjuyjyum</td>
-          <td>1</td>
+        <tr v-for="order in getOrders" :key="order.id">
+          <td><a :href="order.id ">مشاهده بیشتر</a></td>
+          <td v-text="order.confirmed ? 'مشاهده شده' :'مشاهده نشده'"></td>
+          <td v-text="order.extra_fields"></td>
+          <td v-text="order.product.title"></td>
+          <td v-text="order.id"></td>
         </tr>
       </table>
     </div>
@@ -341,10 +343,8 @@ export default {
 #miniOrders {
   width: 100%;
   margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   padding: 30px;
+  direction: rtl;
 }
 
 .don {
@@ -419,6 +419,7 @@ h1 {
 .table {
   overflow-x: auto;
   overflow-y: hidden;
+  direction: ltr;
 }
 
 table {
@@ -555,5 +556,8 @@ p {
   border: 2px solid #242424;
   padding: 10px 20px 10px 20px;
   font-weight: bold;
+}
+td a{
+  /* text-decoration: none; */
 }
 </style>

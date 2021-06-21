@@ -1,5 +1,5 @@
 <template>
-    <div class="otherLangCat panelItem">
+    <div class="otherLangCat">
         <div class="otherLangCatWrapper">
             <p>میتوانید در این بخش با ارسال کاتالوگ فارسی نسخه انگلیسی ان را درخواست نمایید</p>
 
@@ -26,11 +26,9 @@ name: "catalogOrder"
 
 <style scoped>
 .otherLangCat{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     width: 100%;
     padding: 20px;
+    direction: ltr;
 }
 .otherLangCatWrapper{
     display: flex;

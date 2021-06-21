@@ -1,5 +1,5 @@
 <template>
-    <div id="finishedPrice" class='userPanelItem panelItem'>
+    <div id="finishedPrice">
         <div id="finishedPriceWrapper">
             <div class="titleWrapper">
                 <p>اطلاعات خواسته شده را پر نموده و بهای تمام شده محصولتان را به همراه سود مشاهده نمایید</p>
@@ -209,10 +209,9 @@ name: "finishedPrice.vue",
 
 <style scoped>
     #finishedPrice{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-right: 240px;
+       widows: 100%;
+       padding: 20px;
+       direction: ltr;
     }
     #finishedPriceWrapper{
         display: flex;
@@ -255,7 +254,7 @@ name: "finishedPrice.vue",
         visibility: hidden;
         display: flex;
         flex-direction: column;
-        align-itemst: space-between;
+        align-items: space-between;
     }
     .money{
         color:#636363;
@@ -318,12 +317,4 @@ name: "finishedPrice.vue",
     }
 
 }
-    @media (max-width: 1000px) {
-        #finishedPrice{
-            margin-right: 0;
-            width: 100%;
-            padding: 20px;
-        }
-
-    }
 </style>

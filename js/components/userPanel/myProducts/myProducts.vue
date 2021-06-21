@@ -1,5 +1,5 @@
 <template>
-  <div id="myProducts" class="panelItem">
+  <div id="myProducts">
     <div v-if="shoeMessage" class="message">
       <p>محصول با موفقیت حذف شد</p>
     </div>

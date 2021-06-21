@@ -1,5 +1,5 @@
 <template>
-  <div id="createProduct" class="maxIs panelItem">
+  <div id="createProduct" class="maxIs">
     <div id="createProductWrapper">
       <form
         action=""

@@ -327,6 +327,7 @@ export default {
 <style scoped>
 #addCategory{
   width: 100%;
+  direction: rtl;
 }
 label {
   font-size: 16px;
@@ -471,8 +472,6 @@ form{
   width: 100%;
 }
 #addCategory{
-  display: flex;
-  justify-content: center;
 }
 .seoPost p {
   font-size: 18px;

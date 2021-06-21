@@ -1,5 +1,5 @@
 <template>
-    <div id="factor" class="userPanelItem panelItem">
+    <div id="factor">
         <div id="factorWrapper">
             <div class="chooseLogo">
                 <label for="logoImage">لوگوی شرکت خود را وارد کنید</label>

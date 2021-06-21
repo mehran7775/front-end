@@ -56,7 +56,7 @@ const app=new vue({
 		'catalogOrder':()=>import('./components/userPanel/catalogOrder/catalogOrder.vue'),
 		'makeCatalog':()=>import("./components/userPanel/makeCatalog/makeCatalog.vue"),
 		'wareHouse':()=>import("./components/userPanel/wareHouse/wareHouse.vue"),
-		'customerOrganize':()=>import("./components/userPanel/customerOrganization/customerOrganization.vue"),
+		// 'customerOrganize':()=>import("./components/userPanel/customerOrganization/customerOrganization.vue"),
 		'factor':()=>import("./components/userPanel/factor/factor.vue"),
 		'mobileFactor':()=>import("./components/userPanel/factor/mobileFactor/mobileFactor.vue")
 
