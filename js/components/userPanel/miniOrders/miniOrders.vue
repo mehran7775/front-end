@@ -5,9 +5,9 @@
         <div class="searchBySome">
           <div class="searchBySomeWrapper">
             <div class="title">:جست و جو بر اساس نام یا شماره</div>
-            <div class="searchBySomeWrapperWrapper">
-              <select v-model="searchByType">
-                <option selected value="name">نام</option>
+                <div class="searchBySomeWrapperWrapper">
+               <select v-model="searchByType">
+                                                    <option selected value="name">نام</option>
                 <option value="phone">شماره تلفن</option>
               </select>
               <input
@@ -74,8 +74,9 @@
           <th>شماره درخواست</th>
         </tr>
 
-        <tr v-for="order in getOrders" :key="order.id">
-          <td class="orderId">{{ order.id }}</td>
+        <template class="w-100" v-if="JSON.parse(orders).length > 0">
+          <tr v-for="order in getOrders" :key="order.id">
+          <!-- <td class="orderId">{{ order.id }}</td> -->
           <td v-if="order.is_confirmed == true" class="don">
             {{ order.phone_number }}
           </td>
@@ -92,7 +93,12 @@
           <td>{{ order.product.title }}</td>
           <td>{{ order.id }}</td>
         </tr>
+        </template>
+       
       </table>
+       <div v-else class="w-100">
+        <p class="">شما در حال حاظر مشتری ندارید و دریافت استعلام جدید ممکن است یک ساعت تا سه روز طول بکشد</p>
+        </div>
     </div>
     <div v-else-if="user.buyer && shouldShow.length > 0" class="table">
       <table v-if="showTable">
@@ -147,12 +153,12 @@ import eventBus from "../eventBus.js";
 import info from "./info.vue";
 export default {
   name: "miniOrders",
-  props: ["orders","current_user"],
+  props: ["orders", "current_user"],
   data() {
     return {
-      user:{
-        supplier:false,
-        buyer:false
+      user: {
+        supplier: false,
+        buyer: false,
       },
       input: null,
       shouldShow: null,
@@ -162,7 +168,7 @@ export default {
       searchText: null,
       searchByType: "name",
       id: 0,
-      user_id:0
+      user_id: 0,
     };
   },
   components: {
@@ -181,7 +187,9 @@ export default {
     },
   },
   created() {
-    JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
+    JSON.parse(this.current_user).is_producer
+      ? (this.user.supplier = true)
+      : (this.user.buyer = true);
     this.actualOrders = JSON.parse(this.orders);
     console.log(JSON.parse(this.orders));
     this.shouldShow = this.actualOrders;
@@ -248,8 +256,8 @@ export default {
     },
     changed(e) {},
     getPhone(obj, e) {
-      this.id =obj.id;
-      this.user_id=obj.user_id
+      this.id = obj.id;
+      this.user_id = obj.user_id;
       // console.log(this.id)
       // this.$store.state.getPhoneId.id=id
       // this.$store.state.getPhoneId.el=e
@@ -325,9 +333,9 @@ export default {
     },
     verify_from() {
       // console.log("id", this.id);
-      document.querySelector('form #id').value=this.id
-      document.querySelector('form #user_id').value=this.user_id
-      let form=document.forms['verify'];
+      document.querySelector("form #id").value = this.id;
+      document.querySelector("form #user_id").value = this.user_id;
+      let form = document.forms["verify"];
       form.submit();
     },
   },
@@ -557,7 +565,7 @@ p {
   padding: 10px 20px 10px 20px;
   font-weight: bold;
 }
-td a{
+td a {
   /* text-decoration: none; */
 }
 </style>

@@ -82,7 +82,7 @@ module.exports = {
       //   ]
       // }
       {
-        test: /\.(png|jpeg|jpg)$/i,
+        test: /\.(png|jpeg|jpg|webp)$/i,
         // include: /images/,
         use: [
           {

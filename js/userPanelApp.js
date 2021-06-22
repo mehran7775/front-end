@@ -14,6 +14,7 @@ import userPanelWrapper from "./components/userPanel/userPanelWrapper.vue";
 import installPrompt from "./components/user/template/installPrompt/installPrompt.vue";
 import stickMenu from "./components/userPanel/template/stickMenu/stickMenu.vue";
 import MiniOrder from "./components/userPanel/miniorder/Index2.vue"
+import MyPage from "./components/userPanel/my-page/MyPage.vue"
 vue.use(BootstrapVue)
 vue.use(IconsPlugin)
 vue.component('stickMenu', stickMenu);
@@ -41,6 +42,7 @@ const app=new vue({
 		sideMenu,
 		userPanelWrapper,
 		MiniOrder,
+		MyPage,
 		'index':()=>import("./components/userPanel/index/index.vue"),
 		'createProduct':()=>import("./components/userPanel/createPRoduct/createProduct.vue"),
 		'editProduct':()=>import("./components/userPanel/editProducts/editProduct.vue"),

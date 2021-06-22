@@ -15,11 +15,40 @@
         </li>
         <template v-if="user.supplier">
           <li :class="[active.my_customer ? 'active' : null, 'single']">
-            <a href="/users/profile/orders" id="my_customers">
+            <a href="/userpanel/orders" id="my_customers">
               مشتریان من <customers></customers
             ></a>
           </li>
-          <li v-if="userInfo.is_producer" class="head">
+          <li :class="[active.my_specificPage ? 'active' : null, 'single']">
+            <a href="/userpanel/my_page" id="my_customers">
+              صفحه اختصاصی من <product></product>
+            </a>
+          </li>
+          <li class="head">
+            <div class="bows" @click="openSub($event)" id="bows1">
+              <div class="bowsWrapper" id="bowsWrapper1">
+                <arrow></arrow>
+              </div>
+              <div class="sideMenuTitle">
+                <p class="pt-3">تنظیمات</p>
+                <i class="fas fa-cog"></i>
+              </div>
+            </div>
+            <div class="sub">
+              <ul>
+                <li :class="active.create_product ? 'active' : null">
+                  <a href="/userpanel">پروفایل شخصی</a>
+                </li>
+                <li :class="active.my_product ? 'active' : null">
+                  <a href="/userpanel/profile-company">پروفایل شرکت</a>
+                </li>
+                <li :class="active.my_product ? 'active' : null">
+                  <a href="/userpanel/change-password">تغییر رمز عبور</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li v-if="userInfo.is_producer" class="head">
             <div class="bows" @click="openSub($event)" id="bows1">
               <div class="bowsWrapper" id="bowsWrapper1">
                 <arrow></arrow>
@@ -39,29 +68,29 @@
                 </li>
               </ul>
             </div>
-          </li>
-          <div class="line"></div>
+          </li> -->
+          <!-- <div class="line"></div> -->
 
-          <div class="titr">
+          <!-- <div class="titr">
             <p>ابزارهای آماده</p>
-          </div>
-          <li :class="[active.finish_cost ? 'active' : null, 'single']">
+          </div> -->
+          <!-- <li :class="[active.finish_cost ? 'active' : null, 'single']">
             <a href="/userpanel/cal_netprice/"
               >محاسبه قیمت تمام شده<finished-price></finished-price>
             </a>
-          </li>
-          <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
+          </li> -->
+          <!-- <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
             <a href="/userpanel/create_prefactor/"
               >ساخت پیش فاکتور<factore></factore>
             </a>
-          </li>
+          </li> -->
 
-          <div class="line"></div>
+          <!-- <div class="line"></div> -->
 
-          <div class="titr">
+          <!-- <div class="titr">
             <p>ابزارهای درحال توسعه</p>
-          </div>
-          <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+          </div> -->
+          <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
             <div class="disableWrapperWrapper">
               <div class="disableWrapper">
                 <p class="diable">مدیریت مشتریان</p>
@@ -69,8 +98,8 @@
               </div>
               <crm></crm>
             </div>
-          </li>
-          <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+          </li> -->
+          <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
             <div class="disableWrapperWrapper">
               <div class="disableWrapper">
                 <p class="diable">انبارداری</p>
@@ -78,21 +107,21 @@
               </div>
               <warehouse></warehouse>
             </div>
-          </li>
+          </li> -->
 
-          <li :class="[active.create_catalog ? 'active' : null, 'single']">
+          <!-- <li :class="[active.create_catalog ? 'active' : null, 'single']">
             <a href="/userpanel/catalogue/create/">
               ساخت کاتالوگ<catalog></catalog>
             </a>
-          </li>
-          <li
+          </li> -->
+          <!-- <li
             :class="[active.other_langoaje_catalog ? 'active' : null, 'single']"
           >
             <a href="/userpanel/catalogue/order/"
               >کاتالوگ به زبان ها دیگر <other-lang-catalog></other-lang-catalog
             ></a>
-          </li>
-          <div class="line"></div>
+          </li> -->
+          <!-- <div class="line"></div> -->
         </template>
         <template v-else-if="user.buyer">
            <li :class="[active.my_estealam ? 'active' : null, 'single']">
@@ -100,14 +129,14 @@
              استعلام های من <customers></customers
             ></a>
           </li>
-
-        </template>
-
-        <li :class="[active.profile ? 'active' : null, 'single']">
+           <li :class="[active.profile ? 'active' : null, 'single']">
           <a href="/userpanel/">پروفایل <profile></profile></a>
         </li>
+        </template>
 
-        <li class="head" v-if="userInfo.is_superuser">
+       
+
+        <!-- <li class="head" v-if="userInfo.is_superuser">
           <div class="bows" @click="openSub($event)" id="bows2">
             <div class="bowsWrapper" id="bowsWrapper2">
               <arrow></arrow>
@@ -126,7 +155,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
