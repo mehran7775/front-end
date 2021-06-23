@@ -25,6 +25,10 @@
                       id="fname"
                       name="fname"
                       ref="fname"
+                      @input="validate"
+                      minlength="3"
+                      maxlength="25"
+                      placeholder="نام خودرا به فارسی وارد کنید"
                     />
                   </div>
                   <div class="my">
@@ -35,6 +39,10 @@
                       id="lname"
                       name="lname"
                       ref="lname"
+                      minlength="3"
+                      maxlength="25"
+                      @input="validate"
+                      placeholder="نام خوانوادگی خود را به فارسی وارد"
                     />
                   </div>
                 </div>
@@ -47,6 +55,9 @@
                     id="phone_number"
                     name="phone_number"
                     ref="phone_number"
+                    @input="validate"
+                    maxlength="11"
+                    placeholder="شماره تلفن خودرا وارد کنید"
                   />
                   <div class="de_phoneNumber">
                     <small>شماره تلفن کاری خودرا وارد کنید</small>
@@ -60,13 +71,18 @@
                     id="password"
                     name="password"
                     ref="password"
+                    minlength="4"
+                    maxlength="20"
+                    @input="validate"
+                    placeholder="رمز عبور شامل حداقل چهار و حداکثر بیست کاراکتر باشد"
                   />
                 </div>
-                <div class="w-100">
+                <div class="w-100 mt-4">
                   <input
-                    class="w-100 text-center form-control"
+                    :class="[!btnStatus ? 'active-btn' : null,'w-100 text-center form-control font-weight-bold']"
                     type="submit"
                     value="ثبت"
+                    :disabled="btnStatus"
                   />
                 </div>
               </fieldset>
@@ -84,7 +100,79 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      btnStatus: true,
+    };
+  },
+  computed: {
+    regEx() {
+      return this.$store.state.regularExpression;
+    },
+  },
+  methods: {
+    validate(e) {
+      let value = e.target.value;
+      if (value === "") {
+        e.target.classList.remove("is-invalid", "is-valid");
+      } else {
+        switch (e.target.id) {
+          case "fname":
+            var res = value.match(this.regEx.regName);
+            if (res) {
+              e.target.classList.remove("is-invalid");
+              e.target.classList.add("is-valid");
+            } else {
+              e.target.classList.remove("is-valid");
+              e.target.classList.add("is-invalid");
+            }
+            break;
+          case "lname":
+            var res = value.match(this.regEx.regUsername);
+            if (res) {
+              e.target.classList.remove("is-invalid");
+              e.target.classList.add("is-valid");
+            } else {
+              e.target.classList.remove("is-valid");
+              e.target.classList.add("is-invalid");
+            }
+            break;
+          case "phone_number":
+            var res = value.match(this.regEx.reg_phoneNumber);
+            if (res) {
+              e.target.classList.remove("is-invalid");
+              e.target.classList.add("is-valid");
+            } else {
+              e.target.classList.remove("is-valid");
+              e.target.classList.add("is-invalid");
+            }
+            break;
+          case "password":
+            var res = value.match(this.regEx.regPassword);
+            if (res) {
+              e.target.classList.remove("is-invalid");
+              e.target.classList.add("is-valid");
+            } else {
+              e.target.classList.remove("is-valid");
+              e.target.classList.add("is-invalid");
+            }
+            break;
+        }
+      }
+      let i1 = this.$refs.fname;
+      let i2 = this.$refs.lname;
+      let i3 = this.$refs.phone_number;
+      let i4 = this.$refs.password;
+      this.btnStatus = !(
+        i1.classList.contains("is-valid") &&
+        i2.classList.contains("is-valid") &&
+        i3.classList.contains("is-valid") &&
+        i4.classList.contains("is-valid")
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -172,5 +260,22 @@ small {
   #right {
     width: 100%;
   }
+}
+.is-invalid {
+  border: 1px solid #e3356f;
+}
+
+.is-valid {
+  border: 1px solid #43c761 !important;
+}
+.active-btn{
+  /* border-radius: 0px!important; */
+  /* border-color: #34ce57; */
+  /* outline: #59e45da9 solid 1px; */
+  background-color:#43c761 ;
+  color: #fff;
+}
+.active-btn:hover{
+  background-color:#2d9c47
 }
 </style>
