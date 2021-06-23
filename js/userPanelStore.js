@@ -6,15 +6,22 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         regularExpression: {
-            regName: /^[ ضصثقفغآعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,20}$/,
-            regUsername: /^[a-zA_Zضصثقفغعهخحجچآپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi,
-            regPassword: /^[\u06F0-\u06F90-9a-zA-Z0-9ضصثقفغعهخحجچپشسیبلآاتنمکگظطزرذدئو ]{4,20}$/g,
-            reg_phoneNumber: /^[0-9\u06F0-\u06F90-9]{11}$/gi,
+            regName: /^[ ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئوآژ]{3,25}$/,
+            regLastName: /^[ ضصثقفغعهخحژجآچپشسیبلاتنمکژگظطزرذدئو]{3,35}$/,
+            regFullName: /^[ ضصثقفغعهخحژجآچپشسیبلاتنمکگظطزرذدئو]{3,50}$/,
+            regUsername: /^[a-zA_Zضصثقفغعهخحژجچپشسیآبلاتنمکگظطزرذدئو0-9]{3,20}$/gi,
+            regPassword: /^[\u06F0-\u06F90-9a-zA-Z0-9ضصآثقفغعهخحجچپشسیبلاژتنمکگظطزرذدئو ]{4,20}$/g,
             regEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            reg_phoneNumber: /^[0-9\u06F0-\u06F90-9]{11}$/gi,
+            regNameCompany: /^[ًٌٍ،؛َُِّۀآـ«»,:"ةيژؤإأء<> -؟ضصثقفغعهژخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-Z0-9\u06F0-\u06F90-9]{3,100}$/
         },
         sideMenuOpen: false,
         vars: [],
-        taxOptions: {affect: false, mount: 0, title: "تخفیف"},
+        taxOptions: {
+            affect: false,
+            mount: 0,
+            title: "تخفیف"
+        },
         installEvent: false,
         showInstallAppBanner: false,
         factoreItems: {
@@ -51,8 +58,11 @@ export const store = new Vuex.Store({
             persianPrice: "",
             factorDescs: ""
         },
-        getPhoneId: {id: null, el: null},
-        toggle_notification_df_msg:false
+        getPhoneId: {
+            id: null,
+            el: null
+        },
+        toggle_notification_df_msg: false
     },
     getters: {
         isSubMenuOpen: state => {
@@ -69,28 +79,34 @@ export const store = new Vuex.Store({
         fillCatsFromCreaeProduct: (state, payload) => {
             state.vars = payload
         },
-        TOGGLE_NOTIFICATION_DF_MSG: (state,payload) =>{
-            state.toggle_notification_df_msg=payload
+        TOGGLE_NOTIFICATION_DF_MSG: (state, payload) => {
+            state.toggle_notification_df_msg = payload
         }
     },
     actions: {
-        toggleSubMenu: ({commit}) => {
+        toggleSubMenu: ({
+            commit
+        }) => {
             commit("toggleSideMenu")
         },
-        fillCatsFromCreaeProduct: ({commit}, payload) => {
+        fillCatsFromCreaeProduct: ({
+            commit
+        }, payload) => {
             commit("fillCatsFromCreaeProduct", payload)
         },
-        select_default_msg({commit},payload){
+        select_default_msg({
+            commit
+        }, payload) {
             EventService.select_default_msg(payload)
-            .then(response =>{
-                if(response.status==200){
-                    commit('TOGGLE_NOTIFICATION_DF_MSG',true)
-                }
-            })
-            .catch(error =>[
-                console.log('e',error.response)
-            ])
+                .then(response => {
+                    if (response.status == 200) {
+                        commit('TOGGLE_NOTIFICATION_DF_MSG', true)
+                    }
+                })
+                .catch(error => [
+                    console.log('e', error.response)
+                ])
         }
-        
+
     }
 })

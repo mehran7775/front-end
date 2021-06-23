@@ -1,7 +1,12 @@
 <template>
   <div class="col">
     <div class="w-50 m-auto p-3" id="progress">
-      <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
+      <progress-bar
+        text-position="middle"
+        size="huge"
+        val="58"
+        text="58%"
+      ></progress-bar>
     </div>
     <form action="" method="post">
       <fieldset>
@@ -9,19 +14,19 @@
         <div class="form-group">
           <label for="name">نام شرکت</label>
           <input
-              type="text"
-              class="form-control"
-              id="name"
-              name="name"
-              ref="name"
-              maxlength="64"
-              @input="validate('name')"
-              placeholder="نام شرکت را وارد کنید"
-              :class="[
-                inValidated.name ? 'is-invalid' : null,
-                validated.name ? 'is-valid' : null,
-                'form-control',
-              ]"
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            ref="name"
+            maxlength="64"
+            @input="validate('name')"
+            placeholder="نام شرکت را وارد کنید"
+            :class="[
+              inValidated.name ? 'is-invalid' : null,
+              validated.name ? 'is-valid' : null,
+              'form-control',
+            ]"
           />
           <!-- <small id="name" class="form-text text-danger"
           >We'll never share your email with anyone else.</small
@@ -30,19 +35,19 @@
         <div class="form-group">
           <label for="address">آدرس شرکت</label>
           <input
-              type="text"
-              class="form-control"
-              id="address"
-              name="address"
-              ref="address"
-              @input="validate('address')"
-              maxlength="150"
-              placeholder="آدرس شرکت را وارد کنید"
-              :class="[
-                inValidated.address ? 'is-invalid' : null,
-                validated.address ? 'is-valid' : null,
-                'form-control',
-              ]"
+            type="text"
+            class="form-control"
+            id="address"
+            name="address"
+            ref="address"
+            @input="validate('address')"
+            maxlength="150"
+            placeholder="آدرس شرکت را وارد کنید"
+            :class="[
+              inValidated.address ? 'is-invalid' : null,
+              validated.address ? 'is-valid' : null,
+              'form-control',
+            ]"
           />
           <!-- <small id="name" class="form-text text-muted text-danger"
           >We'll never share your email with anyone else.</small
@@ -51,18 +56,18 @@
         <div class="form-group">
           <label for="province">استان</label>
           <input
-              type="text"
-              id="province"
-              maxlength="25"
-              name="province"
-              ref="province"
-              placeholder="نام استان را به فارسی وارد کنید"
-              @input="validate('province')"
-              :class="[
-                inValidated.province ? 'is-invalid' : null,
-                validated.province ? 'is-valid' : null,
-                'form-control',
-              ]"
+            type="text"
+            id="province"
+            maxlength="25"
+            name="province"
+            ref="province"
+            placeholder="نام استان را به فارسی وارد کنید"
+            @input="validate('province')"
+            :class="[
+              inValidated.province ? 'is-invalid' : null,
+              validated.province ? 'is-valid' : null,
+              'form-control',
+            ]"
           />
           <!-- <small
           class="form-text text-danger pr-2"
@@ -74,18 +79,18 @@
         <div class="form-group">
           <label for="city">شهر</label>
           <input
-              type="text"
-              id="city"
-              maxlength="25"
-              name="city"
-              ref="city"
-              placeholder="نام شهر را به فارسی وارد کنید"
-              @input="validate('city')"
-              :class="[
-                inValidated.city ? 'is-invalid' : null,
-                validated.city ? 'is-valid' : null,
-                'form-control',
-              ]"
+            type="text"
+            id="city"
+            maxlength="25"
+            name="city"
+            ref="city"
+            placeholder="نام شهر را به فارسی وارد کنید"
+            @input="validate('city')"
+            :class="[
+              inValidated.city ? 'is-invalid' : null,
+              validated.city ? 'is-valid' : null,
+              'form-control',
+            ]"
           />
           <!-- <small
           class="form-text text-danger pr-2"
@@ -97,18 +102,18 @@
         <div class="form-group">
           <label for="semat">سمت در شرکت</label>
           <input
-              type="text"
-              id="semat"
-              maxlength="25"
-              name="semat"
-              ref="semat"
-              placeholder="به فارسی وارد کنید"
-              @input="validate('semat')"
-              :class="[
-                inValidated.semat ? 'is-invalid' : null,
-                validated.semat ? 'is-valid' : null,
-                'form-control',
-              ]"
+            type="text"
+            id="semat"
+            maxlength="25"
+            name="semat"
+            ref="semat"
+            placeholder="به فارسی وارد کنید"
+            @input="validate('semat')"
+            :class="[
+              inValidated.semat ? 'is-invalid' : null,
+              validated.semat ? 'is-valid' : null,
+              'form-control',
+            ]"
           />
           <!-- <small
           class="form-text text-danger pr-2"
@@ -117,7 +122,11 @@
         tyjkytfgjhnrfj
         </small> -->
         </div>
-        <button type="submit" class="btn btn-primary mr-3 --blue" :disabled="btnStatus">
+        <button
+          type="submit"
+          class="btn btn-primary mr-3 --blue"
+          :disabled="btnStatus"
+        >
           ثبت
         </button>
       </fieldset>
@@ -209,7 +218,9 @@ export default {
           case "province": {
             // this.$store.commit("RESET_EXIST_USER",'username');
             let province = this.$refs.province.value;
-            let res = province.match(this.$store.state.regularExpression.regName);
+            let res = province.match(
+              this.$store.state.regularExpression.regName
+            );
             if (res) {
               this.validated.province = true;
               this.inValidated.province = false;
@@ -237,7 +248,9 @@ export default {
       this.btnStatus = !(
         this.validated.name &&
         this.validated.address &&
-        this.validated.semat && this.validated.province && this.validated.city 
+        this.validated.semat &&
+        this.validated.province &&
+        this.validated.city
       );
     },
   },
@@ -261,7 +274,7 @@ form {
   width: 60px;
   background-color: var(--blue) !important;
 }
-label{
+label {
   font-weight: bold;
 }
 @media screen and (max-width: 576px) {
