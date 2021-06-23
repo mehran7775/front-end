@@ -3,12 +3,12 @@
         <div class="row">
             <div id="right">
                 <section id="header">
-                    <p>قبلا ثبت نام کرده اید؟ <span><a href="">ورود</a></span>
+                    <p>قبلا ثبت نام کرده اید؟ <span><a href="/users/entry">ورود</a></span>
                     </p>
                 </section>
                 <section id="form">
                     <div class="form">
-                        <form action="">
+                        <form action="" method="post">
                             <fieldset>
                                 <legend class="text-center">
                                     حساب کاربری خود را بسازید
@@ -38,7 +38,7 @@
                                     <input class="w-100 form-control" type="password" id="password" name="password" ref="password">
                                 </div>
                                 <div class="w-100">
-                                    <input class="w-100 text-center form-control" type="button" value="ثبت">
+                                    <input class="w-100 text-center form-control" type="submit" value="ثبت">
                                 </div>
                             </fieldset>
                         </form>
@@ -136,5 +136,13 @@ small{
     background-size: cover;
     background-repeat: no-repeat;
     /* background-image: url("../../../assets/images/83iopusl.webp"); */
+}
+@media screen and (max-width:800px){
+    #left{
+        display: none;
+    }
+    #right{
+        width: 100%;
+    }
 }
 </style>

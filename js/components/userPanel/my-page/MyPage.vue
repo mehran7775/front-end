@@ -47,14 +47,14 @@
                         <div class="item-origin">
                         <div class="pic">
                             <!-- <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است"> -->
-                            <img src="" alt="تصویر ناقص است" />
+                            <img src="../../../../js/assets/images/31.webp" alt="تصویر ناقص است" />
                         </div>
                         <div class="text">
                             <h1 class="name">
-                            94253698710
+                            دستگاه درب بند DDX-450
                             </h1>
                             <p class="info mt-1">
-                                qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+                              ین دستگاه عمدتاً برای انواع بطری های گرد ، دارو ، محصولات مراقبت های بهداشتی ، مواد شیمیایی ، آرایشی و سایر ویال های مخصوص تجهیزات بسته بندی ایده آل است
                             </p>
                         </div>
                         <div class="cost2">
@@ -95,25 +95,25 @@
         </div>
       <div id="page_on"> 
             <div class="w-100">
-              <a  class="add_name" href="">
+              <a  class="add_name" v-on:click.stop.prevent="show_popup('name')">
                 <div> <i class="fas fa-plus fa-2x colG"></i></div>
                 <div> <p>افزودن نام شرکت</p></div>
               </a>
             </div>
             <div class="mr-5 pb-1">
-                <a  class="add_name" href="">
+                <a  class="add_name" v-on:click.stop.prevent="show_popup('logo')">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن لوگوی شرکت</p></div>
               </a>
             </div>
             <div id="add_de" class="w-100">
-               <a href="" class="add_de">
+               <a v-on:click.stop.prevent="show_popup('description')" class="add_de">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن توضیحات شرکت</p></div>
               </a>
             </div>
             <div id="add_info" class="w-100">
-               <a href="" class="add_de">
+               <a v-on:click.stop.prevent="show_popup('info_cantact')" class="add_de">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن اطلاعات تماس شرکت</p></div>
               </a>
@@ -125,12 +125,19 @@
               </a>
             </div>
         </div> 
+        <template>
+          <popup-form 
+          :dif_form="dif_form"
+          />
+        </template>
+        
     </div>
 </template>
 
 <script>
 // import AboutSupplier from "../../user/about_supplier/Index.vue";
 import Comment from "../../user/product/comments/Comment.vue";
+import PopupForm from './PopupForm.vue'
 export default {
   data() {
     return {
@@ -142,6 +149,7 @@ export default {
         timestamp: "1400/3/24",
         username: "شمسی دو",
       },
+      dif_form:''
       // products: [{
       //     id:1,
       //     title:'',
@@ -151,9 +159,17 @@ export default {
     };
   },
   components: {
+    PopupForm,
     Comment,
     // AboutSupplier,
   },
+  methods:{
+    show_popup(name){
+      this.dif_form=name
+      document.getElementById("popup_form").style.display="block"
+      console.log("popup")
+    }
+  }
 };
 </script>
 
@@ -502,4 +518,5 @@ item {
 .colG{
   color: rgba(4, 158, 4, 0.945);
 }
+
 </style>
