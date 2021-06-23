@@ -1,55 +1,109 @@
 <template>
-    <div id="popup_form">
-        <div class="form">
-           <div class="close_form" @click="hide_form()">
-                <i class="fa fa-times fa-2x icon_close" aria-hidden="true"></i>
-            </div>
-            <form action="" method="post">
-                <div v-if="dif_form==='name'" class="form-group">
-                    <label for="name">نام شرکت</label>
-                    <input required  type="text" name="name" id="name" class="form-control">
-                </div>
-                <div v-if="dif_form==='name'" class="form-group">
-                    <label for="name_latin">نام لاتین شرکت</label>
-                    <input type="text" name="name_latin" id="name_latin" class="form-control">
-                    <small>برای بهتر دیده شدن اسم انگلیسی شرکت خود را وارد کنید</small>
-                </div>
-                <div v-if="dif_form==='logo'" class="form-group">
-                    <label for="logo">انتخاب لوگو</label>
-                    <input required type="file" name="logo" id="logo" class="form-control-file">
-                </div>
-                <div v-if="dif_form==='description'" class="form-group">
-                    <label for="description">توضیحات شرکت</label>
-                    <textarea required class="form-control"
-                    id="description" name="description"
-                    ></textarea>
-                </div>
-                <div v-if="dif_form==='info_cantact'" class="form-group">
-                    <label for="phone_number">شماره تلفن</label>
-                    <input required type="text" name="phone_number" id="phone_number" class="form-control">
-                </div>
-                <div v-if="dif_form==='info_cantact'" class="form-group">
-                    <label for="website">ادرس وبسایت</label>
-                    <input type="url" name="website" id="website" class="form-control">
-                </div>
-                <input type="submit" class="btn btn-success mr-2" value="ثبت">
-            </form>
+  <div id="popup_form">
+    <div class="form">
+      <div class="close_form" @click="hide_form()">
+        <i class="fa fa-times fa-2x icon_close" aria-hidden="true"></i>
+      </div>
+      <form action="" method="post">
+        <div v-if="dif_form === 'name'" class="form-group">
+          <label for="name">نام شرکت</label>
+          <input
+            required
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+          />
         </div>
+        <div v-if="dif_form === 'name'" class="form-group">
+          <label for="name_latin">نام لاتین شرکت</label>
+          <input
+            type="text"
+            name="name_latin"
+            id="name_latin"
+            class="form-control"
+          />
+          <small>برای بهتر دیده شدن اسم انگلیسی شرکت خود را وارد کنید</small>
+        </div>
+        <div v-if="dif_form === 'logo'" class="form-group">
+          <label for="logo">انتخاب لوگو</label>
+          <input
+            required
+            type="file"
+            name="logo"
+            id="logo"
+            class="form-control-file"
+          />
+        </div>
+        <div v-if="dif_form === 'description'" class="form-group">
+          <label for="description">توضیحات شرکت</label>
+          <textarea
+            required
+            class="form-control"
+            id="description"
+            name="description"
+          ></textarea>
+        </div>
+        <div v-if="dif_form === 'info_cantact'" class="form-group">
+          <label for="phone_number">شماره تلفن</label>
+          <input
+            required
+            type="text"
+            name="phone_number"
+            id="phone_number"
+            class="form-control"
+          />
+        </div>
+        <div v-if="dif_form === 'info_cantact'" class="form-group">
+          <label for="website">ادرس وبسایت</label>
+          <input type="url" name="website" id="website" class="form-control" />
+        </div>
+        <div v-if="dif_form === 'info_cantact'" class="form-group">
+          <label for="province">استان</label>
+          <input
+            type="text"
+            name="province"
+            id="province"
+            class="form-control"
+            required
+          />
+        </div>
+        <div v-if="dif_form === 'info_cantact'" class="form-group">
+          <label for="city">شهر</label>
+          <input
+            type="url"
+            name="city"
+            id="city"
+            class="form-control"
+            required
+          />
+        </div>
+        <div v-if="dif_form === 'info_cantact'" class="form-group">
+          <label for="extra">توضیحات بیشتر</label>
+          <textarea
+            name="extra"
+            id="extra"
+            class="form-control"
+          ></textarea>
+        </div>
+        <input type="submit" class="btn btn-success mr-2" value="ثبت" />
+      </form>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    props:{
-        dif_form:{
-            type:String
-        }
+  props: {
+    dif_form: {
+      type: String,
     },
-    methods:{
-        hide_form(){
-            document.getElementById("popup_form").style.display='none';
-        }
-    }
+  },
+  methods: {
+    hide_form() {
+      document.getElementById("popup_form").style.display = "none";
+    },
+  },
 };
 </script>
 
@@ -78,7 +132,6 @@ export default {
   margin-top: 30px;
   padding: 40px;
   box-sizing: border-box;
-
 }
 .icon_close {
   margin-left: 15px;
@@ -90,8 +143,8 @@ export default {
   color: rgb(184, 0, 0);
   cursor: pointer;
 }
-label{
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.671);
+label {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.671);
 }
 </style>
