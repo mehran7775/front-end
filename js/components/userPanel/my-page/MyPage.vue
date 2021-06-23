@@ -95,25 +95,25 @@
         </div>
       <div id="page_on"> 
             <div class="w-100">
-              <a  class="add_name" v-on:click.stop.prevent="show_popup('name')">
+              <a  class="add_name c_pointer" v-on:click.stop.prevent="show_popup('name')">
                 <div> <i class="fas fa-plus fa-2x colG"></i></div>
                 <div> <p>افزودن نام شرکت</p></div>
               </a>
             </div>
             <div class="mr-5 pb-1">
-                <a  class="add_name" v-on:click.stop.prevent="show_popup('logo')">
+                <a  class="add_name c_pointer" v-on:click.stop.prevent="show_popup('logo')">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن لوگوی شرکت</p></div>
               </a>
             </div>
             <div id="add_de" class="w-100">
-               <a v-on:click.stop.prevent="show_popup('description')" class="add_de">
+               <a v-on:click.stop.prevent="show_popup('description')" class="add_de c_pointer">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن توضیحات شرکت</p></div>
               </a>
             </div>
             <div id="add_info" class="w-100">
-               <a v-on:click.stop.prevent="show_popup('info_cantact')" class="add_de">
+               <a v-on:click.stop.prevent="show_popup('info_cantact')" class="add_de c_pointer">
                   <div> <i class="fas fa-plus fa-2x colG"></i></div>
                   <div> <p>افزودن اطلاعات تماس شرکت</p></div>
               </a>
@@ -517,6 +517,10 @@ item {
 }
 .colG{
   color: rgba(4, 158, 4, 0.945);
+
+}
+.c_pointer:hover{
+cursor: pointer;
 }
 
 </style>
