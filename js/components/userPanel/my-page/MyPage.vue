@@ -12,8 +12,7 @@
             <div id="description">
                 <div id="desc">
                 <p class="pt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nisi ex eius? Laboriosam dolore culpa, eligendi deserunt ipsa similique, repellat excepturi, pariatur ratione veniam 
-                  doloremque. Quo nulla fugit iusto reiciendis?
+                  دمیرکو یک پلتفرم خرید و فروش ماشین آلات صنعتی است، در 150 حوزه مختلف فعالیت دارد و شما را به تولید کنندگان و وارد کنندگان معتبر و تائید شده ارتباط می دهد. رسالت ما ایجاد ارتباط مستقیم و حذف دلالی است.
                 </p>
                 </div>
                 <div id="information">

@@ -36,7 +36,7 @@
             </div>
             <div class="sub">
               <ul>
-                <li :class="active.create_product ? 'active' : null">
+                <li :class="active.profile ? 'active' : null">
                   <a href="/userpanel">پروفایل شخصی</a>
                 </li>
                 <li :class="active.my_product ? 'active' : null">
@@ -206,7 +206,8 @@ export default {
         profile: null,
         create_category: null,
         edit_category: null,
-        my_estealam:null
+        my_estealam:null,
+        my_specificPage:null
       },
       // csrf:document.querySelector('meta[name=csrf]').getAttribute('content')
     };
@@ -251,7 +252,7 @@ export default {
   },
   mounted() {
     switch (window.location.pathname) {
-      case "/users/profile/orders/":
+      case "/userpanel/orders/":
         this.active.my_customer = true;
         this.active.my_estealam = true;
         break;
@@ -278,6 +279,7 @@ export default {
         break;
       case "/userpanel/":
         this.active.profile = true;
+        document.getElementById("bows1").click();
         break;
       case "/categories/create/variation/":
         this.active.create_category = true;
@@ -286,6 +288,9 @@ export default {
       case "/users/profile/edit-cat/":
         this.active.edit_category = true;
         document.getElementById("bows2").click();
+        break;
+      case "/userpanel/my_page/":
+        this.active.my_specificPage = true;
         break;
     }
   },
