@@ -10,18 +10,20 @@
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
                 <div v-if="dif_form==='logo'" class="form-group">
-                    <label for="name"></label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <label for="logo"></label>
+                    <input type="file" name="logo" id="logo" class="form-control-file">
                 </div>
                 <div v-if="dif_form==='description'" class="form-group">
-                    <label for="name"></label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <label for="description">توضیحات شرکت</label>
+                    <textarea class="form-control"
+                    id="description" name="description"
+                    ></textarea>
                 </div>
                 <div v-if="dif_form==='info_cantact'" class="form-group">
                     <label for="name"></label>
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
-                <input type="submit">
+                <input type="submit" class="btn-btn-success">
             </form>
         </div>
     </div>
@@ -49,20 +51,23 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: brown;
+  background-color: rgba(0, 0, 0, 0.096);
   z-index: 999;
   display: none;
+  direction: rtl;
+  text-align: right;
 }
 .form {
   width: 50%;
-  height: 300px;
   background-color: burlywood;
   margin: 100px auto;
 }
 .form form {
   width: 100%;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 40px;
   box-sizing: border-box;
+
 }
 .icon_close {
   margin-left: 15px;
@@ -73,5 +78,9 @@ export default {
 .icon_close:hover {
   color: rgb(184, 0, 0);
   cursor: pointer;
+}
+label{
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.671);
 }
 </style>

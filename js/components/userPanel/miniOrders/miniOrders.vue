@@ -96,7 +96,7 @@
         </template>
        
       </table>
-       <div v-else class="w-100">
+       <div v-else-if="orders=='None'" class="w-100">
         <p class="">شما در حال حاظر مشتری ندارید و دریافت استعلام جدید ممکن است یک ساعت تا سه روز طول بکشد</p>
         </div>
     </div>
