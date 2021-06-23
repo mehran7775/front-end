@@ -6,24 +6,33 @@
             </div>
             <form action="" method="get">
                 <div v-if="dif_form==='name'" class="form-group">
-                    <label for="name"></label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <label for="name">نام شرکت</label>
+                    <input required  type="text" name="name" id="name" class="form-control">
+                </div>
+                <div v-if="dif_form==='name'" class="form-group">
+                    <label for="name_latin">نام لاتین شرکت</label>
+                    <input type="text" name="name_latin" id="name_latin" class="form-control">
+                    <small>برای بهتر دیده شدن اسم انگلیسی شرکت خود را وارد کنید</small>
                 </div>
                 <div v-if="dif_form==='logo'" class="form-group">
-                    <label for="logo"></label>
-                    <input type="file" name="logo" id="logo" class="form-control-file">
+                    <label for="logo">انتخاب لوگو</label>
+                    <input required type="file" name="logo" id="logo" class="form-control-file">
                 </div>
                 <div v-if="dif_form==='description'" class="form-group">
                     <label for="description">توضیحات شرکت</label>
-                    <textarea class="form-control"
+                    <textarea required class="form-control"
                     id="description" name="description"
                     ></textarea>
                 </div>
                 <div v-if="dif_form==='info_cantact'" class="form-group">
-                    <label for="name"></label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <label for="phone_number">شماره تلفن</label>
+                    <input required type="text" name="phone_number" id="phone_number" class="form-control">
                 </div>
-                <input type="submit" class="btn-btn-success">
+                <div v-if="dif_form==='info_cantact'" class="form-group">
+                    <label for="website">ادرس وبسایت</label>
+                    <input type="url" name="website" id="website" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-success mr-2" value="ثبت">
             </form>
         </div>
     </div>
@@ -59,7 +68,9 @@ export default {
 }
 .form {
   width: 50%;
-  background-color: burlywood;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(175, 179, 180, 0.89);
   margin: 100px auto;
 }
 .form form {
