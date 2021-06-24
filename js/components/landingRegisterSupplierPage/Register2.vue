@@ -48,7 +48,7 @@
                 </div>
                 <!-- </div> -->
                 <div class="form-group mt-3">
-                  <label for="phone_number">شماره تلفن</label>
+                  <label for="phone_number">شماره موبایل</label>
                   <input
                     class="w-100 form-control"
                     type="text"
@@ -57,10 +57,10 @@
                     ref="phone_number"
                     @input="validate"
                     maxlength="11"
-                    placeholder="شماره تلفن خودرا وارد کنید"
+                    placeholder="شماره موبایل خودرا وارد کنید"
                   />
                   <div class="de_phoneNumber">
-                    <small>شماره تلفن کاری خودرا وارد کنید</small>
+                    <small>شماره کاری خودرا وارد کنید</small>
                   </div>
                 </div>
                 <div class="form-group">
