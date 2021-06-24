@@ -6,23 +6,27 @@
         <div class="w-100">
           <div class="col">
             <div class="row">
-              <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm justify-content-around">
+              <div
+                class="w-100 d-flex flex-column flex-md-row flex-wrap mm justify-content-around"
+              >
                 <div class="video">
-                  <videos/>
+                  <videos />
                 </div>
                 <div class="table">
-                  <suppliers :info="JSON.parse(objects).orders"/>
+                  <suppliers :info="JSON.parse(objects).orders" />
                 </div>
               </div>
             </div>
             <div class="w-100 text-center">
-              <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+              <a
+                :href="'/landings/intro/' + JSON.parse(objects).id + '/signup'"
+              >
                 <button class="btn register m-auto">مشاهده مشتریان</button>
               </a>
             </div>
             <div class="row">
               <div class="w-100 mm">
-                <diagram/>
+                <diagram />
               </div>
             </div>
           </div>
@@ -48,13 +52,16 @@
         </div>
         <div class="row mt-5">
           <div class="m-auto">
-            <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+            <a
+              class="text-decoration-none"
+              :href="'/landings/intro/' + JSON.parse(objects).id + '/signup'"
+            >
               <button class="btn register m-auto">ثبت نام کنید</button>
             </a>
           </div>
         </div>
         <div class="row text-canter">
-          <div class="m-auto w-100 bg-primary text-center">
+          <div class="m-auto w-100 text-center">
             <addressee></addressee>
           </div>
         </div>
@@ -81,7 +88,7 @@ import Diagram from "./diagram/Diagram.vue";
 import CustomersList from "./list_customers/Customers.vue";
 import Suppliers from "./suppliers/Suppliers.vue";
 import Register from "../signup/Register.vue";
-import Slider from './customers/Slider.vue';
+import Slider from "./customers/Slider.vue";
 
 export default {
   name: "index.vue",
@@ -98,13 +105,13 @@ export default {
     CustomersList,
     Suppliers,
     Register,
-    Slider
+    Slider,
   },
   props: ["errors", "objects"],
   mounted() {
     // let object = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data') || '{}');
     console.log(JSON.parse(this.objects), "mmmm");
-  }
+  },
 };
 </script>
 
@@ -156,10 +163,10 @@ export default {
 .color-dam:hover {
   color: #006dea;
 }
-.customers-us{
+.customers-us {
   background-color: whitesmoke;
 }
-.customers-us>div>h2{
+.customers-us > div > h2 {
   color: var(--blue);
   font-weight: bold;
 }
