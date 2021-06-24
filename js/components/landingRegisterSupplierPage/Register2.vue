@@ -1,7 +1,7 @@
 <template>
-  <div class="col">
-    <div class="row">
-      <div id="right">
+  <div class="col h-100">
+    <div class="row h-100">
+      <div id="right" class="h-100">
         <section id="header">
           <p>
             قبلا ثبت نام کرده اید؟ <span><a href="/users/entry">ورود</a></span>
@@ -90,7 +90,7 @@
           </div>
         </section>
       </div>
-      <div id="left">
+      <div id="left" class="h-100">
         <section id="bg">
           <img src="../../assets/images/83iopusl.webp" alt="" />
         </section>
@@ -178,6 +178,7 @@ export default {
 <style scoped>
 #register {
   width: 100%;
+  height: 100%;
   /* background-color: blueviolet; */
 }
 #right {
@@ -206,7 +207,6 @@ export default {
 }
 .form form {
   width: 100%;
-  height: 350px;
 }
 .line {
   width: 100%;
@@ -244,7 +244,7 @@ small {
 }
 #bg {
   width: 100%;
-  height: 635px;
+  height: 100%;
 }
 #bg img {
   width: 100%;

@@ -1,7 +1,12 @@
 <template>
   <div id="header">
     <div id="headerWrapper">
-      <a href="/"><img src="/static/public/images/logo.png" alt="تصویر ناثص است" title="دمیرکو"></a>
+      <a href="/"
+        ><img
+          src="/static/public/images/logo.png"
+          alt="تصویر ناثص است"
+          title="دمیرکو"
+      /></a>
     </div>
     <div class="w-100 mt-3">
       <div id="worker">
@@ -9,11 +14,11 @@
           <div class="text">
             <p>
               دمیرکو پلتفرم فروش ماشین آلات صنعتی در ایران و کشورهای همسایه است.
-              در سال قبل حدود 24،325 مشتری داخلی و خارجی داشتیم که حدود 1 سوم آنها از خارج از ایران بودند.
-              در اینجا شما هم می توانید برای دسترسی به مشتریان جزو تامین کنندگان ما شوید.
+              در سال قبل حدود 24،325 مشتری داخلی و خارجی داشتیم که حدود 1 سوم
+              آنها از خارج از ایران بودند. در اینجا شما هم می توانید برای دسترسی
+              به مشتریان جزو تامین کنندگان ما شوید.
             </p>
           </div>
-
         </div>
       </div>
     </div>
@@ -26,8 +31,8 @@ export default {
   name: "headers",
   components: {
     // worker
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -45,7 +50,6 @@ export default {
 #headerWrapper img {
   width: 100%;
   padding: 10px;
-
 }
 #worker {
   height: 500px;
@@ -68,7 +72,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.text{
+.text {
   width: 80%;
   margin: auto;
   margin-bottom: 10px;
@@ -80,14 +84,15 @@ export default {
   font-size: 24px;
   color: white;
   font-weight: bold;
+  line-height: 29px;
 }
 
-@media screen and (max-width: 768px){
-.text{
-  /*width: 60%;*/
-  margin-bottom: 5px;
-}
-  .text p{
+@media screen and (max-width: 768px) {
+  .text {
+    /*width: 60%;*/
+    margin-bottom: 5px;
+  }
+  .text p {
     font-size: 17px;
   }
 }
