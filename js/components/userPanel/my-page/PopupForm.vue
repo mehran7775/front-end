@@ -4,7 +4,7 @@
       <div class="close_form" @click="hide_form()">
         <i class="fa fa-times fa-2x icon_close" aria-hidden="true"></i>
       </div>
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
         <div v-if="dif_form === 'name'" class="form-group">
           <label for="name">نام شرکت</label>
           <input
