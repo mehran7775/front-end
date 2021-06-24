@@ -129,7 +129,7 @@ export default {
             }
             break;
           case "lname":
-            var res = value.match(this.regEx.regUsername);
+            var res = value.match(this.regEx.regLastName);
             if (res) {
               e.target.classList.remove("is-invalid");
               e.target.classList.add("is-valid");

@@ -56,7 +56,7 @@
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
           <label for="website">ادرس وبسایت</label>
-          <input type="url" name="website" id="website" class="form-control" />
+          <input type="text" name="website" id="website" class="form-control" />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
           <label for="province">استان</label>
@@ -71,7 +71,7 @@
         <div v-if="dif_form === 'info_cantact'" class="form-group">
           <label for="city">شهر</label>
           <input
-            type="url"
+            type="text"
             name="city"
             id="city"
             class="form-control"
