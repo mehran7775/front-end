@@ -13,11 +13,11 @@
           </p>
         </div>
         <div id="information">
-          <div id="title_desc">
+          <div id="title_desc" :class="[!mTable ? 'my_top' :null]">
             <h2>اطلاعات شرکت</h2>
           </div>
           <div>
-            <table class="table">
+            <table :class="[!mTable ? 'mt-0' :null,'table']">
               <tr>
                 <th>آدرس</th>
                 <th>شماره تلفن</th>
@@ -135,9 +135,12 @@ export default {
       type: String,
       required: true,
     },
+    mTable:{
+      type:Boolean
+    }
   },
   created() {
-    console.log(JSON.parse(this.company));
+    // console.log(JSON.parse(this.company));
   },
   computed: {
     products() {
@@ -471,5 +474,8 @@ item {
   width:100%;
   height: 100%;
   border-radius: 50%;
+}
+.my_top{
+  margin-top: 60px;
 }
 </style>

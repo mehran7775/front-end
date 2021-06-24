@@ -1,5 +1,5 @@
 <template>
-  <div id="createProduct" class="maxIs">
+  <div id="createProduct">
     <div id="createProductWrapper">
       <form
         action=""
@@ -108,9 +108,8 @@ export default {
 
 <style scoped>
 #createProduct {
-  display: flex;
-  justify-content: center;
   width: 100%;
+  direction: ltr;
 }
 
 form {
@@ -119,15 +118,15 @@ form {
 
 #createProductWrapper {
   width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 #createProductWrapper form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 .productSection {
