@@ -52,38 +52,45 @@
             name="phone_number"
             id="phone_number"
             class="form-control"
+            placeholder="شماره تلفن خودرا وارد کنید"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
           <label for="website">ادرس وبسایت</label>
-          <input type="text" name="website" id="website" class="form-control" />
+          <input type="text" name="website" id="website" class="form-control" 
+          placeholder="آدرس وبسایت خودرا وارد کنید"
+          />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
-          <label for="province">استان</label>
+          <label for="province">آدرس</label>
           <input
             type="text"
             name="province"
             id="province"
             class="form-control"
             required
+            placeholder="استان خود را وارد کنید"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
-          <label for="city">شهر</label>
+          <!-- <label for="city">شهر</label> -->
           <input
             type="text"
             name="city"
             id="city"
             class="form-control"
             required
+            placeholder="شهر خود را وارد کنید"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
-          <label for="extra">توضیحات بیشتر</label>
+          <!-- <label for="extra">توضیحات بیشتر</label> -->
           <textarea
             name="extra"
             id="extra"
             class="form-control"
+            placeholder="آدرس دقیق را وارد کنید"
+            
           ></textarea>
         </div>
         <input type="submit" class="btn btn-success mr-2" value="ثبت" />
