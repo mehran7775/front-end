@@ -8,65 +8,31 @@
               <img src="" alt="" />
             </div>
             <div id="title">
-              <h1
-                v-if="user.supplier"
-                v-text="
-                  JSON.parse(customer).company_name
-                    ? JSON.parse(customer).company_name
-                    : ''
-                "
-              >
-              </h1>
-              <h1 v-else-if="user.buyer">شیرینگ پک اتوماتیک</h1>
+              <h1>شیرینگ پک اتوماتیک</h1>
             </div>
           </div>
         </div>
         <div class="w-100">
           <div class="cards">
             <div class="head_card">
-              <h2 v-if="user.supplier">اطلاعات تماس</h2>
-              <h2 v-else-if="user.buyer">اطلاعات استعلام</h2>
+              <h2>اطلاعات استعلام</h2>
             </div>
             <div class="row_card" id="phone_card">
               <div>
-                <i
-                  v-if="user.supplier"
-                  class="fa fa-phone"
-                  aria-hidden="true"
-                ></i>
-                <span v-if="user.supplier">شماره تلفن</span>
-                <span v-else-if="user.buyer">موضوع</span>
+                <span>موضوع</span>
               </div>
               <div class="case">
                 <span
-                  v-if="user.supplier"
-                  v-text="
-                    JSON.parse(order)[0].phone_number
-                      ? JSON.parse(order)[0].phone_number
-                      : ''
-                  "
-                ></span>
-                <span v-else-if="user.buyer"
-                  ></span
+                  >buyer</span
                 >
               </div>
             </div>
             <div class="row_card" id="email_card">
               <div>
-                <i
-                  v-if="user.supplier"
-                  class="fa fa-envelope"
-                  aria-hidden="true"
-                ></i>
-                <span v-if="user.supplier">ایمیل</span>
-                <span v-else-if="user.buyer">تاریخ و زمان ثبت</span>
+                <span>تاریخ و زمان ثبت</span>
               </div>
               <div class="case">
-                <span
-                  v-if="user.supplier"
-                  v-text="JSON.parse(order)[0].email"
-                ></span>
-                <span v-else-if="user.buyer">1400/3/5 12:00</span>
+                <span>1400/3/5 12:00</span>
               </div>
             </div>
             <div class="row_card" id="id_card">
@@ -76,24 +42,10 @@
           </div>
           <div class="cards" id="customer_requirement">
             <div class="head_card">
-              <h2 v-if="user.supplier">نیاز مشتری</h2>
-              <h2 v-else-if="user.buyer">توضیحات</h2>
+              <h2>توضیحات</h2>
             </div>
             <div class="row_card" id="orders">
-              <div
-                v-if="user.supplier"
-                class="order"
-                v-for="p in JSON.parse(order)"
-                :key="p.id"
-              >
-                <div id="title_order">
-                  <h3 v-text="p.title"></h3>
-                </div>
-                <div id="image_order">
-                  <img :src="p.product_image" :alt="p.image_alt" />
-                </div>
-              </div>
-              <p v-else-if="user.buyer">
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
                 quasi esse, molestiae omnis assumenda nulla, perspiciatis
                 corrupti rem recusandae iste amet odit fugiat iusto est eius
@@ -101,112 +53,10 @@
               </p>
             </div>
           </div>
-          <div class="cards" v-if="user.supplier">
-            <div class="head_card">
-              <h2>اطلاعات ارسال شده مشتری</h2>
-            </div>
-            <div class="assets"></div>
-          </div>
         </div>
       </div>
       <div id="card-left">
-        <div class="cards-left">
-          <div class="title_cardLeft mt-4">
-            <h1>پیشرفت فروش</h1>
-          </div>
-          <div id="items_sell">
-            <!-- <div>{{JSON.parse(default_msg).A}}</div> -->
-            <div
-              class="item_sell"
-              v-for="me in JSON.parse(default_msg)"
-              v-bind:key="me.id"
-              @click="select_default($event, me.id)"
-            >
-              <p v-text="me.msg"></p>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="cards-left">
-          <div class="title_cardLeft">
-            <h1>وضعیت مشتری</h1>
-          </div>
-          <div id="progress_state">
-            <k-progress percent="70" />
-          </div>
-        </div> -->
-        <div class="cards-left">
-          <label class="title_cardLeft">
-            <h1>یادداشت ها</h1>
-          </label>
-          <div id="notes">
-            <form action="" method="post">
-              <textarea
-                name="note"
-                id="note"
-                cols="20"
-                rows="3"
-                placeholder="متن یادداشت را وارد کنید"
-              ></textarea>
-              <div class="form-group">
-                <input type="submit" value="ثبت" class="save_note" />
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="cards-left" id="items-note">
-          <div
-            class="item_note"
-            v-for="note in notes"
-            v-bind:key="note.content"
-          >
-            <!-- <div id="username">
-              <h3>نام کاربری</h3>
-            </div> -->
-            <div class="content">
-              <!-- <div>
-                <form action="" id="form_edit">
-                  <textarea
-                    name="editBox"
-                    id="editBox"
-                    cols="40"
-                    rows="2"
-                  ></textarea>
-                  <div class="form-inline">
-                    <input
-                      type="submit"
-                      value="ثبت"
-                      class="btn-edit"
-                      id="btn-edit-record"
-                    />
-                    <input
-                      @click="hide_box_edit"
-                      type="button"
-                      value="لغو"
-                      class="btn-edit"
-                      id="btn-edit-cancel"
-                    />
-                  </div>
-                </form>
-              </div> -->
-              <p class="text_content" v-text="note.content">
-                <!-- قرار حضوری گزاشته شد -->
-              </p>
-            </div>
-            <div class="cr">
-              <div id="date_item">
-                <i class="fas fa-clock fa-sm"></i>
-                <small v-text="note.shamsi"></small>
-                <!-- <span ></span> -->
-              </div>
-              <!-- <div class="crud">
-                <ul>
-                  <li @click="show_box_edit">ویرایش</li>
-                  <li>حذف</li>
-                </ul>
-              </div> -->
-            </div>
-          </div>
-        </div>
+        قفاقفتقت
       </div>
     </div>
     <notification />
@@ -218,70 +68,23 @@
 export default {
   data() {
     return {
-      user: {
-        supplier: false,
-        buyer: false,
-      },
-      box_edit: false,
+      
     };
   },
-  props: ["order", "customer", "default_msg", "current_user"],
+  props: ["order"],
   components:{
     // Notification
   },
   created() {
-    JSON.parse(this.current_user).is_producer
-      ? (this.user.supplier = true)
-      : (this.user.buyer = true);
-    console.log(JSON.parse(this.customer));
-    // console.log(JSON.parse(this.customer))
-    // console.log("current_user", JSON.parse(this.current_user));
-    // var session_id = /SESS\w*ID=([^;]+)/i.test(document.cookie) ? RegExp.$1 : false;
-    // var getCookies = function () {
-    //   var pairs = document.cookie.split(";");
-    //   var cookies = {};
-    //   for (var i = 0; i < pairs.length; i++) {
-    //     var pair = pairs[i].split("=");
-    //     cookies[(pair[0] + "").trim()] = unescape(pair.slice(1).join("="));
-    //   }
-    //   return cookies;
-    // };
-    // console.log("session_id", document.cookie.sessionid);
+    console.log('order',JSON.parse(this.order))
   },
   mounted() {
     
   },
   computed: {
-    notes() {
-      // return JSON.parse(this.customer).messages.messages;
-    },
   },
   methods: {
-    show_box_edit() {
-      let p = document.getElementById("text_content");
-      let value = p.innerText;
-      p.style.display = "none";
-      let form_edit = document.getElementById("form_edit");
-      form_edit.style.display = "block";
-
-      let editBox = document.getElementById("editBox");
-      editBox.value = value;
-      editBox.focus();
-      // val.value="tfhtrh";
-    },
-    hide_box_edit() {
-      let p = document.getElementById("text_content");
-      p.style.display = "block";
-      let form_edit = document.getElementById("form_edit");
-      form_edit.style.display = "none";
-    },
-    select_default(e, id) {
-      let data = {
-        id: id,
-        csrf: document.querySelector("meta[name=csrf]").getAttribute("content"),
-      };
-      this.$store.dispatch("select_default_msg", data);
-    }
+  
   },
 };
 </script>
