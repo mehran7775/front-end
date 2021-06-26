@@ -155,9 +155,9 @@
 
               <!--                </div>-->
 
-              <div v-if="userInfo.is_superuser" class="row">
+              <!-- <div v-if="userInfo.is_superuser" class="row">
                 <short-description :redi="redi"></short-description>
-              </div>
+              </div> -->
               <!--              <div v-if="userInfo.is_superuser" class="row" style="display: flex;justify-content: center;flex-direction: column;align-items: flex-end">-->
               <!--                <label style="order: -4" for="">:کلمات کلیدی را وارد کنید</label>-->
               <!--                <vue-tags-input-->
