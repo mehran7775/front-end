@@ -10,9 +10,9 @@
       <ul>
         <!-- <li>
         </li> -->
-        <li class="logoLi">
+        <!-- <li class="logoLi">
           <a href="/"><img src="/static/public/images/logo.png" alt="" /></a>
-        </li>
+        </li> -->
         <template v-if="user.supplier">
           <li :class="[active.my_customer ? 'active' : null, 'single']">
             <a href="/userpanel/orders" id="my_customers">

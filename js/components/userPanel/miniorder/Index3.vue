@@ -4,11 +4,12 @@
       <div id="card-right">
         <div id="head">
           <div id="brand">
-            <div id="picture">
-              <img src="" alt="" />
+            <div id="picture"
+            >
+              <img :src="product.product_image" :alt="product.image_alt" />
             </div>
             <div id="title">
-              <h1>شیرینگ پک اتوماتیک</h1>
+              <h1 v-text="product.title"></h1>
             </div>
           </div>
         </div>
@@ -82,6 +83,11 @@ export default {
     
   },
   computed: {
+    product(){
+      if(typeof this.order != 'undefined'){
+        return JSON.parse(this.order).product
+      }
+    }
   },
   methods: {
   
@@ -137,6 +143,11 @@ span {
   height: 50px;
   background-color: black;
   border-radius: 50%;
+}
+#picture img{
+  width: 100%;
+  height: 100%;
+   border-radius: 50%;
 }
 #title {
   margin-right: 10px;
