@@ -253,7 +253,7 @@ export default {
   },
   computed: {
     notes() {
-      return JSON.parse(this.customer).messages.messages;
+      // return JSON.parse(this.customer).messages.messages;
     },
   },
   methods: {

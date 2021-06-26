@@ -1,8 +1,13 @@
+{% load utility_tags %}
 {%  include "views/userpanel/template/header.html" %}
 {%  include "views/userpanel/template/head.html" %}
 <!-- {%  include "views/userpanel/template/sideBar.html" %} -->
-<user-panel-wrapper allmessages="{{request.session.message}}">
-ddddddddd
+{% if request.user.is_authenticated %}
+{% user_tag request.user.username as current_user %}
+{% endif %}
+fgjyj
+<user-panel-wrapper>
+    <show-order order="{{ order }}"></show-order>
 </user-panel-wrapper>
 
 
