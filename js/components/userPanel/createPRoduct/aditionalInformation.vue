@@ -78,12 +78,12 @@
               <!--                      </div>-->
               <!--                  </div>-->
               <!--              </div>-->
-              <div class="row">
+              <div class="row" dir="rtl">
                 <div class="col2">
                   <div class="col2Label">
-                    <label for>بازه اول قیمت</label>
+                    <label class="font-weight-bold mt-1">قیمت</label>
                   </div>
-                  <div class="col2Input">
+                  <div class="col2Input mr-2">
                     <input
                       :value="redi.price ? redi.price : ''"
                       type="number"
@@ -93,7 +93,7 @@
                     />
                   </div>
                 </div>
-                <div class="col2">
+                <!-- <div class="col2">
                   <div class="col2Label">
                     <label for>بازه دوم قیمت</label>
                   </div>
@@ -106,7 +106,7 @@
                       min="6"
                     />
                   </div>
-                </div>
+                </div> -->
               </div>
 
               <!--              <div class="row">-->

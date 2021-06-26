@@ -47,9 +47,9 @@
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></aditional-information>
             <slicer></slicer>
-            <variations
+            <!-- <variations
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
-            ></variations>
+            ></variations> -->
           </tab-content>
         </form-wizard>
         <!--        <button type="submit" class="submit">ثبت محصول</button>-->

@@ -92,7 +92,11 @@
       </div>
       <div id="left" class="h-100">
         <section id="bg">
-          <img src="../../assets/images/83iopusl.webp" alt="" />
+          <img src="../../assets/images/12314.webp" alt="" />
+          <div class="text_centerd">
+            آسان بفروشید<br>
+            دمیرکو ارتبط مستقیم تولید کننده و خریدار
+          </div>
         </section>
       </div>
     </div>
@@ -277,5 +281,16 @@ small {
 }
 .active-btn:hover{
   background-color:#2d9c47
+}
+.text_centerd{
+  position: absolute;
+  top: 48%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #e5f8fd;
+  font-weight: bold;
+  font-size: 19px;
+  font-style: italic;
 }
 </style>
