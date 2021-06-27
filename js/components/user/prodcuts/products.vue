@@ -95,7 +95,7 @@
         </div>
       </template> -->
 
-      <div class="seoPost" v-if="JSON.parse(products).length > 0">
+      <div class="seoPost" id="se-post" v-if="JSON.parse(products).length > 0">
         <div
           class="seoPostContent longText"
           v-html="
@@ -171,10 +171,10 @@ export default {
     expandIt(e) {
       const element = e.target;
       const parent = element.parentElement;
-      const seoPost = element.closest(".seoPost");
-      console.log(seoPost, parent);
+      // const seoPost = element.closest(".seoPost");
+      // console.log('el',seoPost, parent);
+      document.getElementById("se-post").style.maxHeight = "max-content";
       parent.style.display = "none";
-      seoPost.style.maxHeight = "max-content";
     },
     getH1() {
       if (JSON.parse(this.products).length > 0) {
