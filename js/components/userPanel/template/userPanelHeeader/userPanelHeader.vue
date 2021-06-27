@@ -1,18 +1,22 @@
 <template>
   <div id="userPanelHeader">
-    <notification v-if="is_notify"/>
+    <notification v-if="is_notify" />
     <div id="userPanelHeaderWrapper" class="maxIs">
-      <a class="log_out" href="/users/logout">
-          <i id="logout" class="fas fa-sign-out-alt fa-2x fa-rotate-180" title="خروج"
+      <div class="d-flex align-items-center">
+        <a class="log_out" href="/users/logout">
+          <i
+            id="logout"
+            class="fas fa-sign-out-alt fa-2x fa-rotate-180"
+            title="خروج"
           ></i>
-      </a>
-         
+        </a>
+        <a class="ml-4" href="/"><img class="brand" src="/static/public/images/logo.png" alt=""/></a>
+      </div>
       <div id="profile">
         <div id="image">
-          <img :src="userInfo.picture" alt="">
+          <img :src="userInfo.picture" alt="" />
         </div>
-        <p>{{userInfo.username}}</p>
-        
+        <p>{{ userInfo.username }}</p>
       </div>
       <div id="hamMenu" @click="toggleSubMenu">
         <div class="sikh1"></div>
@@ -25,13 +29,13 @@
 
 <script>
 import { mapActions } from "vuex";
-import Notification from '../../notification/Notification.vue'
+import Notification from "../../notification/Notification.vue";
 export default {
   name: "userPanelHeader",
-  components:{
-    Notification
+  components: {
+    Notification,
   },
-   computed: {
+  computed: {
     is_notify() {
       return this.$store.state.toggle_notification_df_msg;
     },
@@ -90,7 +94,7 @@ export default {
   width: 50px;
   height: 50px;
 }
-img {
+#image img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -151,5 +155,9 @@ p {
   #hamMenu {
     display: none;
   }
+}
+.brand{
+  width: 130px;
+  height:40px;
 }
 </style>
