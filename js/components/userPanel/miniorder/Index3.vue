@@ -4,8 +4,7 @@
       <div id="card-right">
         <div id="head">
           <div id="brand">
-            <div id="picture"
-            >
+            <div id="picture">
               <img :src="product.product_image" :alt="product.image_alt" />
             </div>
             <div id="title">
@@ -23,9 +22,7 @@
                 <span>موضوع</span>
               </div>
               <div class="case">
-                <span
-                  >buyer</span
-                >
+                <span v-text="product.title"></span>
               </div>
             </div>
             <div class="row_card" id="email_card">
@@ -46,18 +43,15 @@
               <h2>توضیحات</h2>
             </div>
             <div class="row_card" id="orders">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-                quasi esse, molestiae omnis assumenda nulla, perspiciatis
-                corrupti rem recusandae iste amet odit fugiat iusto est eius
-                beatae, magni officia nemo.
+              <p v-text="JSON.parse(order).extra_fields">
+               
               </p>
             </div>
           </div>
         </div>
       </div>
       <div id="card-left">
-        قفاقفتقت
+        
       </div>
     </div>
     <notification />
@@ -68,30 +62,24 @@
 // import Notification from '../notification/Notification.vue'
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
   props: ["order"],
-  components:{
+  components: {
     // Notification
   },
   created() {
-    console.log('order',JSON.parse(this.order))
+    console.log("order", JSON.parse(this.order));
   },
-  mounted() {
-    
-  },
+  mounted() {},
   computed: {
-    product(){
-      if(typeof this.order != 'undefined'){
-        return JSON.parse(this.order).product
+    product() {
+      if (typeof this.order != "undefined") {
+        return JSON.parse(this.order).product;
       }
-    }
+    },
   },
-  methods: {
-  
-  },
+  methods: {},
 };
 </script>
 
@@ -144,10 +132,10 @@ span {
   background-color: black;
   border-radius: 50%;
 }
-#picture img{
+#picture img {
   width: 100%;
   height: 100%;
-   border-radius: 50%;
+  border-radius: 50%;
 }
 #title {
   margin-right: 10px;

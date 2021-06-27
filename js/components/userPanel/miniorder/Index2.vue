@@ -15,8 +15,7 @@
                     ? JSON.parse(customer).company_name
                     : ''
                 "
-              >
-              </h1>
+              ></h1>
               <h1 v-else-if="user.buyer">شیرینگ پک اتوماتیک</h1>
             </div>
           </div>
@@ -46,9 +45,7 @@
                       : ''
                   "
                 ></span>
-                <span v-else-if="user.buyer"
-                  ></span
-                >
+                <span v-else-if="user.buyer"></span>
               </div>
             </div>
             <div class="row_card" id="email_card">
@@ -226,7 +223,7 @@ export default {
     };
   },
   props: ["order", "customer", "default_msg", "current_user"],
-  components:{
+  components: {
     // Notification
   },
   created() {
@@ -248,12 +245,10 @@ export default {
     // };
     // console.log("session_id", document.cookie.sessionid);
   },
-  mounted() {
-    
-  },
+  mounted() {},
   computed: {
     notes() {
-      // return JSON.parse(this.customer).messages.messages;
+      return JSON.parse(this.customer).messages.messages;
     },
   },
   methods: {
@@ -281,7 +276,7 @@ export default {
         csrf: document.querySelector("meta[name=csrf]").getAttribute("content"),
       };
       this.$store.dispatch("select_default_msg", data);
-    }
+    },
   },
 };
 </script>
