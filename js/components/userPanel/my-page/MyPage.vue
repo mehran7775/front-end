@@ -5,7 +5,7 @@
       ></about-supplier>
      <div class="url_my">
        <p><strong>لینک این صفحه:</strong></p>
-       <a href="">yjyjktykyuk</a>
+       <a :href="'/c/' + JSON.parse(company).slug">https://www.damirco.com/c/{{JSON.parse(company).slug}}</a>
      </div>
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
     // },
   },
   created() {
-    // console.log("company", JSON.parse(this.company));
+    console.log("company", JSON.parse(this.company));
   },
 };
 </script>

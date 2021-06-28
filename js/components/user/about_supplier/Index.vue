@@ -203,7 +203,7 @@ export default {
     },
   },
   created() {
-    console.log(JSON.parse(this.company));
+    // console.log(JSON.parse(this.company));
   },
   computed: {
     products() {
