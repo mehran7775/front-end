@@ -36,6 +36,7 @@ export default {
 <style scoped>
 .comment_my {
   width: 100%;
+  /* height:max-content; */
   padding-top: 5px;
   /*background-color: whitesmoke;*/
 }

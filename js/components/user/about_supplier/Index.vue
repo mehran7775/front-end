@@ -2,22 +2,54 @@
   <div id="about_supplier">
     <div id="main_top">
       <div class="title">
-        <h1 v-text="JSON.parse(company).title"></h1>
-      </div>
-        <div id="logo">
-          <img :src="JSON.parse(company).logo" alt="لوگو">
+        <div class="d-flex align-items-center">
+          <div>
+            <h1 v-text="JSON.parse(company).title"></h1>
+          </div>
+          <a
+            v-if="userpanel"
+            class="d-flex align-items-center mr-2 text-dark c_pointer"
+            v-on:click.stop.prevent="show_popup('name')"
+          >
+            <div><i class="fas fa-plus fa-2x colG"></i></div>
+            <div><p class="font-weight-bold mt-2 mr-2">افزودن نام شرکت</p></div>
+          </a>
         </div>
+      </div>
+      <div class="logo">
+        <div id="logo">
+          <img :src="JSON.parse(company).logo" alt="لوگو" />
+          <!-- <img src="/static/public/images/logo.jpg" alt="لوگو" /> -->
+        </div>
+        <a
+          v-if="userpanel"
+          class="d-flex align-items-center text-dark mr-2 c_pointer"
+          v-on:click.stop.prevent="show_popup('logo')"
+        >
+          <div><i class="fas fa-plus fa-2x colG"></i></div>
+          <div><p class="font-weight-bold mt-2 mr-2">افزودن لوگوی شرکت</p></div>
+        </a>
+      </div>
       <div id="description">
         <div id="desc">
-          <p v-text="JSON.parse(company).bio">
-          </p>
+          <p v-text="JSON.parse(company).bio"></p>
+          <!-- <br /> -->
+          <a
+            v-if="userpanel"
+            class="m-auto text-center text-dark c_pointer"
+            style="width:max-content"
+            v-on:click.stop.prevent="show_popup('description')"
+          >
+            <div><i class="fas fa-plus fa-2x colG"></i></div>
+            <div><p class="font-weight-bold">افزودن توضیحات شرکت</p></div>
+          </a>
         </div>
         <div id="information">
-          <div id="title_desc" :class="[!mTable ? 'my_top' :null]">
+          <div id="title_desc" :class="[!mTable ? 'my_top' : null]">
             <h2>اطلاعات شرکت</h2>
           </div>
           <div>
-            <table :class="[!mTable ? 'mt-0' :null,'table']">
+            <table :class="[!mTable ? 'mt-0' : null, 'table']">
               <tr>
                 <th>آدرس</th>
                 <th>شماره تلفن</th>
@@ -27,6 +59,18 @@
                 <td v-text="JSON.parse(company).phone_number"></td>
               </tr>
             </table>
+
+            <a
+              v-if="userpanel"
+              class="m-auto text-center text-dark c_pointer"
+              style="width:max-content"
+              v-on:click.stop.prevent="show_popup('info_cantact')"
+            >
+              <div><i class="fas fa-plus fa-2x colG"></i></div>
+              <div>
+                <p class="font-weight-bold">افزودن اطلاعات تماس شرکت</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -76,7 +120,7 @@
                       {{ separate(item.price) + "تومان" }} تا
                       {{ separate(item.second_price) + "تومان" }}</span
                     >
-                        <span v-else>{{ separate(item.price) + "تومان" }}</span>
+                    <span v-else>{{ separate(item.price) + "تومان" }}</span>
                   </p>
                   <p v-else>
                     <span class="font-weight-bold">قیمت: </span>
@@ -99,19 +143,34 @@
           :styles="myStyle"
         ></paginate>
       </div>
+      <a
+        v-if="userpanel"
+        href="/userpanel/products/create/"
+        class="m-auto text-center text-dark c_pointer"
+      >
+        <div><i class="fas fa-plus fa-2x colG"></i></div>
+        <div><p class="font-weight-bold">اضافه کردن محصول</p></div>
+      </a>
     </div>
     <div id="main_bottom">
       <div class="title">
         <h1>نظریات مشتریان</h1>
       </div>
-      <div
-        class="comments"
-      >
-        <comment-my 
-        :comments="JSON.parse(company).comments"
-        />
+      <div class="comments">
+        <comment-my :comments="JSON.parse(company).comments" />
       </div>
     </div>
+    <template>
+      <popup-form
+        :dif_form="dif_form"
+        :title="JSON.parse(company).title"
+        :logo="JSON.parse(company).logo"
+        :bio="JSON.parse(company).bio"
+        :address="JSON.parse(company).address"
+        :phone_number="JSON.parse(company).phone_number"
+      />
+    </template>
+
   </div>
 </template>
 
@@ -129,18 +188,22 @@ const exampleItems = [
 ];
 import Paginate from "../mainCategories/paginate/Paginate.vue";
 import CommentMy from "../product/comments/CommentMy.vue";
+import PopupForm from "./PopupForm.vue";
 export default {
   props: {
     company: {
       type: String,
       required: true,
     },
-    mTable:{
-      type:Boolean
-    }
+    mTable: {
+      type: Boolean,
+    },
+    userpanel: {
+      type: Boolean,
+    },
   },
   created() {
-    // console.log(JSON.parse(this.company));
+    console.log(JSON.parse(this.company));
   },
   computed: {
     products() {
@@ -164,12 +227,14 @@ export default {
           padding: "5px!important",
         },
       },
+      dif_form: "",
       // comments:'None'
     };
   },
   components: {
     Paginate,
     CommentMy,
+    PopupForm,
   },
   methods: {
     onChangePage(pageOfItems) {
@@ -188,6 +253,13 @@ export default {
         // console.log(rgx)
         y = y.replace(rgx, "$1" + "," + "$2");
       return y + z;
+    },
+    show_popup(name) {
+      this.dif_form = name;
+      let popup = document.getElementById("popup_form");
+      popup.style.display = "block";
+      let form=document.querySelector('#popup_form form')
+      // console.log(form.offsetTop)
     },
   },
   mounted() {
@@ -463,19 +535,32 @@ item {
   flex-direction: column-reverse;
   position: relative; */
 }
-#logo{
+#logo {
   width: 100px;
   height: 100px;
   /* background-color: black; */
   border-radius: 50%;
   margin-right: 18px;
 }
-#logo img{
-  width:100%;
+#logo img {
+  width: 100%;
   height: 100%;
   border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.my_top{
+.my_top {
   margin-top: 60px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.colG {
+  color: rgba(4, 158, 4, 0.945);
+}
+.c_pointer:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 </style>
