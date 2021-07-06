@@ -39,20 +39,33 @@
           </tab-content>
           <tab-content title="اطلاعات و ثبت">
             <product-img></product-img>
-            <slicer></slicer>
-
-            <product-descs :redi="redirect != 'None' ? JSON.parse(redirect) : ''"></product-descs>
-            <slicer></slicer>
-            <aditional-information
+            <!-- <slicer></slicer> -->
+            <!-- <aditional-information
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
-            ></aditional-information>
-            <slicer></slicer>
-            <!-- <variations
+            ></aditional-information> -->
+            <div class="w-100 text-center" dir="rtl">
+              <div class="form-group">
+                <label class="font-weight-bold mt-1">قیمت:</label>
+                <input
+                  :value="redirect != 'None' ? JSON.parse(redirect).price : ''"
+                  type="number"
+                  name="price"
+                  placeholder="بر حسب تومان"
+                  min="6"
+                />
+              </div>
+            </div>
+            <product-descs
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
-            ></variations> -->
+            ></product-descs>
+            <slicer></slicer>
+            <!-- <slicer></slicer> 
+             <variations
+              :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
+            ></variations>  -->
           </tab-content>
         </form-wizard>
-        <!--        <button type="submit" class="submit">ثبت محصول</button>-->
+        <!-- <button type="submit" class="submit">ثبت محصول</button> -->
       </form>
     </div>
   </div>

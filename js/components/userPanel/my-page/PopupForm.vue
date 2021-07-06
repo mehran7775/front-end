@@ -13,6 +13,7 @@
             name="name"
             id="name"
             class="form-control"
+            placeholder="نام شرکت شما چیست؟"
           />
         </div>
         <div v-if="dif_form === 'name'" class="form-group">

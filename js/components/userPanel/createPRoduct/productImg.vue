@@ -2,7 +2,7 @@
   <div id="productImg" class="productSection">
     <div class="creatProductTitle">
       <div class="createProductTitleWrapper">
-        <svg
+        <!-- <svg
             style="
             height: 20px;
             transform: rotate(270deg);
@@ -16,11 +16,11 @@
               d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
               class="arrow"
           ></path>
-        </svg>
-        <p>عکس های محصول</p>
+        </svg> -->
+        <!-- <p>عکس های محصول</p> -->
       </div>
     </div>
-    <div id="productImgWrapper" class="hiddenAtDisPlay">
+    <div id="productImgWrapper" >
       <div id="images">
 
         <div class="allImagesWrapper">
