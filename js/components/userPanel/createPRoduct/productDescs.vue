@@ -2,7 +2,7 @@
   <div id="productDescs" class="productSection">
     <div class="creatProductTitle">
       <div class="createProductTitleWrapper">
-        <svg
+        <!-- <svg
           style="
             height: 20px;
             transform: rotate(270deg);
@@ -16,11 +16,12 @@
             d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
             class="arrow"
           ></path>
-        </svg>
-        <p>توضیحات محصول</p>
+        </svg> -->
+        <p class="pl-5 ml-3">توضیحات محصول</p>
       </div>
     </div>
-    <div id="productDescsWrapper" class="hiddenAtDisPlay">
+    <div id="productDescsWrapper">
+       <!-- class="hiddenAtDisPlay" -->
       <texterea
         id="editor"
         v-html="redi ? redi.editor : ''"

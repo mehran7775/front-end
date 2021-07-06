@@ -365,8 +365,8 @@ img {
   background: white;
   /* height: 100%; */
   min-height: 500px;
-  max-height: 700px;
-  overflow: scroll;
+  max-height: max-content;
+  /* overflow: scroll; */
   margin-top: 70px;
   z-index: 555;
   width: 230px;

@@ -14,6 +14,7 @@
             id="name"
             class="form-control"
             v-model="title"
+            placeholder="نام شرکت شما چیست؟"
           />
         </div>
         <div v-if="dif_form === 'name'" class="form-group">
@@ -28,13 +29,25 @@
         </div>
         <div v-if="dif_form === 'logo'" class="form-group">
           <label for="logo">انتخاب لوگو</label>
-          <input
+          <br>
+          <div
+            class="btn btn-secondary m-2"
+            @click="select_file"
+          >
+            انتخاب فایل
+          </div>
+          <input type="file" ref="logo" name="file_logo" id="file_logo" style="display: none" 
+            @change="get_name"
+          />
+          <strong v-if="name_file" v-text="name_file"></strong>
+          <strong v-else>لوگو یا تصویری را که برای شرکت استفاده میکنید اضافه کنید</strong>
+          <!-- <input
             required
-            type="file"
+            type="file"s
             name="logo"
             id="logo"
             class="form-control-file"
-          />
+          /> -->
         </div>
         <div v-if="dif_form === 'description'" class="form-group">
           <label for="description">توضیحات شرکت</label>
@@ -47,7 +60,7 @@
           ></textarea>
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
-          <label for="phone_number">شماره تلفن</label>
+          <label for="phone_number">شماره تلفن ثابت</label>
           <input
             required
             type="text"
@@ -55,13 +68,19 @@
             id="phone_number"
             class="form-control"
             placeholder="شماره تلفن خودرا وارد کنید"
-            v-model="phone_number"
+            style="direction:rtl!important; unicode-bidi:bidi-override;"
+            v-model="phone"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
           <label for="website">ادرس وبسایت</label>
-          <input type="text" name="website" id="website" class="form-control" 
-          placeholder="آدرس وبسایت خودرا وارد کنید"
+          <input
+            type="text"
+            name="website"
+            id="website"
+            class="form-control"
+            placeholder="آدرس وبسایت خودرا وارد کنید"
+            v-model="website"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -73,6 +92,7 @@
             class="form-control"
             required
             placeholder="استان خود را وارد کنید"
+            v-model="province"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -84,6 +104,7 @@
             class="form-control"
             required
             placeholder="شهر خود را وارد کنید"
+            v-model="city"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -108,34 +129,53 @@ export default {
     dif_form: {
       type: String,
     },
-    title:{
-      type:String
+    title: {
+      type: String,
     },
-    bio:{
-      type:String
+    bio: {
+      type: String,
     },
-    address:{
-      type:String
+    address: {
+      type: String,
     },
-    phone_number:{
-      type:String
+    phone_number: {
+      type: String,
     },
-    logo:{
-      type:String
+    logo: {
+      type: String,
+    },
+    website: {
+      type: String,
+    },
+    province: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      name_file: '',
+      phone:'02158478960'
     }
   },
-  created(){
-    console.log(this.logo,'br')
+  created() {
+    console.log(this.logo, "br");
   },
-  mounted(){
-   
-    console.log( document.getElementById("logo"))
-},
+  mounted() {
+    console.log(document.getElementById("logo"));
+  },
   methods: {
     hide_form() {
       document.getElementById("popup_form").style.display = "none";
-     
     },
+    select_file(){
+      console.log(document.getElementById('file_logo').click())
+    },
+    get_name(e){
+       this.name_file=e.target.files[0].name
+    }
   },
 };
 </script>

@@ -167,19 +167,18 @@ export default {
 }
 
 ul {
-  width: 100%;
-  display: none;
-  flex-direction: column;
-  align-items: flex-end;
-  border: 1px solid rgba(60, 60, 60, 0.2);
-  border-top: 0;
-  line-height: 1.7rem;
-  max-height: 300px;
-  overflow: auto;
-  position: absolute;
-  z-index: 555;
-  background: white;
-  max-height: 250px;
+     width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 1px solid rgba(60, 60, 60, 0.2);
+    border-top: 0;
+    line-height: 1.7rem;
+    max-height: 385px;
+    overflow: scroll;
+    position: absolute;
+    z-index: 555;
+    background: white;
 }
 
 li {

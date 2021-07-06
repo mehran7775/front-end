@@ -168,6 +168,9 @@
         :bio="JSON.parse(company).bio"
         :address="JSON.parse(company).address"
         :phone_number="JSON.parse(company).phone_number"
+        :website="JSON.parse(company).website"
+        :province="JSON.parse(company).province"
+        :city="JSON.parse(company).city"
       />
     </template>
 
@@ -203,7 +206,7 @@ export default {
     },
   },
   created() {
-    // console.log(JSON.parse(this.company));
+    console.log('co',JSON.parse(this.company));
   },
   computed: {
     products() {
