@@ -15,5 +15,7 @@ import AboutSupplier from "../../user/about_supplier/Index.vue";
 </script>
 
 <style scoped>
-
+#myPage{
+    background-color: red;
+}
 </style>

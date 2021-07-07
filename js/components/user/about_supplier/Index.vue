@@ -31,12 +31,15 @@
         </a>
       </div>
       <div id="description">
-        <div id="desc">
-          <p v-text="JSON.parse(company).bio"></p>
+        <div id="desc" class="bg-white pb-1">
+          <div id="title_desc">
+            <h2>توضیحات شرکت</h2>
+          </div>
+          <p class="p-2" v-text="JSON.parse(company).bio"></p>
           <!-- <br /> -->
           <a
             v-if="userpanel"
-            class="m-auto text-center text-dark c_pointer"
+            class="m-auto text-center d-block text-dark c_pointer"
             style="width:max-content"
             v-on:click.stop.prevent="show_popup('description')"
           >
@@ -44,7 +47,7 @@
             <div><p class="font-weight-bold">افزودن توضیحات شرکت</p></div>
           </a>
         </div>
-        <div id="information">
+        <div id="information" class="bg-white pr-2 pl-2 pb-1">
           <div id="title_desc" :class="[!mTable ? 'my_top' : null]">
             <h2>اطلاعات شرکت</h2>
           </div>
@@ -135,6 +138,14 @@
           </div>
         </div>
       </div>
+       <a
+        v-if="userpanel"
+        href="/userpanel/products/create/"
+        class="m-auto text-center text-dark c_pointer add_pro"
+      >
+        <div><i class="fas fa-plus fa-2x colG"></i></div>
+        <div><p class="font-weight-bold">اضافه کردن محصول</p></div>
+      </a>
       <div class="text-center">
         <paginate
           class="m-auto"
@@ -143,14 +154,6 @@
           :styles="myStyle"
         ></paginate>
       </div>
-      <a
-        v-if="userpanel"
-        href="/userpanel/products/create/"
-        class="m-auto text-center text-dark c_pointer"
-      >
-        <div><i class="fas fa-plus fa-2x colG"></i></div>
-        <div><p class="font-weight-bold">اضافه کردن محصول</p></div>
-      </a>
     </div>
     <div id="main_bottom">
       <div class="title">
@@ -295,6 +298,7 @@ export default {
   width: 100%;
   text-align: right;
   direction: rtl;
+  background-color: whitesmoke;
 }
 .title {
   /* background-color: blueviolet; */
@@ -307,7 +311,7 @@ export default {
   color: var(--blue);
 }
 #description {
-  width: 90%;
+  width: 92.7%;
   margin: auto;
   padding: 20px 10px;
   box-sizing: border-box;
@@ -565,5 +569,11 @@ item {
 .c_pointer:hover {
   cursor: pointer;
   text-decoration: none;
+}
+.add_pro{
+  display: block;
+  width: 90%;
+  margin: auto;
+  background-color: #fff;
 }
 </style>
