@@ -81,6 +81,7 @@
             class="form-control"
             placeholder="آدرس وبسایت خودرا وارد کنید"
             v-model="website"
+
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">

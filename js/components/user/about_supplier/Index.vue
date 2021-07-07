@@ -37,16 +37,16 @@
           </div>
           <p class="p-2" v-text="JSON.parse(company).bio"></p>
           <!-- <br /> -->
-          <a
-            v-if="userpanel"
-            class="m-auto text-center d-block text-dark c_pointer"
-            style="width:max-content"
-            v-on:click.stop.prevent="show_popup('description')"
-          >
-            <div><i class="fas fa-plus fa-2x colG"></i></div>
-            <div><p class="font-weight-bold">افزودن توضیحات شرکت</p></div>
-          </a>
         </div>
+        <a
+          v-if="userpanel"
+          class="m-auto text-center d-block text-dark c_pointer bg-white w-100"
+          style="margin-top: 10px !important"
+          v-on:click.stop.prevent="show_popup('description')"
+        >
+          <div><i class="fas fa-plus fa-2x colG"></i></div>
+          <div><p class="font-weight-bold">افزودن توضیحات شرکت</p></div>
+        </a>
         <div id="information" class="bg-white pr-2 pl-2 pb-1">
           <div id="title_desc" :class="[!mTable ? 'my_top' : null]">
             <h2>اطلاعات شرکت</h2>
@@ -62,20 +62,19 @@
                 <td v-text="JSON.parse(company).phone_number"></td>
               </tr>
             </table>
-
-            <a
-              v-if="userpanel"
-              class="m-auto text-center text-dark c_pointer"
-              style="width:max-content"
-              v-on:click.stop.prevent="show_popup('info_cantact')"
-            >
-              <div><i class="fas fa-plus fa-2x colG"></i></div>
-              <div>
-                <p class="font-weight-bold">افزودن اطلاعات تماس شرکت</p>
-              </div>
-            </a>
           </div>
+        
         </div>
+         <a
+            v-if="userpanel"
+            class="m-auto text-center text-dark c_pointer bg-white d-block w-100"
+            v-on:click.stop.prevent="show_popup('info_cantact')"
+          >
+            <div><i class="fas fa-plus fa-2x colG"></i></div>
+            <div>
+              <p class="font-weight-bold">افزودن اطلاعات تماس شرکت</p>
+            </div>
+          </a>
       </div>
     </div>
     <div id="main">
@@ -138,7 +137,7 @@
           </div>
         </div>
       </div>
-       <a
+      <a
         v-if="userpanel"
         href="/userpanel/products/create/"
         class="m-auto text-center text-dark c_pointer add_pro"
@@ -176,7 +175,6 @@
         :city="JSON.parse(company).city"
       />
     </template>
-
   </div>
 </template>
 
@@ -209,7 +207,7 @@ export default {
     },
   },
   created() {
-    console.log('co',JSON.parse(this.company));
+    console.log("co", JSON.parse(this.company));
   },
   computed: {
     products() {
@@ -264,7 +262,7 @@ export default {
       this.dif_form = name;
       let popup = document.getElementById("popup_form");
       popup.style.display = "block";
-      let form=document.querySelector('#popup_form form')
+      let form = document.querySelector("#popup_form form");
       // console.log(form.offsetTop)
     },
   },
@@ -570,7 +568,7 @@ item {
   cursor: pointer;
   text-decoration: none;
 }
-.add_pro{
+.add_pro {
   display: block;
   width: 90%;
   margin: auto;
