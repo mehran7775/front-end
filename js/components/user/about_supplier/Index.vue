@@ -41,31 +41,30 @@
         <a
           v-if="userpanel"
           class="m-auto text-center d-block text-dark c_pointer bg-white w-100"
-          style="margin-top: 10px !important"
           v-on:click.stop.prevent="show_popup('description')"
         >
           <div><i class="fas fa-plus fa-2x colG"></i></div>
           <div><p class="font-weight-bold">افزودن توضیحات شرکت</p></div>
         </a>
-        <div id="information" class="bg-white pr-2 pl-2 pb-1">
+        <div id="information" class="bg-white pr-2 pl-2">
           <div id="title_desc" :class="[!mTable ? 'my_top' : null]">
             <h2>اطلاعات شرکت</h2>
           </div>
-          <div>
+          <div class="my-table">
             <table :class="[!mTable ? 'mt-0' : null, 'table']">
               <tr>
                 <th>آدرس</th>
                 <th>شماره تلفن</th>
+                <th>وبسایت</th>
               </tr>
               <tr>
                 <td v-text="JSON.parse(company).address"></td>
                 <td v-text="JSON.parse(company).phone_number"></td>
+                <td v-text="JSON.parse(company).website"></td>
               </tr>
             </table>
           </div>
-        
-        </div>
-         <a
+            <a
             v-if="userpanel"
             class="m-auto text-center text-dark c_pointer bg-white d-block w-100"
             v-on:click.stop.prevent="show_popup('info_cantact')"
@@ -75,6 +74,8 @@
               <p class="font-weight-bold">افزودن اطلاعات تماس شرکت</p>
             </div>
           </a>
+        
+        </div>
       </div>
     </div>
     <div id="main">
@@ -310,14 +311,14 @@ export default {
 }
 #description {
   width: 92.7%;
-  margin: auto;
+  margin:15px auto;
   padding: 20px 10px;
   box-sizing: border-box;
   /* background-color: coral; */
 }
 #information {
   width: 100%;
-  margin: 20px 0 10px 0;
+  margin: 20px 0 0 0;
   /* background-color: darksalmon; */
 }
 #title_desc {
@@ -328,8 +329,7 @@ export default {
   font-size: 17px;
   font-weight: bold;
 }
-table {
-  width: max-content;
+ table {
   padding: 10px;
   box-sizing: border-box;
   /* background-color: darkgoldenrod; */
@@ -428,7 +428,13 @@ item {
   justify-content: flex-start;
   align-items: flex-start;
 }
+.my-table{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
 
+}
 .cost {
   width: auto;
   position: relative;
@@ -571,7 +577,9 @@ item {
 .add_pro {
   display: block;
   width: 90%;
+  height: 150px;
   margin: auto;
+  padding-top: 45px;
   background-color: #fff;
 }
 </style>

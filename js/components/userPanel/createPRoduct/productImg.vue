@@ -229,8 +229,8 @@ export default {
 
 <style scoped>
 .grabber{
-  width: 210px;
-  height: 210px;
+  width: 300px;
+  height: 250px;
   border: 2px dashed  #0074d9;
   display: flex;
   justify-content: center;
@@ -296,19 +296,6 @@ export default {
     font-size: 18px;
 }
 
-
-
-
-
-
-
-
-
-
-
-#productImgWrapper{
-  margin-bottom: 50px
-}
 #productImgWrapper > label {
   width: 100%;
   display: flex;

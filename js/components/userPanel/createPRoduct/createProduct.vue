@@ -43,10 +43,11 @@
             <!-- <aditional-information
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></aditional-information> -->
-            <div class="w-100 text-center" dir="rtl">
+            <div class="w-100 text-center mb-5" dir="rtl">
               <div class="form-group">
                 <label class="font-weight-bold mt-1">قیمت:</label>
                 <input
+                class="mr-5"
                   :value="redirect != 'None' ? JSON.parse(redirect).price : ''"
                   type="number"
                   name="price"
