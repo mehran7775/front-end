@@ -26,6 +26,8 @@
         id="editor"
         v-html="redi ? redi.editor : ''"
         name="editor"
+        minlength="5"
+        maxlength="2000"
       >
       </texterea>
     </div>

@@ -43,16 +43,17 @@
             <!-- <aditional-information
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></aditional-information> -->
-            <div class="w-100 text-center mb-5" dir="rtl">
+            <div class="w-100 text-center position-relative" style="z-index:5;" dir="rtl">
               <div class="form-group">
                 <label class="font-weight-bold mt-1">قیمت:</label>
                 <input
                 class="mr-5"
                   :value="redirect != 'None' ? JSON.parse(redirect).price : ''"
-                  type="number"
+                  type="text"
                   name="price"
                   placeholder="بر حسب تومان"
-                  min="6"
+                  minlength="5"
+                  maxlength="12"
                 />
               </div>
             </div>
@@ -68,6 +69,9 @@
         </form-wizard>
         <!-- <button type="submit" class="submit">ثبت محصول</button> -->
       </form>
+    </div>
+    <div class="errors" v-if="errors!='None'">
+      <p class="text-right p-2 font-weight-bold" v-text="errors"></p>
     </div>
   </div>
 </template>
@@ -103,7 +107,7 @@ export default {
       // redirect:'None'
     };
   },
-  props: ["cats", "products", "redirect"],
+  props: ["cats", "products", "redirect","errors"],
   methods: {
     submit() {
       document.querySelector("#createProductForm").submit();
@@ -214,6 +218,16 @@ input {
 label {
   font-size: 18px;
   font-weight: bold;
+}
+.errors{
+  width: 70%;
+  height: 50px;
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+  left: 15.2%;
+  background-color:rgb(253, 93, 93,0.8);
+  /* padding:10px; */
 }
 </style>
 

@@ -16,6 +16,7 @@
                     :items="cats"
                     level="1"
                     @leveOneChanged="changeCategoryLevel1($event)"
+                    
                   ></search>
                 </div>
 

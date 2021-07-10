@@ -6,7 +6,8 @@
                type="text"
                class="input__search"
                placeholder="انتخاب دسته بندی"
-               :name="name"
+               :value="level ==1 ? 'ماشین آلات':null"
+               required
         >
         <div class="svg__search">
           <arrow></arrow>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import arrow from "./arrow.vue"
+import arrow from "./arrow.vue" 
 
 export default {
   name: "search",
@@ -76,7 +77,11 @@ export default {
         const inter=setTimeout(()=>{
           this.shouldShow=this.items
           if(this.shouldShow.length>0){
-            this.$refs.input.value=this.redi.category
+            this.redi.category?  tshis.$refs.input.value=this.redi.category:this.$refs.input.value=''
+            // if(this.redi.category){
+
+            // }
+            // this.$refs.input.value=this.redi.category
             this.selectedItem=this.redi.category
             this.shouldShow=this.items
             let id=this.shouldShow.findIndex(i=>{
