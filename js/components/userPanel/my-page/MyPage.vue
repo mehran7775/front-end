@@ -4,7 +4,7 @@
       :userpanel="true"
       ></about-supplier>
      <div class="url_my">
-       <p><strong>لینک این صفحه:</strong></p>
+       <p><strong>مشاهده این صفحه:</strong></p>
        <a :href="'/c/' + JSON.parse(company).slug">https://www.damirco.com/c/{{JSON.parse(company).slug}}</a>
      </div>
   </div>
