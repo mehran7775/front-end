@@ -34,20 +34,31 @@
                 <template v-else>
                   <input type="text" placeholder="نام" name="name" />
                 </template>
+                <div class="w-25 text-right m-auto" v-if="errors_u.name">
+                  <small
+                    class="text-danger text-right font-weight-bold"
+                    v-text="errors_u.name[0]"
+                  ></small>
+                </div>
               </div>
             </div>
           </tab-content>
           <tab-content title="اطلاعات و ثبت">
-            <product-img></product-img>
+            <product-img :errors="errors_u"></product-img>
+
             <!-- <slicer></slicer> -->
             <!-- <aditional-information
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></aditional-information> -->
-            <div class="w-100 text-center position-relative" style="z-index:5;" dir="rtl">
+            <div
+              class="w-100 text-center position-relative"
+              style="z-index: 5"
+              dir="rtl"
+            >
               <div class="form-group">
                 <label class="font-weight-bold mt-1">قیمت:</label>
                 <input
-                class="mr-5"
+                  class="mr-5"
                   :value="redirect != 'None' ? JSON.parse(redirect).price : ''"
                   type="text"
                   name="price"
@@ -56,10 +67,22 @@
                   maxlength="12"
                 />
               </div>
+              <div class="w-25 text-right m-auto" v-if="errors_u.price">
+                <small
+                  class="text-danger text-right font-weight-bold"
+                  v-text="errors_u.price[0]"
+                ></small>
+              </div>
             </div>
             <product-descs
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></product-descs>
+            <div class="w-25 text-right m-auto" v-if="errors_u.editor">
+              <small
+                class="text-danger text-right font-weight-bold"
+                v-text="errors_u.editor[0]"
+              ></small>
+            </div>
             <slicer></slicer>
             <!-- <slicer></slicer> 
              <variations
@@ -70,9 +93,9 @@
         <!-- <button type="submit" class="submit">ثبت محصول</button> -->
       </form>
     </div>
-    <div class="errors" v-if="errors!='None'">
-      <p class="text-right p-2 font-weight-bold" v-text="errors"></p>
-    </div>
+    <!-- <div class="errors">
+      <p class="text-right p-2 font-weight-bold" v-text="errors_u"></p>
+    </div> -->
   </div>
 </template>
 <script>
@@ -107,7 +130,7 @@ export default {
       // redirect:'None'
     };
   },
-  props: ["cats", "products", "redirect","errors"],
+  props: ["cats", "products", "redirect", "errors"],
   methods: {
     submit() {
       document.querySelector("#createProductForm").submit();
@@ -118,7 +141,17 @@ export default {
     },
   },
   created() {
-    console.log("redirect", this.redirect);
+    // console.log("redirect", this.redirect);
+    console.log("errors", JSON.parse(this.errors));
+  },
+  computed: {
+    errors_u() {
+      if (this.errors != "None") {
+        return JSON.parse(this.errors);
+      } else {
+        return this.errors;
+      }
+    },
   },
 };
 </script>
@@ -219,14 +252,14 @@ label {
   font-size: 18px;
   font-weight: bold;
 }
-.errors{
+.errors {
   width: 70%;
   height: 50px;
   /* background-color: red; */
   position: absolute;
   top: 0;
   left: 15.2%;
-  background-color:rgb(253, 93, 93,0.8);
+  background-color: rgb(253, 93, 93, 0.8);
   /* padding:10px; */
 }
 </style>
