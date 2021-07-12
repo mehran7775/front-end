@@ -63,7 +63,8 @@
             class="form-control"
             id="description"
             name="description"
-            :placeholder="bio"
+            v-model="bio2"
+             :placeholder="slug == 'default-slug' ?  bio : 'نام شرکت شما چیست'"
           ></textarea>
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -177,6 +178,9 @@ export default {
       //   return this.title
       // }
     },
+    bio2(){
+      return this.slug !== "default-slug" ? this.bio : "";
+    }
   },
   created() {
     console.log(this.slug, "slug");
