@@ -64,7 +64,7 @@
             id="description"
             name="description"
             v-model="bio2"
-             :placeholder="slug == 'default-slug' ?  bio : 'نام شرکت شما چیست'"
+             :placeholder="slug == 'default-slug' ?  bio : 'رزومه شرکت خود را وارد کنید'"
           ></textarea>
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
