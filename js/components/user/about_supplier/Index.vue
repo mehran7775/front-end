@@ -174,6 +174,7 @@
         :website="JSON.parse(company).website"
         :province="JSON.parse(company).province"
         :city="JSON.parse(company).city"
+        :slug="JSON.parse(company).slug"
       />
     </template>
   </div>
@@ -264,6 +265,10 @@ export default {
       let popup = document.getElementById("popup_form");
       popup.style.display = "block";
       let form = document.querySelector("#popup_form form");
+      let userpanel=document.getElementById('userPanel')
+      console.log(userpanel)
+      userpanel.style.height="700px"
+      userpanel.style.overflow="hidden"
       // console.log(form.offsetTop)
     },
   },

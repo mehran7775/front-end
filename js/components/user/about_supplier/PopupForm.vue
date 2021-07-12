@@ -13,8 +13,8 @@
             name="name"
             id="name"
             class="form-control"
-            v-model="title"
-            placeholder="نام شرکت شما چیست؟"
+            v-model="title2"
+            :placeholder="slug == 'default-slug' ? slug : 'نام شرکت شما چیست'"
           />
         </div>
         <div v-if="dif_form === 'name'" class="form-group">
@@ -29,18 +29,25 @@
         </div>
         <div v-if="dif_form === 'logo'" class="form-group">
           <label for="logo">انتخاب لوگو</label>
-          <br>
-          <div
-            class="btn btn-secondary m-2"
-            @click="select_file"
-          >
+          <br />
+          <div class="btn btn-secondary m-2" @click="select_file">
             انتخاب فایل
           </div>
-          <input type="file" ref="logo" name="file_logo" id="file_logo" style="display: none" 
+          <input
+            type="file"
+            ref="logo"
+            name="file_logo"
+            id="file_logo"
+            style="display: none"
             @change="get_name"
           />
-          <strong v-if="name_file" v-text="name_file"></strong>
-          <strong v-else>لوگو یا تصویری را که برای شرکت استفاده میکنید اضافه کنید</strong>
+          <br />
+          <div class="pr-3">
+            <strong v-if="name_file" v-text="name_file"></strong>
+            <strong v-else
+              >لوگو یا تصویری را که برای شرکت استفاده میکنید اضافه کنید</strong
+            >
+          </div>
           <!-- <input
             required
             type="file"s
@@ -68,7 +75,7 @@
             id="phone_number"
             class="form-control"
             placeholder="شماره تلفن خودرا وارد کنید"
-            style="direction:rtl!important; unicode-bidi:bidi-override;"
+            style="direction: rtl !important; unicode-bidi: bidi-override"
             v-model="phone"
           />
         </div>
@@ -81,7 +88,6 @@
             class="form-control"
             placeholder="آدرس وبسایت خودرا وارد کنید"
             v-model="website"
-
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -154,15 +160,26 @@ export default {
     city: {
       type: String,
     },
+    slug: {
+      type: String,
+    },
   },
   data() {
     return {
-      name_file: '',
-      phone:'02158478960'
-    }
+      name_file: "",
+      phone: "02158478960",
+    };
+  },
+  computed: {
+    title2() {
+      return this.slug !== "default-slug" ? this.title : "";
+      // if(this.slug!=='default-slug'){
+      //   return this.title
+      // }
+    },
   },
   created() {
-    console.log(this.logo, "br");
+    console.log(this.slug, "slug");
   },
   mounted() {
     console.log(document.getElementById("logo"));
@@ -170,13 +187,17 @@ export default {
   methods: {
     hide_form() {
       document.getElementById("popup_form").style.display = "none";
+      let userpanel = document.getElementById("userPanel");
+      console.log(userpanel);
+      userpanel.style.height = "auto";
+      userpanel.style.overflow = "visible";
     },
-    select_file(){
-      console.log(document.getElementById('file_logo').click())
+    select_file() {
+      console.log(document.getElementById("file_logo").click());
     },
-    get_name(e){
-       this.name_file=e.target.files[0].name
-    }
+    get_name(e) {
+      this.name_file = e.target.files[0].name;
+    },
   },
 };
 </script>
@@ -220,5 +241,15 @@ export default {
 label {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.671);
+}
+@media screen and (max-width: 768px) {
+  .form {
+    width: 87%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .form {
+    width: 95%;
+  }
 }
 </style>
