@@ -14,7 +14,7 @@
             id="name"
             class="form-control"
             v-model="title2"
-            :placeholder="slug == 'default-slug' ? slug : 'نام شرکت شما چیست'"
+            :placeholder="slug == 'default-slug' ? title : 'نام شرکت شما چیست'"
           />
         </div>
         <div v-if="dif_form === 'name'" class="form-group">
@@ -63,7 +63,7 @@
             class="form-control"
             id="description"
             name="description"
-            v-model="bio"
+            :placeholder="bio"
           ></textarea>
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">

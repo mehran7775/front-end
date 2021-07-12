@@ -51,7 +51,23 @@
             <h2>اطلاعات شرکت</h2>
           </div>
           <div class="my-table">
-            <table :class="[!mTable ? 'mt-0' : null, 'table']">
+            <div class="w-100 d-flex justify-content-between pr-1">
+              <div class="coll font-weight-bold">آدرس</div>
+              <div class="coll font-weight-bold">شماره تلفن</div>
+              <div class="coll font-weight-bold">وبسایت</div>
+            </div>
+            <div class="w-100 d-flex justify-content-between pr-1">
+              <div class="coll content_info">
+                <span v-text="JSON.parse(company).address"></span>
+              </div>
+              <div class="coll content_info">
+                <span v-text="JSON.parse(company).phone_number"></span>
+              </div>
+              <div class="coll content_info">
+                <span v-text="JSON.parse(company).website"></span>
+              </div>
+            </div>
+            <!-- <table :class="[!mTable ? 'mt-0' : null, 'table']">
               <tr>
                 <th>آدرس</th>
                 <th>شماره تلفن</th>
@@ -62,7 +78,7 @@
                 <td v-text="JSON.parse(company).phone_number"></td>
                 <td v-text="JSON.parse(company).website"></td>
               </tr>
-            </table>
+            </table> -->
           </div>
             <a
             v-if="userpanel"
@@ -435,10 +451,7 @@ item {
 }
 .my-table{
   width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-
+  
 }
 .cost {
   width: auto;
@@ -587,4 +600,13 @@ item {
   padding-top: 45px;
   background-color: #fff;
 }
+.coll{
+  width: 30%;
+}
+.coll span{
+  word-break: break-all;
+}
+/* .content_info{
+  height: 100px;
+} */
 </style>
