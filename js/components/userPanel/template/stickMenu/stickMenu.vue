@@ -342,7 +342,7 @@ export default {
         break;
       case "/userpanel/products/create/":
         this.active.create_product = true;
-        document.getElementById("bows1").click();
+        // document.getElementById("bows1").click();
         // this.openSub(el)
         break;
       case "/users/profile/my_products/":

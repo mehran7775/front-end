@@ -1,6 +1,6 @@
 <template>
   <div id="miniOrders" class="userPanelItem">
-    <div class="searchWrapper">
+    <div class="searchWrapper" dir="rtl">
       <div class="orderByStatus">
         <div class="searchBySome">
           <div class="searchBySomeWrapper">
@@ -71,7 +71,7 @@
           <th>توضیحات</th>
           <th>نام</th>
           <th>موضوع درخواست</th>
-          <th>شماره درخواست</th>
+          <th> شماره درخواست </th>
         </tr>
 
         <template class="w-100" v-if="JSON.parse(orders).length > 0">
@@ -431,7 +431,7 @@ h1 {
 }
 
 table {
-  min-width: 900px;
+  min-width: 885px;
 }
 
 td {
@@ -500,11 +500,15 @@ input[type="radio"] {
 }
 
 @media (max-width: 620px) {
-  .orderByStatus {
+  .searchBySomeWrapperWrapper{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* .orderByStatus {
     flex-direction: column;
     align-items: flex-end;
-  }
-
+  } */
+/* 
   .searchBySome {
     margin-right: 0;
     margin-top: 30px;
@@ -516,7 +520,7 @@ input[type="radio"] {
 
   .orderByActivationWrapper {
     order: 1;
-  }
+  } */
 }
 /* -----accept----------- */
 #myCustomersPopUp {
