@@ -1,5 +1,5 @@
 <template>
-  <div class="stickMenu">
+  <div class="stickMenu" id="sM" on>
     <div id="sideMenuStickerWrapper">
       <div id="cross" @click="closeSideMenu($event)">
         <div id="crossWrapper">
@@ -7,48 +7,54 @@
           <div class="cross2"></div>
         </div>
       </div>
+      <!-- <div class="sub"></div> -->
+
       <ul>
+        <div class="subSettings">
+          <ul>
+            <li :class="active.profile ? 'active' : null">
+              <a href="/userpanel">پروفایل شخصی</a>
+            </li>
+            <li :class="active.my_product ? 'active' : null">
+              <a href="/userpanel/profile-company">پروفایل شرکت</a>
+            </li>
+            <li :class="active.my_product ? 'active' : null">
+              <a href="/userpanel/change-password">تغییر رمز عبور</a>
+            </li>
+          </ul>
+        </div>
         <!-- <li>
         </li> -->
         <!-- <li class="logoLi">
           <a href="/"><img src="/static/public/images/logo.png" alt="" /></a>
         </li> -->
-        <template v-if="user.supplier">
-          <li :class="[active.my_customer ? 'active' : null, 'single']">
-            <a href="/userpanel/orders" id="my_customers">
-              مشتریان من <customers></customers
-            ></a>
-          </li>
-          <li :class="[active.my_specificPage ? 'active' : null, 'single']">
-            <a href="/userpanel/my_page" id="my_customers">
-              صفحه اختصاصی من <product></product>
-            </a>
-          </li>
-          <li class="head">
-            <div class="bows" @click="openSub($event)" id="bows1">
-              <div class="bowsWrapper" id="bowsWrapper1">
-                <arrow></arrow>
+        <div class="dddd">
+          <template v-if="user.supplier">
+            <li :class="[active.my_customer ? 'active' : null, 'single']">
+              <a href="/userpanel/orders" id="my_customers">
+                مشتریان من <customers></customers
+              ></a>
+            </li>
+            <li :class="[active.my_specificPage ? 'active' : null, 'single']">
+              <a href="/userpanel/my_page">
+                صفحه اختصاصی من <product></product>
+              </a>
+            </li>
+            <li class="head">
+              <div class="bows" @click="openSub($event)" id="bows1">
+                <div class="bowsWrapper" id="bowsWrapper1">
+                  <arrow class="none_arr_se"></arrow>
+                </div>
+                <div class="sideMenuTitle">
+                  <p class="pt-3">تنظیمات</p>
+                  <i class="fas fa-cog"></i>
+                </div>
               </div>
-              <div class="sideMenuTitle">
-                <p class="pt-3">تنظیمات</p>
-                <i class="fas fa-cog"></i>
+              <div class="sub">
+                <ul></ul>
               </div>
-            </div>
-            <div class="sub">
-              <ul>
-                <li :class="active.profile ? 'active' : null">
-                  <a href="/userpanel">پروفایل شخصی</a>
-                </li>
-                <li :class="active.my_product ? 'active' : null">
-                  <a href="/userpanel/profile-company">پروفایل شرکت</a>
-                </li>
-                <li :class="active.my_product ? 'active' : null">
-                  <a href="/userpanel/change-password">تغییر رمز عبور</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!-- <li v-if="userInfo.is_producer" class="head">
+            </li>
+            <!-- <li v-if="userInfo.is_producer" class="head">
             <div class="bows" @click="openSub($event)" id="bows1">
               <div class="bowsWrapper" id="bowsWrapper1">
                 <arrow></arrow>
@@ -69,28 +75,28 @@
               </ul>
             </div>
           </li> -->
-          <!-- <div class="line"></div> -->
+            <!-- <div class="line"></div> -->
 
-          <!-- <div class="titr">
+            <!-- <div class="titr">
             <p>ابزارهای آماده</p>
           </div> -->
-          <!-- <li :class="[active.finish_cost ? 'active' : null, 'single']">
+            <!-- <li :class="[active.finish_cost ? 'active' : null, 'single']">
             <a href="/userpanel/cal_netprice/"
               >محاسبه قیمت تمام شده<finished-price></finished-price>
             </a>
           </li> -->
-          <!-- <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
+            <!-- <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
             <a href="/userpanel/create_prefactor/"
               >ساخت پیش فاکتور<factore></factore>
             </a>
           </li> -->
 
-          <!-- <div class="line"></div> -->
+            <!-- <div class="line"></div> -->
 
-          <!-- <div class="titr">
+            <!-- <div class="titr">
             <p>ابزارهای درحال توسعه</p>
           </div> -->
-          <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+            <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
             <div class="disableWrapperWrapper">
               <div class="disableWrapper">
                 <p class="diable">مدیریت مشتریان</p>
@@ -99,7 +105,7 @@
               <crm></crm>
             </div>
           </li> -->
-          <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+            <!-- <li class="single sinlgeDisables" v-if="userInfo.is_producer">
             <div class="disableWrapperWrapper">
               <div class="disableWrapper">
                 <p class="diable">انبارداری</p>
@@ -109,32 +115,31 @@
             </div>
           </li> -->
 
-          <!-- <li :class="[active.create_catalog ? 'active' : null, 'single']">
+            <!-- <li :class="[active.create_catalog ? 'active' : null, 'single']">
             <a href="/userpanel/catalogue/create/">
               ساخت کاتالوگ<catalog></catalog>
             </a>
           </li> -->
-          <!-- <li
+            <!-- <li
             :class="[active.other_langoaje_catalog ? 'active' : null, 'single']"
           >
             <a href="/userpanel/catalogue/order/"
               >کاتالوگ به زبان ها دیگر <other-lang-catalog></other-lang-catalog
             ></a>
           </li> -->
-          <!-- <div class="line"></div> -->
-        </template>
-        <template v-else-if="user.buyer">
-           <li :class="[active.my_estealam ? 'active' : null, 'single']">
-            <a href="/userpanel/orders/" id="my_estealam">
-             استعلام های من <customers></customers
-            ></a>
-          </li>
-           <li :class="[active.profile ? 'active' : null, 'single']">
-          <a href="/userpanel/">پروفایل <profile></profile></a>
-        </li>
-        </template>
-
-       
+            <!-- <div class="line"></div> -->
+          </template>
+          <template v-else-if="user.buyer">
+            <li :class="[active.my_estealam ? 'active' : null, 'single']">
+              <a href="/userpanel/orders/" id="my_estealam">
+                استعلام های من <customers></customers
+              ></a>
+            </li>
+            <li :class="[active.profile ? 'active' : null, 'single']">
+              <a href="/userpanel/">پروفایل <profile></profile></a>
+            </li>
+          </template>
+        </div>
 
         <!-- <li class="head" v-if="userInfo.is_superuser">
           <div class="bows" @click="openSub($event)" id="bows2">
@@ -176,7 +181,7 @@ import crm from "../icons/crm.vue";
 import warehouse from "../icons/warehouse.vue";
 export default {
   name: "sideMenu",
-  props:["current_user"],
+  props: ["current_user"],
   components: {
     arrow,
     finishedPrice,
@@ -206,8 +211,8 @@ export default {
         profile: null,
         create_category: null,
         edit_category: null,
-        my_estealam:null,
-        my_specificPage:null
+        my_estealam: null,
+        my_specificPage: null,
       },
       // csrf:document.querySelector('meta[name=csrf]').getAttribute('content')
     };
@@ -215,9 +220,15 @@ export default {
   computed: {
     ...mapGetters(["isSubMenuOpen"]),
   },
-  created(){
+  created() {
+    window.addEventListener("resize", this.myEventHandler);
     // console.log('csrf',document.querySelector('meta[name=csrf]').getAttribute('content'))
-   JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
+    JSON.parse(this.current_user).is_producer
+      ? (this.user.supplier = true)
+      : (this.user.buyer = true);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
   },
   methods: {
     ...mapActions(["toggleSubMenu"]),
@@ -241,16 +252,74 @@ export default {
         const lis = next.querySelectorAll("li");
         const needHeight = lis.length * 64;
         // el.style.background = "#b4b4b4";
-        bows.style.transform = "rotate(180deg)";
-        next.style.height = needHeight + "px";
+        if (window.innerWidth > 440) {
+          bows.style.transform = "rotate(180deg)";
+          next.style.height = needHeight + "px";
+        } else {
+          let sSe = document.querySelector(".subSettings");
+          // console.log(sSe.style.height);
+          if (sSe.style.height == 0 || sSe.style.height == "0px") {
+            sSe.style.height = "200px";
+          } else if (sSe.style.height == "200px") {
+            // console.log(200);
+            sSe.style.height = 0;
+          }
+          // console.log(next);
+          // alert('d')
+          // next.style.setProperty("color", "red")
+          // next.style.setProperty("height", "calc(100% - 224px)")
+
+          // next.style.background = "red";
+          // next.style.height = "calc(100% - 224px)";
+        }
       } else {
+        console.log("llll");
         el.style.background = "white";
         next.style.height = "0px";
         bows.style.transform = "rotate(0deg)";
+        let sSe = document.querySelector(".subSettings");
+        sSe.style.height = "0";
+      }
+    },
+    myEventHandler() {
+      console.log(1);
+      if (window.innerWidth < 440) {
+        let hamMenu = document.getElementById("hamMenu");
+        hamMenu.style.display = "none";
+        let sm = document.getElementById("sM");
+        sm.classList.remove("stickMenu");
+        sm.classList.add("stickMenu2");
+        let sSe = document.querySelector(".subSettings");
+        sSe.style.display = "block";
+      } else {
+        let sm = document.getElementById("sM");
+        sm.classList.add("stickMenu");
+        sm.classList.remove("stickMenu2");
+        let hamMenu = document.getElementById("hamMenu");
+        hamMenu.style.display = "block";
+        let sSe = document.querySelector(".subSettings");
+        sSe.style.display = "none";
       }
     },
   },
   mounted() {
+    if (window.innerWidth < 440) {
+      let hamMenu = document.getElementById("hamMenu");
+      hamMenu.style.display = "none";
+      let sm = document.getElementById("sM");
+      sm.classList.remove("stickMenu");
+      sm.classList.add("stickMenu2");
+      let sSe = document.querySelector(".subSettings");
+      sSe.style.display = "block";
+    } else {
+      let sm = document.getElementById("sM");
+      sm.classList.add("stickMenu");
+      sm.classList.remove("stickMenu2");
+      let hamMenu = document.getElementById("hamMenu");
+      hamMenu.style.display = "block";
+      let sSe = document.querySelector(".subSettings");
+      sSe.style.display = "none";
+    }
     switch (window.location.pathname) {
       case "/userpanel/orders/":
         this.active.my_customer = true;
@@ -373,6 +442,16 @@ img {
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   right: 0;
 }
+.stickMenu2 {
+  height: 95px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 @media (max-width: 1000px) {
   .stickMenu {
     right: -230px;
@@ -427,6 +506,15 @@ img {
   transition: all 0.3s linear;
   background: rgb(232, 232, 232);
 }
+.subb2 {
+  /* height: calc(100vh - 100px);
+    box-sizing: border-box; */
+
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+  background: rgb(232, 232, 232);
+}
 .bows:hover,
 .single:hover {
   background: #b4b4b4;
@@ -457,7 +545,7 @@ li.single {
   right: 6px;
 }
 li:first-child {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .logoLi a {
   right: 0;
@@ -503,4 +591,102 @@ span {
 .active {
   background: #b4b4b4;
 }
+@media screen and (max-width: 440px) {
+
+  #cross {
+    display: none;
+  }
+  ul {
+    width: 100%;
+    height: 95px;
+
+    margin: 0;
+    padding: 0;
+
+    /* background-color: burlywood; */
+  }
+  .dddd {
+    flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  ul li,
+  .single {
+    width: 33%;
+    height: 80px !important;
+    margin: 0;
+    padding: 0;
+    /* background-color: aquamarine; */
+  }
+  /* .fa-cog{
+    font-size: 9px!important;
+  } */
+  svg {
+    width: 21px !important;
+    height: 21pximportant;
+  }
+  .none_arr_se{
+    display: none;
+  }
+}
+.subSettings {
+  width: 34%;
+  position: fixed;
+  /* float: right; */
+  right: 0;
+  bottom: 73px;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+  /* background: rgb(232, 232, 232); */
+  background: #fff;
+}
+.subSettings ul{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-color: thistle; */
+}
+.subSettings ul li{
+  width: 100%;
+  height: 40px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+.subSettings ul li:hover{
+  background-color: rgb(232, 232, 232);
+}
+/* @media screen and(max-width:440px) {
+  .stickMenu {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+} */
+/* @media screen and(max-width:440px) {
+  .stickMenu{
+    
+    margin:0;
+    padding:0;
+    left: 0;
+    bottom: 1px!important;
+    min-height: 100px!important;
+    width: 100%!important;
+    position: sticky;
+  }
+  #sideMenuStickerWrapper{
+    display: none;
+  }
+} */
 </style>
