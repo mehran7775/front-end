@@ -32,12 +32,17 @@
           <template v-if="user.supplier">
             <li :class="[active.my_customer ? 'active' : null, 'single']">
               <a href="/userpanel/orders" id="my_customers">
-               <strong class="pr-1">مشتریان من</strong> <customers></customers
+                <strong class="pr-1">مشتریان من</strong> <customers></customers
               ></a>
             </li>
             <li :class="[active.my_specificPage ? 'active' : null, 'single']">
               <a href="/userpanel/my_page">
-                <strong class="pr-1">صفحه من</strong> <img class="ico_mypage" src="../../../../assets/images/icons/صفحه من.webp" alt="">
+                <strong class="pr-1">صفحه من</strong>
+                <img
+                  class="ico_mypage"
+                  src="../../../../assets/images/icons/صفحه من.webp"
+                  alt=""
+                />
               </a>
             </li>
             <li class="head">
@@ -51,7 +56,17 @@
                 </div>
               </div>
               <div class="sub">
-                <ul></ul>
+                <ul>
+                  <li :class="active.profile ? 'active' : null">
+                    <a href="/userpanel">پروفایل شخصی</a>
+                  </li>
+                  <li :class="active.my_product ? 'active' : null">
+                    <a href="/userpanel/profile-company">پروفایل شرکت</a>
+                  </li>
+                  <li :class="active.my_product ? 'active' : null">
+                    <a href="/userpanel/change-password">تغییر رمز عبور</a>
+                  </li>
+                </ul>
               </div>
             </li>
             <!-- <li v-if="userInfo.is_producer" class="head">
@@ -592,7 +607,6 @@ span {
   background: #b4b4b4;
 }
 @media screen and (max-width: 440px) {
-
   #cross {
     display: none;
   }
@@ -630,7 +644,7 @@ span {
     width: 21px !important;
     height: 21pximportant;
   }
-  .none_arr_se{
+  .none_arr_se {
     display: none;
   }
 }
@@ -646,28 +660,28 @@ span {
   /* background: rgb(232, 232, 232); */
   background: #fff;
 }
-.subSettings ul{
+.subSettings ul {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   /* background-color: thistle; */
 }
-.subSettings ul li{
+.subSettings ul li {
   width: 100%;
   height: 40px;
   padding-top: 20px;
   box-sizing: border-box;
 }
-.subSettings ul li:hover{
+.subSettings ul li:hover {
   background-color: rgb(232, 232, 232);
 }
-.ico_mypage{
+.ico_mypage {
   width: 24px;
   height: 24px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  }
+}
 /* @media screen and(max-width:440px) {
   .stickMenu {
     height: 80px;
