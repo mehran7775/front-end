@@ -1,6 +1,6 @@
 <template>
     <div id="myPage">
-         <about-supplier :company="company" :mTable="false"></about-supplier>
+         <about-supplier :company="5" :mTable="'false'"></about-supplier>
     </div>
 </template>
 

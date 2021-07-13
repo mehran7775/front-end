@@ -80,9 +80,16 @@
               </tr>
             </table> -->
           </div>
-            <a
+          <a
             v-if="userpanel"
-            class="m-auto text-center text-dark c_pointer bg-white d-block w-100"
+            class="
+              m-auto
+              text-center text-dark
+              c_pointer
+              bg-white
+              d-block
+              w-100
+            "
             v-on:click.stop.prevent="show_popup('info_cantact')"
           >
             <div><i class="fas fa-plus fa-2x colG"></i></div>
@@ -90,7 +97,6 @@
               <p class="font-weight-bold">افزودن اطلاعات تماس شرکت</p>
             </div>
           </a>
-        
         </div>
       </div>
     </div>
@@ -171,7 +177,7 @@
         ></paginate>
       </div>
     </div>
-    <div id="main_bottom">
+    <div id="main_bottom" v-if="!userpanel">
       <div class="title">
         <h1>نظریات مشتریان</h1>
       </div>
@@ -212,6 +218,7 @@ import Paginate from "../mainCategories/paginate/Paginate.vue";
 import CommentMy from "../product/comments/CommentMy.vue";
 import PopupForm from "./PopupForm.vue";
 export default {
+  // props:['company','mTable','userpanel'],
   props: {
     company: {
       type: String,
@@ -226,6 +233,7 @@ export default {
   },
   created() {
     console.log("co", JSON.parse(this.company));
+    console.log("myPa", this.mTable);
   },
   computed: {
     products() {
@@ -281,10 +289,10 @@ export default {
       let popup = document.getElementById("popup_form");
       popup.style.display = "block";
       let form = document.querySelector("#popup_form form");
-      let userpanel=document.getElementById('userPanel')
-      console.log(userpanel)
-      userpanel.style.height="700px"
-      userpanel.style.overflow="hidden"
+      let userpanel = document.getElementById("userPanel");
+      console.log(userpanel);
+      userpanel.style.height = "700px";
+      userpanel.style.overflow = "hidden";
       // console.log(form.offsetTop)
     },
   },
@@ -332,7 +340,7 @@ export default {
 }
 #description {
   width: 92.7%;
-  margin:15px auto;
+  margin: 15px auto;
   padding: 20px 10px;
   box-sizing: border-box;
   /* background-color: coral; */
@@ -350,7 +358,7 @@ export default {
   font-size: 17px;
   font-weight: bold;
 }
- table {
+table {
   padding: 10px;
   box-sizing: border-box;
   /* background-color: darkgoldenrod; */
@@ -449,9 +457,8 @@ item {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.my-table{
+.my-table {
   width: 100%;
-  
 }
 .cost {
   width: auto;
@@ -479,6 +486,7 @@ item {
 }
 
 .pagination {
+  width: max-content;
   display: inline-flex !important;
   text-align: right;
   overflow: hidden !important;
@@ -600,10 +608,10 @@ item {
   padding-top: 45px;
   background-color: #fff;
 }
-.coll{
+.coll {
   width: 30%;
 }
-.coll span{
+.coll span {
   word-break: break-all;
 }
 /* .content_info{

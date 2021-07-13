@@ -64,9 +64,9 @@ export default {
 }
 .url_my{
   width: 100%;
-  position: absolute;
-  bottom: -100px;
-  left: 0;
+  /* position: absolute; */
+  /* bottom: -100px; */
+  /* left: 0; */
   /* background-color: burlywood; */
   text-align: center;
   margin-top:40px;

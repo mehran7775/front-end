@@ -16,12 +16,12 @@
         <template v-if="user.supplier">
           <li :class="[active.my_customer ? 'active' : null, 'single']">
             <a href="/userpanel/orders" id="my_customers">
-              مشتریان من <customers></customers
+              <span>مشتریان من</span> <customers></customers
             ></a>
           </li>
           <li :class="[active.my_specificPage ? 'active' : null, 'single']">
             <a href="/userpanel/my_page" id="my_customers">
-              صفحه اختصاصی من <product></product>
+              <span>صفحه من</span> <product></product>
             </a>
           </li>
           <li class="head">
@@ -126,11 +126,11 @@
         <template v-else-if="user.buyer">
            <li :class="[active.my_estealam ? 'active' : null, 'single']">
             <a href="/userpanel/orders/" id="my_estealam">
-             استعلام های من <customers></customers
+             <span>استعلام های من</span> <customers></customers
             ></a>
           </li>
            <li :class="[active.profile ? 'active' : null, 'single']">
-          <a href="/userpanel/">پروفایل <profile></profile></a>
+          <a href="/userpanel/"><span>پروفایل</span> <profile></profile></a>
         </li>
         </template>
 

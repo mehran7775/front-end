@@ -32,12 +32,12 @@
           <template v-if="user.supplier">
             <li :class="[active.my_customer ? 'active' : null, 'single']">
               <a href="/userpanel/orders" id="my_customers">
-                مشتریان من <customers></customers
+               <strong class="pr-1">مشتریان من</strong> <customers></customers
               ></a>
             </li>
             <li :class="[active.my_specificPage ? 'active' : null, 'single']">
               <a href="/userpanel/my_page">
-                صفحه اختصاصی من <product></product>
+                <strong class="pr-1">صفحه من</strong> <img class="ico_mypage" src="../../../../assets/images/icons/صفحه من.webp" alt="">
               </a>
             </li>
             <li class="head">
@@ -46,7 +46,7 @@
                   <arrow class="none_arr_se"></arrow>
                 </div>
                 <div class="sideMenuTitle">
-                  <p class="pt-3">تنظیمات</p>
+                  <p class="pt-3"><strong>تنظیمات</strong></p>
                   <i class="fas fa-cog"></i>
                 </div>
               </div>
@@ -443,14 +443,14 @@ img {
   right: 0;
 }
 .stickMenu2 {
-  height: 95px;
+  height: 85px;
   width: 100%;
   position: fixed;
   z-index: 1;
   bottom: 0;
-  background-color: whitesmoke;
   overflow-x: hidden;
-  padding-top: 20px;
+  background-color: #fff;
+  /* padding-top: 20px; */
 }
 @media (max-width: 1000px) {
   .stickMenu {
@@ -662,6 +662,12 @@ span {
 .subSettings ul li:hover{
   background-color: rgb(232, 232, 232);
 }
+.ico_mypage{
+  width: 24px;
+  height: 24px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  }
 /* @media screen and(max-width:440px) {
   .stickMenu {
     height: 80px;

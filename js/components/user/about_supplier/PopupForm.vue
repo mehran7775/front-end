@@ -76,8 +76,7 @@
             id="phone_number"
             class="form-control"
             placeholder="شماره تلفن خودرا وارد کنید"
-            style="direction: rtl !important; unicode-bidi: bidi-override"
-            v-model="phone"
+            v-model="phone_number"
           />
         </div>
         <div v-if="dif_form === 'info_cantact'" class="form-group">
@@ -168,7 +167,7 @@ export default {
   data() {
     return {
       name_file: "",
-      phone: "02158478960",
+      // phone: "02158478960",
     };
   },
   computed: {
