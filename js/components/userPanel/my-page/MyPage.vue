@@ -1,12 +1,44 @@
 <template>
   <div id="myPage">
-      <about-supplier :company="company" :mTable="false"
+    <div class="w-100 p-4">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          :style="
+            'width: ' +
+            JSON.parse(company).prog_score +
+            '%;background-color:' +
+            colo_back +
+            '!important'
+          "
+          :aria-valuenow="JSON.parse(company).prog_score"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <div
+        class="font-weight-bold pt-1"
+        v-text="JSON.parse(company).prog_score + '%'"
+      ></div>
+      <div class="text-Progress">
+        <small
+          class="font-weight-bold"
+          v-text="JSON.parse(company).prog_msg"
+        ></small>
+      </div>
+    </div>
+    <about-supplier
+      :company="company"
+      :mTable="false"
       :userpanel="true"
-      ></about-supplier>
-     <div class="url_my">
-       <p><strong>مشاهده این صفحه:</strong></p>
-       <a :href="'/c/' + JSON.parse(company).slug">https://www.damirco.com/c/{{JSON.parse(company).slug}}</a>
-     </div>
+    ></about-supplier>
+    <div class="url_my">
+      <p><strong>مشاهده این صفحه:</strong></p>
+      <a :href="'/c/' + JSON.parse(company).slug"
+        >https://www.damirco.com/c/{{ JSON.parse(company).slug }}</a
+      >
+    </div>
   </div>
 </template>
 
@@ -39,6 +71,24 @@ export default {
       // ],
     };
   },
+  computed: {
+    colo_back() {
+      const x =parseInt(JSON.parse(this.company).prog_score)
+      if (x > 0 && x <= 30) {
+        return "#FB0002";
+      } else if (x > 30 && x <= 45) {
+        return "#FF5500";
+      } else if (x > 45 && x <= 60) {
+        return "#FF8B00";
+      } else if (x > 60 && x <= 75) {
+        return "#B68D01";
+      } else if (x > 75 && x <= 90) {
+        return "#618C00";
+      } else if (x > 90 && x <= 100) {
+        return "#018C01";
+      }
+    },
+  },
   components: {
     AboutSupplier,
     // PopupForm,
@@ -62,15 +112,20 @@ export default {
   width: 100%;
   /* position: absolute; */
 }
-.url_my{
+.url_my {
   width: 100%;
   /* position: absolute; */
   /* bottom: -100px; */
   /* left: 0; */
   /* background-color: burlywood; */
   text-align: center;
-  margin-top:40px;
+  margin-top: 40px;
   padding: 10px;
   box-sizing: border-box;
+}
+.text-Progress {
+  position: relative;
+  /* top: 1; */
+  text-align: center;
 }
 </style>
