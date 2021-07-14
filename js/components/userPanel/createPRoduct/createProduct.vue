@@ -58,7 +58,7 @@
               <div class="form-group">
                 <label class="font-weight-bold mt-1">قیمت:</label>
                 <input
-                  class="mr-5"
+                  class="mr-sm-5 input_price"
                   :value="redirect != 'None' ? JSON.parse(redirect).price : ''"
                   type="text"
                   name="price"
@@ -205,7 +205,7 @@ form {
 input[type="text"] {
   color: black;
 
-  width: 30%;
+  /* width: 30%; */
   padding: 10px;
 }
 
@@ -261,6 +261,11 @@ label {
   left: 15.2%;
   background-color: rgb(253, 93, 93, 0.8);
   /* padding:10px; */
+}
+@media screen and(max-width:576px){
+  .input_price{
+    width: 45%;
+  }
 }
 </style>
 

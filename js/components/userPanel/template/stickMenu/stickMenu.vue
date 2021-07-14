@@ -461,7 +461,7 @@ img {
   height: 85px;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   bottom: 0;
   overflow-x: hidden;
   background-color: #fff;

@@ -102,7 +102,7 @@
     </div>
     <div id="main">
       <div class="title">
-        <h1>محصولات این شرکت</h1>
+        <h1>محصولات شرکت {{JSON.parse(company).title}} </h1>
       </div>
       <div id="product_company">
         <div class="products">
