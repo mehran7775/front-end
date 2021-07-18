@@ -58,6 +58,7 @@
     "swiper": "^6.6.1",
     "vue-awesome-swiper": "^4.1.1",
     "vue-carousel": "^0.18.0",
+    "vue-dynamic-star-rating": "^1.0.8",
     "vue-form-wizard": "^0.8.4",
     "vue-marquee-text-component": "^1.1.1",
     "vue-multiselect": "^1.1.5",

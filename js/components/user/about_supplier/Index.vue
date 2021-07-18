@@ -1,35 +1,74 @@
 <template>
   <div id="about_supplier">
     <div id="main_top">
-      <div class="title">
-        <div class="d-flex align-items-center">
-          <div>
-            <h1 v-text="JSON.parse(company).title"></h1>
+      <div class="w-100 d-flex flex-column flex-sm-row">
+        <div class="w-100 w-sm-50">
+          <div class="title">
+            <div class="d-flex align-items-center">
+              <div>
+                <h1 v-text="JSON.parse(company).title"></h1>
+              </div>
+              <a
+                v-if="userpanel"
+                class="d-flex align-items-center mr-2 text-dark c_pointer"
+                v-on:click.stop.prevent="show_popup('name')"
+              >
+                <div><i class="fas fa-plus fa-2x colG"></i></div>
+                <div>
+                  <p class="font-weight-bold mt-2 mr-2">افزودن نام شرکت</p>
+                </div>
+              </a>
+            </div>
           </div>
-          <a
-            v-if="userpanel"
-            class="d-flex align-items-center mr-2 text-dark c_pointer"
-            v-on:click.stop.prevent="show_popup('name')"
-          >
-            <div><i class="fas fa-plus fa-2x colG"></i></div>
-            <div><p class="font-weight-bold mt-2 mr-2">افزودن نام شرکت</p></div>
-          </a>
+          <div class="logo">
+            <div id="logo">
+              <img :src="JSON.parse(company).logo" alt="لوگو" />
+              <!-- <img src="/static/public/images/logo.jpg" alt="لوگو" /> -->
+            </div>
+            <a
+              v-if="userpanel"
+              class="d-flex align-items-center text-dark mr-2 c_pointer"
+              v-on:click.stop.prevent="show_popup('logo')"
+            >
+              <div><i class="fas fa-plus fa-2x colG"></i></div>
+              <div>
+                <p class="font-weight-bold mt-2 mr-2">افزودن لوگوی شرکت</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="w-100 w-sm-50">
+          <div id="rating" class="ml-sm-5 mt-sm-3 m-auto" v-if="userpanel">
+            <div class="t_rate">
+              <p>
+                <span class="font-weight-bold" v-text="JSON.parse(company).title"></span><br />
+                <small>(براساس نظر مشتریان)</small>
+              </p>
+            </div>
+            <div class="s_rate">
+              <div class="rate_number">
+                <span
+                  id="rate_number"
+                  v-text="JSON.parse(company).rating"
+                ></span
+                ><span class="from_rate">/5</span>
+              </div>
+              <div class="rate_star">
+                <star-rating
+                  :rating="JSON.parse(company).rating"
+                  :star-style="starStyle"
+                ></star-rating>
+              </div>
+            </div>
+            <div class="des_rate">
+              <p>
+                امتیاز براساس کیفیت خدمات،کیفیت دستگاه و سرعت پاسخگویی می باشد
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="logo">
-        <div id="logo">
-          <img :src="JSON.parse(company).logo" alt="لوگو" />
-          <!-- <img src="/static/public/images/logo.jpg" alt="لوگو" /> -->
-        </div>
-        <a
-          v-if="userpanel"
-          class="d-flex align-items-center text-dark mr-2 c_pointer"
-          v-on:click.stop.prevent="show_popup('logo')"
-        >
-          <div><i class="fas fa-plus fa-2x colG"></i></div>
-          <div><p class="font-weight-bold mt-2 mr-2">افزودن لوگوی شرکت</p></div>
-        </a>
-      </div>
+
       <div id="description">
         <div id="desc" class="bg-white pb-1">
           <div id="title_desc">
@@ -102,7 +141,7 @@
     </div>
     <div id="main">
       <div class="title">
-        <h1>محصولات شرکت {{JSON.parse(company).title}} </h1>
+        <h1>محصولات شرکت {{ JSON.parse(company).title }}</h1>
       </div>
       <div id="product_company">
         <div class="products">
@@ -217,6 +256,7 @@ const exampleItems = [
 import Paginate from "../mainCategories/paginate/Paginate.vue";
 import CommentMy from "../product/comments/CommentMy.vue";
 import PopupForm from "./PopupForm.vue";
+import StarRating from "vue-dynamic-star-rating";
 export default {
   // props:['company','mTable','userpanel'],
   props: {
@@ -229,6 +269,7 @@ export default {
     },
     userpanel: {
       type: Boolean,
+      default: false,
     },
   },
   created() {
@@ -245,6 +286,22 @@ export default {
   },
   data() {
     return {
+      starStyle: {
+        fullStarColor: "#ed8a19",
+        emptyStarColor: "#737373",
+        starWidth: 30,
+        starHeight: 30,
+      },
+      // config2: {
+      //   rating: 3,
+      //   isIndicatorActive: false,
+      //   style: {
+      //     fullStarColor: "#ed8a19",
+      //     emptyStarColor: "#737373",
+      //     starWidth: 21,
+      //     starHeight: 21,
+      //   },
+      // },
       exampleItems,
       pageOfItems: [],
       myStyle: {
@@ -262,6 +319,7 @@ export default {
     };
   },
   components: {
+    StarRating,
     Paginate,
     CommentMy,
     PopupForm,
@@ -340,7 +398,7 @@ export default {
 }
 #description {
   width: 92.7%;
-  margin: 15px auto;
+  margin: 55px auto 0 auto;
   padding: 20px 10px;
   box-sizing: border-box;
   /* background-color: coral; */
@@ -612,7 +670,56 @@ item {
   width: 30%;
 }
 .coll span {
-  word-break: break-all;
+  wdescriptionord-break: break-all;
+}
+#rating {
+  /* position: absolute; */
+  width: 300px;
+  height: 220px;
+  background-color: #fff;
+  /* float: left; */
+}
+.t_rate {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  /* background-color: blue; */
+}
+.s_rate {
+  width: 100%;
+  height: 110px;
+  text-align: center;
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.des_rate {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+}
+.rate_number {
+  width: 100%;
+  height: 30px;
+}
+.rate_star {
+  /* width: 50px;
+  height: 50px; */
+  direction: ltr;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#rate_number {
+  font-weight: bold;
+  font-size: 24px;
+}
+.from_rate {
+  font-size: 14px;
 }
 /* .content_info{
   height: 100px;
