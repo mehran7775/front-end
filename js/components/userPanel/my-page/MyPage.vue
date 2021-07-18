@@ -22,10 +22,12 @@
         v-text="JSON.parse(company).prog_score + '%'"
       ></div>
       <div class="text-Progress">
+       <span class="brackets">[</span>
         <small
-          class="font-weight-bold"
+          class="text_propgress"
           v-text="JSON.parse(company).prog_msg"
         ></small>
+       <span class="brackets">]</span>
       </div>
     </div>
     <about-supplier
@@ -127,5 +129,22 @@ export default {
   position: relative;
   /* top: 1; */
   text-align: center;
+}
+.text_propgress{
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+}
+.brackets{
+  font-size: 24px;
+  font-weight: bold;
+  color: forestgreen;
+  font-family: 'Lato', sans-serif!important;
+  margin-top: 5px;
+  animation: blinker 2s infinite;
+}
+@keyframes blinker{
+   0%, 100% {opacity:0;}
+  50% {opacity:1;}
 }
 </style>

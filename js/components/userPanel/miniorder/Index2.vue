@@ -84,10 +84,11 @@
                 :key="p.id"
               >
                 <div id="title_order">
-                  <h3 v-text="p.title"></h3>
+                  <h3 v-text="p.product.title"></h3>
                 </div>
                 <div id="image_order">
-                  <img :src="p.product_image" :alt="p.image_alt" />
+                  <img :src="p.product.product_image" :alt="p.product.image_alt" />
+                  <!-- <span v-text="p.product.image_alt"></span> -->
                 </div>
               </div>
               <p v-else-if="user.buyer">
@@ -114,12 +115,13 @@
           <div id="items_sell">
             <!-- <div>{{JSON.parse(default_msg).A}}</div> -->
             <div
-              class="item_sell"
               v-for="me in JSON.parse(default_msg)"
               v-bind:key="me.id"
               @click="select_default($event, me.id)"
             >
-              <p v-text="me.msg"></p>
+              <div  class="item_sell">
+                <p v-text="me.msg"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -230,7 +232,7 @@ export default {
     JSON.parse(this.current_user).is_producer
       ? (this.user.supplier = true)
       : (this.user.buyer = true);
-    console.log(JSON.parse(this.customer));
+    console.log(JSON.parse(this.order));
     // console.log(JSON.parse(this.customer))
     // console.log("current_user", JSON.parse(this.current_user));
     // var session_id = /SESS\w*ID=([^;]+)/i.test(document.cookie) ? RegExp.$1 : false;
@@ -245,7 +247,9 @@ export default {
     // };
     // console.log("session_id", document.cookie.sessionid);
   },
-  mounted() {},
+  mounted() {
+    this.dif_lastChild()
+  },
   computed: {
     notes() {
       return JSON.parse(this.customer).messages.messages;
@@ -271,12 +275,26 @@ export default {
       form_edit.style.display = "none";
     },
     select_default(e, id) {
+      console.log(e,id)
       let data = {
         id: id,
         csrf: document.querySelector("meta[name=csrf]").getAttribute("content"),
       };
       this.$store.dispatch("select_default_msg", data);
     },
+    dif_lastChild(){
+      let last=document.getElementById('items_sell').lastChild
+      let first=last.firstChild
+      first.style.border="1px solid #1F1FFD"
+      first.style.boxShadow="0 1px 15px 2px #1F1FFD"
+      let div=document.createElement("DIV")
+      div.style.width="150px"
+      div.style.padding="5px"
+      div.style.fontSize="12px"
+      let textnode = document.createTextNode("با فشردن این دکمه مشتری را پیگیری می کنیم و نتیجه اش را به شما اعلام میکنیم");   
+      div.appendChild(textnode)
+      last.appendChild(div)
+    }
   },
 };
 </script>
@@ -400,8 +418,8 @@ span {
   padding: 5px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  align-content: center;
+  align-items: flex-start;
+  /* align-content: flex-end; */
   flex-wrap: wrap;
 }
 .item_sell {
@@ -433,6 +451,7 @@ span {
 }
 #notes {
   width: 98%;
+  max-width:100%;
   margin: auto;
   padding: 5px;
 }
@@ -453,12 +472,18 @@ span {
 .save_note:hover {
   background-color: #007bff;
 }
-form textarea {
+#notes form{
+  width:100%;
+  max-width:100%;
+}
+#notes form textarea {
+  width: 98%;
+  max-width:100%;
   font-size: 16px;
   font-weight: bold;
   padding: 5px;
 }
-form textarea::placeholder {
+#notes form textarea::placeholder {
   font-size: 13px;
   font-weight: bold;
   padding-right: 2px;
@@ -574,6 +599,7 @@ form textarea::placeholder {
 }
 .order {
   width: 160px;
+  height: 150px;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -584,7 +610,10 @@ form textarea::placeholder {
 }
 #title_order {
   width: 100%;
+  height: 45px;
+   word-break: break-all;
   /* background-color: red; */
+  overflow: hidden;
   text-align: center;
   padding: 5px;
   box-sizing: border-box;
@@ -625,6 +654,9 @@ form textarea::placeholder {
   #card-left {
     width: 32%;
   }
+}
+#note{
+
 }
 @media screen and (max-width: 625px) {
   #card-right {

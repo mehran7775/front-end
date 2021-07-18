@@ -5,9 +5,9 @@
         <div class="searchBySome">
           <div class="searchBySomeWrapper">
             <div class="title">:جست و جو بر اساس نام یا شماره</div>
-                <div class="searchBySomeWrapperWrapper">
-               <select v-model="searchByType">
-                                                    <option selected value="name">نام</option>
+            <div class="searchBySomeWrapperWrapper">
+              <select v-model="searchByType">
+                <option selected value="name">نام</option>
                 <option value="phone">شماره تلفن</option>
               </select>
               <input
@@ -71,34 +71,43 @@
           <th>توضیحات</th>
           <th>نام</th>
           <th>موضوع درخواست</th>
-          <th> شماره درخواست </th>
+          <th>شماره درخواست</th>
         </tr>
 
         <template class="w-100" v-if="JSON.parse(orders).length > 0">
           <tr v-for="order in getOrders" :key="order.id">
-          <!-- <td class="orderId">{{ order.id }}</td> -->
-          <td v-if="order.is_confirmed == true" class="don">
-            {{ order.phone_number }}
-          </td>
-          <td v-else class="unDon">
-            <button @click.prevent="getPhone({
-              id:order.id,
-              user_id:order.user_id
-            }, $event)">
-              تایید مشتری
-            </button>
-          </td>
-          <td class="description">{{ getDescs(order.extra_discription) }}</td>
-          <td>{{ order.name }}</td>
-          <td>{{ order.product.title }}</td>
-          <td>{{ order.id }}</td>
-        </tr>
+            <!-- <td class="orderId">{{ order.id }}</td> -->
+            <td v-if="order.is_confirmed == true" class="don">
+              {{ order.phone_number }}
+            </td>
+            <td v-else class="unDon">
+              <button
+                @click.prevent="
+                  getPhone(
+                    {
+                      id: order.id,
+                      user_id: order.user_id,
+                    },
+                    $event
+                  )
+                "
+              >
+                تایید مشتری
+              </button>
+            </td>
+            <td class="description">{{ getDescs(order.extra_discription) }}</td>
+            <td>{{ order.name }}</td>
+            <td>{{ order.product.title }}</td>
+            <td>{{ order.id }}</td>
+          </tr>
         </template>
-       
       </table>
-       <div v-else-if="orders=='None'" class="w-100">
-        <p class="">شما در حال حاظر مشتری ندارید و دریافت استعلام جدید ممکن است یک ساعت تا سه روز طول بکشد</p>
-        </div>
+      <div v-else-if="orders == 'None'" class="w-100">
+        <p class="">
+          شما در حال حاظر مشتری ندارید و دریافت استعلام جدید ممکن است یک ساعت تا
+          سه روز طول بکشد
+        </p>
+      </div>
     </div>
     <div v-else-if="user.buyer && shouldShow.length > 0" class="table">
       <table v-if="showTable">
@@ -110,8 +119,8 @@
           <th>شماره</th>
         </tr>
         <tr v-for="order in getOrders" :key="order.id">
-          <td><a :href="order.id ">مشاهده بیشتر</a></td>
-          <td v-text="order.confirmed ? 'مشاهده شده' :'مشاهده نشده'"></td>
+          <td><a :href="order.id">مشاهده بیشتر</a></td>
+          <td v-text="order.confirmed ? 'مشاهده شده' : 'مشاهده نشده'"></td>
           <td v-text="order.extra_fields"></td>
           <td v-text="order.product.title"></td>
           <td v-text="order.id"></td>
@@ -139,8 +148,8 @@
       </div>
     </div>
     <form name="verify" method="post" action="">
-      <input type="hidden" name="id" id="id">
-      <input type="hidden" name="user_id" id="user_id">
+      <input type="hidden" name="id" id="id" />
+      <input type="hidden" name="user_id" id="user_id" />
     </form>
   </div>
 </template>
@@ -447,7 +456,8 @@ td {
 .orderByActivationWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+  margin-right: 20px;
 }
 
 .orderByStatus {
@@ -462,14 +472,12 @@ td {
   max-width: 200px;
   width: 100%;
   height: 50px;
-  border-left: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+
 }
 
 .searchBySome select {
   position: relative;
-  right: -15px;
+  /* right: -15px; */
   height: 50px;
   width: 115px;
   border-radius: 0;
@@ -500,7 +508,7 @@ input[type="radio"] {
 }
 
 @media (max-width: 620px) {
-  .searchBySomeWrapperWrapper{
+  .searchBySomeWrapperWrapper {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -508,7 +516,7 @@ input[type="radio"] {
     flex-direction: column;
     align-items: flex-end;
   } */
-/* 
+  /* 
   .searchBySome {
     margin-right: 0;
     margin-top: 30px;
