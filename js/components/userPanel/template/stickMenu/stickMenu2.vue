@@ -39,9 +39,9 @@
                 <li :class="active.profile ? 'active' : null">
                   <a href="/userpanel">پروفایل شخصی</a>
                 </li>
-                <li :class="active.my_product ? 'active' : null">
+                <!-- <li :class="active.my_product ? 'active' : null">
                   <a href="/userpanel/profile-company">پروفایل شرکت</a>
-                </li>
+                </li> -->
                 <li :class="active.my_product ? 'active' : null">
                   <a href="/userpanel/change-password">تغییر رمز عبور</a>
                 </li>
