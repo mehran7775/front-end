@@ -139,6 +139,7 @@ export default {
   font-size: 24px;
   font-weight: bold;
   color: var(--blue);
+  
   font-family: 'Lato', sans-serif!important;
   margin-top: 5px;
   animation: blinker 2s infinite;
