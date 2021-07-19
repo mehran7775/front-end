@@ -22,12 +22,12 @@
         v-text="JSON.parse(company).prog_score + '%'"
       ></div>
       <div class="text-Progress">
-       <span class="brackets">[</span>
+       <span class="brackets" v-if="JSON.parse(company).prog_score && JSON.parse(this.company).prog_score <91">[</span>
         <small
           class="text_propgress"
           v-text="JSON.parse(company).prog_msg"
         ></small>
-       <span class="brackets">]</span>
+       <span class="brackets" v-if="JSON.parse(company).prog_score && JSON.parse(company).prog_score <91">]</span>
       </div>
     </div>
     <about-supplier

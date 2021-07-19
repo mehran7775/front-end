@@ -673,11 +673,12 @@ item {
   wdescriptionord-break: break-all;
 }
 #rating {
-  /* position: absolute; */
   width: 300px;
   height: 220px;
   background-color: #fff;
-  /* float: left; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 .t_rate {
   width: 100%;
@@ -720,6 +721,10 @@ item {
 }
 .from_rate {
   font-size: 14px;
+}
+.star-rating .indicator{
+  color: red;
+  display: none!important;
 }
 /* .content_info{
   height: 100px;
