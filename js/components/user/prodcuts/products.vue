@@ -104,9 +104,9 @@
               : ''
           "
         ></div>
-        <div class="showMore">
+        <!-- <div class="showMore">
           <button @click="expandIt($event)">مشاهده ادامه</button>
-        </div>
+        </div> -->
       </div>
 
       <comments-my :comments="JSON.parse(this.comments)"></comments-my>
@@ -298,7 +298,7 @@ img {
   padding: 10px;
   background: white;
   min-height: 100px;
-  max-height: 600px;
+  max-height: max-content;
   position: relative;
   overflow: hidden;
 }
