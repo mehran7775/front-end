@@ -37,7 +37,7 @@
             </a>
           </div>
         </div>
-        <div class="w-100 w-sm-50">
+        <div class="w-100 w-sm-50 mt-sm-2">
           <div id="rating" class="ml-sm-5 mt-sm-3 m-auto" v-if="userpanel">
             <div class="t_rate">
               <p>
