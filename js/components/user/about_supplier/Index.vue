@@ -41,7 +41,7 @@
           <div id="rating" class="ml-sm-5 mt-sm-3 m-auto" v-if="userpanel">
             <div class="t_rate">
               <p>
-                <span class="font-weight-bold" v-text="JSON.parse(company).title"></span><br />
+                <span class="font-weight-bold" v-text="'رتبه شرکت '+ JSON.parse(company).title"></span><br />
                 <small>(براساس نظر مشتریان)</small>
               </p>
             </div>
@@ -375,6 +375,7 @@ export default {
     }
     let active = document.querySelector(".pagination .active");
     active.style.background = "#F5F5F5";
+    document.querySelector('.s_rate .rate_star .indicator').style.display="none"
   },
 };
 </script>
@@ -679,6 +680,7 @@ item {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  padding: 10px;
 }
 .t_rate {
   width: 100%;
