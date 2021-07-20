@@ -273,4 +273,9 @@ li.check {
 #searchBar__search {
   position: relative;
 }
+@media screen and (max-width:440px) {
+  /* li,.input__search {
+    font-size: 14px!important;
+  } */
+}
 </style>

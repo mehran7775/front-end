@@ -132,6 +132,7 @@ label:before {
     .select{
         margin-top: 5px!important;
         margin-bottom: 5px!important;
+        height: 45px;
     }
 }
 .vs__search {
