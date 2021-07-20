@@ -174,6 +174,10 @@
                       <span class="font-weight-bold">قیمت: </span>
                       وارد نشده است
                     </p>
+                    <p v-if="item.shamsi_last_edited">
+                      <strong>اخرین بروزرسانی قیمت:</strong>
+                      <span v-text="item.shamsi_last_edited"></span>
+                    </p>
                   </div>
                 </div>
                 <div class="cost">
@@ -190,6 +194,10 @@
                     <span class="font-weight-bold">قیمت: </span>
                     وارد نشده است
                   </p>
+                  <p v-if="item.shamsi_last_edited">
+                      <strong>اخرین بروزرسانی قیمت:</strong>
+                      <span v-text="item.shamsi_last_edited"></span>
+                    </p>
                 </div>
               </a>
             </div>

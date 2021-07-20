@@ -6,7 +6,10 @@
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
-              <a :href="'/products/product-detail/' + item.slug" class="link-item">
+              <a
+                :href="'/products/product-detail/' + item.slug"
+                class="link-item"
+              >
                 <div class="item-origin">
                   <div class="pic">
                     <!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
@@ -33,6 +36,10 @@
                       <span class="font-weight-bold">قیمت: </span>
                       وارد نشده است
                     </p>
+                    <p v-if="item.shamsi_last_edited">
+                      <strong>اخرین بروزرسانی قیمت:</strong>
+                      <span v-text="item.shamsi_last_edited"></span>
+                    </p>
                   </div>
                 </div>
                 <div class="cost">
@@ -48,6 +55,10 @@
                   <p v-else>
                     <span class="font-weight-bold">قیمت: </span>
                     وارد نشده است
+                  </p>
+                  <p v-if="item.shamsi_last_edited">
+                    <strong>اخرین بروزرسانی قیمت:</strong>
+                    <span v-text="item.shamsi_last_edited"></span>
                   </p>
                 </div>
               </a>
@@ -74,30 +85,7 @@
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
 import Pagination from "./Paginate.vue";
 const exampleItems = [
-  2,
-  9,
-  8,
-  52,
-  5,
-  7,
-  0,
-  6,
-  8,
-  9,
-  1,
-  5,
-  6,
-  5,
-  2,
-  5,
-  56,
-  89,
-  4,
-  5,
-  6,
-  0,
-  8,
-  6,
+  2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6,
 ];
 export default {
   name: "Index2",
@@ -390,7 +378,7 @@ export default {
     text-align: center;
   }
   .cost2 p {
-    text-align: center!important;
+    text-align: center !important;
   }
   .info {
     width: 100%;
