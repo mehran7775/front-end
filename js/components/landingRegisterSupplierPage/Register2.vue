@@ -11,9 +11,7 @@
           <div class="form">
             <form action="" method="post">
               <fieldset>
-                <legend class="text-center">
-                  حساب کاربری خود را بسازید
-                </legend>
+                <legend class="text-center">حساب کاربری خود را بسازید</legend>
                 <div class="line"></div>
                 <!-- <div class="form-group"> -->
                 <div class="form-inline">
@@ -50,20 +48,35 @@
                 <div class="form-group mt-3">
                   <label for="phone_number">شماره موبایل</label>
                   <input
-                    class="w-100 form-control"
+                    :class="[
+                      messages_response.exist_user.phoneNumber
+                        ? 'is-invalid'
+                        : null,
+                      'w-100 form-control',
+                    ]"
                     type="text"
                     id="phone_number"
                     name="phone_number"
                     ref="phone_number"
-                    @input="validate"
+                    @input="validate($event), check_user_exist()"
                     maxlength="11"
                     placeholder="شماره موبایل خودرا وارد کنید"
                   />
                   <div class="de_phoneNumber">
-                    <small>شماره کاری خودرا وارد کنید</small>
+                    <small>شماره کاری خودرا وارد کنید</small><br/>
+                    <small
+                      class="disable text-danger"
+                      v-show="messages_response.exist_user.phoneNumber"
+                      v-text="messages_response.exist_user.phoneNumber"
+                    ></small>
                   </div>
                 </div>
-                <div class="form-group">
+                <div
+                  :class="[
+                    messages_response.exist_user.phoneNumber ? 'mt-4' : null,
+                    'form-group',
+                  ]"
+                >
                   <label for="password">رمز عبور</label>
                   <input
                     class="w-100 form-control"
@@ -79,7 +92,10 @@
                 </div>
                 <div class="w-100 mt-4">
                   <input
-                    :class="[!btnStatus ? 'active-btn' : null,'w-100 text-center form-control font-weight-bold']"
+                    :class="[
+                      !btnStatus ? 'active-btn' : null,
+                      'w-100 text-center form-control font-weight-bold',
+                    ]"
                     type="submit"
                     value="ثبت"
                     :disabled="btnStatus"
@@ -94,7 +110,7 @@
         <section id="bg">
           <img src="../../assets/images/12314.webp" alt="" />
           <div class="text_centerd">
-            آسان بفروشید<br>
+            آسان بفروشید<br />
             دمیرکو ارتبط مستقیم تولید کننده و خریدار
           </div>
         </section>
@@ -108,58 +124,65 @@ export default {
   data() {
     return {
       btnStatus: true,
+      valid_phoneNumber:false
     };
   },
   computed: {
     regEx() {
       return this.$store.state.regularExpression;
     },
+    messages_response() {
+      return this.$store.getters.messages_response;
+    },
   },
   methods: {
     validate(e) {
       let value = e.target.value;
       if (value === "") {
-        e.target.classList.remove("is-invalid", "is-valid");
+        e.target.classList.remove("is-invalid", "is-valid")
       } else {
         switch (e.target.id) {
           case "fname":
-            var res = value.match(this.regEx.regName);
+            var res = value.match(this.regEx.regName)
             if (res) {
-              e.target.classList.remove("is-invalid");
-              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid")
+              e.target.classList.add("is-valid")
             } else {
-              e.target.classList.remove("is-valid");
-              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid")
+              e.target.classList.add("is-invalid")
             }
             break;
           case "lname":
-            var res = value.match(this.regEx.regLastName);
+            var res = value.match(this.regEx.regLastName)
             if (res) {
-              e.target.classList.remove("is-invalid");
-              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid")
+              e.target.classList.add("is-valid")
             } else {
-              e.target.classList.remove("is-valid");
-              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid")
+              e.target.classList.add("is-invalid")
             }
             break;
           case "phone_number":
-            var res = value.match(this.regEx.reg_phoneNumber);
+            this.$store.commit("RESET_EXIST_USER", "phoneNumber")
+            var res = value.match(this.regEx.reg_phoneNumber)
             if (res) {
-              e.target.classList.remove("is-invalid");
-              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid")
+              e.target.classList.add("is-valid")
+              this.valid_phoneNumber=true
             } else {
-              e.target.classList.remove("is-valid");
-              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid")
+              e.target.classList.add("is-invalid")
+              this.valid_phoneNumber=false
             }
             break;
           case "password":
-            var res = value.match(this.regEx.regPassword);
+            var res = value.match(this.regEx.regPassword)
             if (res) {
-              e.target.classList.remove("is-invalid");
+              e.target.classList.remove("is-invalid")
               e.target.classList.add("is-valid");
             } else {
-              e.target.classList.remove("is-valid");
-              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid")
+              e.target.classList.add("is-invalid")
             }
             break;
         }
@@ -174,6 +197,13 @@ export default {
         i3.classList.contains("is-valid") &&
         i4.classList.contains("is-valid")
       );
+    },
+    check_user_exist() {
+      // let form=new FormData;
+      if (this.$refs.phone_number.classList.contains("is-valid")) {
+        let phoneNumber = this.$refs.phone_number.value;
+        this.$store.dispatch("check_user_exist", phoneNumber);
+      }
     },
   },
 };
@@ -270,19 +300,19 @@ small {
 }
 
 .is-valid {
-  border: 1px solid #43c761 !important;
+  border: 1px solid #43c761;
 }
-.active-btn{
+.active-btn {
   /* border-radius: 0px!important; */
   /* border-color: #34ce57; */
   /* outline: #59e45da9 solid 1px; */
-  background-color:#43c761 ;
+  background-color: #43c761;
   color: #fff;
 }
-.active-btn:hover{
-  background-color:#2d9c47
+.active-btn:hover {
+  background-color: #2d9c47;
 }
-.text_centerd{
+.text_centerd {
   position: absolute;
   top: 48%;
   left: 22%;
@@ -292,5 +322,10 @@ small {
   font-weight: bold;
   font-size: 19px;
   font-style: italic;
+}
+.disable {
+  pointer-events: none;
+  opacity: 0.94;
+  /* padding-right: 10px; */
 }
 </style>

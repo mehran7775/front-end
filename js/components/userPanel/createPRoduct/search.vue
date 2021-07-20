@@ -2,162 +2,177 @@
   <div id="search__search">
     <div id="searchBar__search">
       <div class="inputWrapper__search">
-        <input @focus="fillShoulShow" @input="filter" ref="input"
-               type="text"
-               class="input__search"
-               placeholder="انتخاب دسته بندی"
-               :value="level ==1 ? 'ماشین آلات':null"
-               required
-        >
+        <input
+          @focus="fillShoulShow"
+          @input="filter"
+          ref="input"
+          type="text"
+          class="input__search"
+          placeholder="انتخاب دسته بندی"
+          required
+        />
         <div class="svg__search">
-          <arrow></arrow>
+          <arrow @ar_click="mmm"></arrow>
         </div>
       </div>
-      <ul ref="ul">
-        <li v-for="(item,i) in getShouldShow" @click="selectItem($event)" :key="i.id">{{ item.title }}</li>
+      <ul ref="ul" id="ul">
+        <li
+          v-for="(item, i) in getShouldShow"
+          @click="selectItem($event)"
+          :key="i.id"
+        >
+          {{ item.title }}
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import arrow from "./arrow.vue" 
+import arrow from "./arrow.vue";
 
 export default {
   name: "search",
-  props: ['items','level','redi','onchange','name'],
+  props: ["items", "level", "redi", "onchange", "name"],
   data() {
     return {
       shouldShow: null,
-      selectedItem:null
-    }
+      selectedItem: null,
+    };
   },
   components: {
-    arrow
+    arrow,
   },
   mounted() {
-    this.shouldShow=this.items
-    console.log('this.shouldShow',this.shouldShow)
-    if(this.level==1){
-      if(this.redi.motherCat && this.redi.motherCat!="None"){
-        this.$refs.input.value=this.redi.motherCat
+    this.shouldShow = this.items;
+    console.log("this.shouldShow", this.shouldShow);
+    if (this.level == 1) {
+      if (this.redi.motherCat && this.redi.motherCat != "None") {
+        this.$refs.input.value = this.redi.motherCat;
         this.selected;
-        this.selectedItem=this.redi.motherCat
-        let id=this.shouldShow.findIndex(i=>{
-          return i.title==this.selectedItem
-
-        })
-        id=this.shouldShow[id].id
-        this.$emit('leveOneChanged',id)
+        this.selectedItem = this.redi.motherCat;
+        let id = this.shouldShow.findIndex((i) => {
+          return i.title == this.selectedItem;
+        });
+        id = this.shouldShow[id].id;
+        this.$emit("leveOneChanged", id);
       }
     }
-    if(this.level==2){
-      if(this.redi.mainCat && this.redi.mainCat!="None"){
-        const inter=setInterval(()=>{
-          this.shouldShow=this.items
-          if(this.shouldShow.length>0){
-            this.$refs.input.value=this.redi.mainCat
-            this.selectedItem=this.redi.mainCat
-            this.shouldShow=this.items
-            let id=this.shouldShow.findIndex(i=>{
-              return i.title==this.selectedItem
-            })
-            id=this.shouldShow[id].id
-            this.$emit('leveTwoChanged',id)
+    if (this.level == 2) {
+      if (this.redi.mainCat && this.redi.mainCat != "None") {
+        const inter = setInterval(() => {
+          this.shouldShow = this.items;
+          if (this.shouldShow.length > 0) {
+            this.$refs.input.value = this.redi.mainCat;
+            this.selectedItem = this.redi.mainCat;
+            this.shouldShow = this.items;
+            let id = this.shouldShow.findIndex((i) => {
+              return i.title == this.selectedItem;
+            });
+            id = this.shouldShow[id].id;
+            this.$emit("leveTwoChanged", id);
 
-            clearInterval(inter)
+            clearInterval(inter);
           }
-        },100)
-
+        }, 100);
       }
     }
-    if(this.level==3){
-      if(this.redi.category!=="None")
-      {
-        const inter=setTimeout(()=>{
-          this.shouldShow=this.items
-          if(this.shouldShow.length>0){
-            this.redi.category?  tshis.$refs.input.value=this.redi.category:this.$refs.input.value=''
+    if (this.level == 3) {
+      if (this.redi.category !== "None") {
+        const inter = setTimeout(() => {
+          this.shouldShow = this.items;
+          if (this.shouldShow.length > 0) {
+            this.redi.category
+              ? (tshis.$refs.input.value = this.redi.category)
+              : (this.$refs.input.value = "");
             // if(this.redi.category){
 
             // }
             // this.$refs.input.value=this.redi.category
-            this.selectedItem=this.redi.category
-            this.shouldShow=this.items
-            let id=this.shouldShow.findIndex(i=>{
-              return i.title==this.selectedItem
-            })
+            this.selectedItem = this.redi.category;
+            this.shouldShow = this.items;
+            let id = this.shouldShow.findIndex((i) => {
+              return i.title == this.selectedItem;
+            });
 
-            this.$emit('leveThreeChanged',this.shouldShow[id].id,this.shouldShow[id].title)
+            this.$emit(
+              "leveThreeChanged",
+              this.shouldShow[id].id,
+              this.shouldShow[id].title
+            );
 
             // clearInterval(inter)
           }
-        },100)
+        }, 100);
       }
     }
-    this.$refs.input.addEventListener('focus', () => {
-      this.$refs.ul.style.display = "flex"
-    })
+    this.$refs.input.addEventListener("focus", () => {
+      this.$refs.ul.style.display = "flex";
+    });
 
-    window.addEventListener('click', e => {
-      const target = e.target
+    window.addEventListener("click", (e) => {
+      const target = e.target;
       if (target !== this.$refs.input && target !== this.$refs.ul) {
-        this.$refs.ul.style.display = 'none'
+        this.$refs.ul.style.display = "none";
         // document.body.style.overflowY=""
       }
-    })
+    });
   },
   computed: {
     getShouldShow() {
-      return this.shouldShow
-    }
+      return this.shouldShow;
+    },
   },
   methods: {
     filter() {
-      let value = this.$refs.input.value
-      this.shouldShow=[...this.items]
-      this.shouldShow=this.shouldShow.filter(s=>{
-        return s.title.includes(value)
-      })
-
+      let value = this.$refs.input.value;
+      this.shouldShow = [...this.items];
+      this.shouldShow = this.shouldShow.filter((s) => {
+        return s.title.includes(value);
+      });
     },
     async selectItem(e) {
-      this.deSelectItem()
-      this.$refs.input.value = e.target.innerText
-      this.selectedItem = e.target.innerText
-      e.target.classList.add("check")
-      let id=this.shouldShow.findIndex(i=>{
-        return i.title==this.selectedItem
-      })
+      this.deSelectItem();
+      this.$refs.input.value = e.target.innerText;
+      this.selectedItem = e.target.innerText;
+      e.target.classList.add("check");
+      let id = this.shouldShow.findIndex((i) => {
+        return i.title == this.selectedItem;
+      });
 
-      if(this.level==1){
-        id=this.shouldShow[id].id
-        this.$emit('leveOneChanged',id)
+      if (this.level == 1) {
+        id = this.shouldShow[id].id;
+        this.$emit("leveOneChanged", id);
+      } else if (this.level == 2) {
+        id = this.shouldShow[id].id;
+        this.$emit("leveTwoChanged", id);
+      } else if (this.level == 3) {
+        console.log("this.shouldShow[id]", this.shouldShow, id);
+        this.$emit(
+          "leveThreeChanged",
+          this.shouldShow[id].id,
+          this.shouldShow[id].title
+        );
       }
-      else if(this.level==2){
-        id=this.shouldShow[id].id
-        this.$emit('leveTwoChanged',id)
-
-      }
-      else if(this.level==3){
-        console.log('this.shouldShow[id]',this.shouldShow,id)
-        this.$emit('leveThreeChanged',this.shouldShow[id].id,this.shouldShow[id].title)
-      }
-      this.$emit('valueChanged',this.$refs.input.value)
+      this.$emit("valueChanged", this.$refs.input.value);
     },
-    fillShoulShow(){
+    fillShoulShow() {
       // document.body.style.overflowY="hidden"
-      this.shouldShow=[...this.items]
+      this.shouldShow = [...this.items];
     },
-    deSelectItem(){
-      const ul=this.$refs.ul
-      const lis=ul.querySelectorAll('li')
-      lis.forEach(li=>{
-        li.classList.remove('check')
-      })
-    }
-  }
-}
+    deSelectItem() {
+      const ul = this.$refs.ul;
+      const lis = ul.querySelectorAll("li");
+      lis.forEach((li) => {
+        li.classList.remove("check");
+      });
+    },
+    mmm() {
+      //  document.getElementById("ul").style.display="flex!important"
+      this.$refs.ul.style.display = "flex";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -172,22 +187,21 @@ export default {
 }
 
 ul {
-     width: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: flex-end;
-    border: 1px solid rgba(60, 60, 60, 0.2);
-    border-top: 0;
-    line-height: 1.7rem;
-    max-height: 385px;
-    overflow: scroll;
-    position: absolute;
-    z-index: 555;
-    background: white;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  border: 1px solid rgba(60, 60, 60, 0.2);
+  border-top: 0;
+  line-height: 1.7rem;
+  max-height: 385px;
+  overflow: scroll;
+  position: absolute;
+  z-index: 555;
+  background: white;
 }
 
 li {
-
   text-align: right;
   list-style-type: none;
   margin-top: 10px;
@@ -209,7 +223,7 @@ li.check {
 }
 
 .input__search {
-  border: 1px solid rgba(60,60,60,.26);
+  border: 1px solid rgba(60, 60, 60, 0.26);
   padding: 5px;
   border-radius: 3px;
   direction: rtl;
@@ -241,22 +255,22 @@ li.check {
   display: flex;
   justify-content: center;
 }
-.svg__search{
+.svg__search {
   transition: all 0.2s linear;
 }
-.svg__search >>> svg{
+.svg__search >>> svg {
   transition: all 0.2s linear;
 }
 .input__search:focus + .svg__search >>> svg {
   transform: rotate(180deg);
-  top: 60%
+  top: 60%;
 }
-.input__search:focus{
+.input__search:focus {
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-#searchBar__search{
+#searchBar__search {
   position: relative;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  <svg @click="arr_click" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        width="451.847px" height="451.847px" viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;"
        xml:space="preserve">
 <g>
@@ -43,7 +43,12 @@
 
 <script>
 export default {
-  name: "arrow"
+  name: "arrow",
+  methods:{
+      arr_click(){
+          this.$emit('ar_click')
+      }
+  }
 }
 </script>
 

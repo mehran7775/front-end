@@ -675,7 +675,6 @@ item {
 }
 #rating {
   width: 300px;
-  height: 220px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -690,26 +689,27 @@ item {
 }
 .s_rate {
   width: 100%;
-  height: 110px;
+  /* height: 100px; */
   text-align: center;
   /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
 .des_rate {
   width: 100%;
-  height: 45px;
   text-align: center;
 }
 .rate_number {
   width: 100%;
-  height: 30px;
+ 
 }
 .rate_star {
-  /* width: 50px;
-  height: 50px; */
+  /* width: 50px; */
+  height: 50px;
   direction: ltr;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
