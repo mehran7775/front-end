@@ -18,9 +18,9 @@
             <!-- <li :class="active.my_product ? 'active' : null">
               <a href="/userpanel/profile-company">پروفایل شرکت</a>
             </li> -->
-            <li :class="active.my_product ? 'active' : null">
+            <!-- <li :class="active.my_product ? 'active' : null">
               <a href="/userpanel/change-password">تغییر رمز عبور</a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- <li>
@@ -63,9 +63,9 @@
                   <!-- <li :class="active.my_product ? 'active' : null">
                     <a href="/userpanel/profile-company">پروفایل شرکت</a>
                   </li> -->
-                  <li :class="active.my_product ? 'active' : null">
+                  <!-- <li :class="active.my_product ? 'active' : null">
                     <a href="/userpanel">تغییر رمز عبور</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </li>
