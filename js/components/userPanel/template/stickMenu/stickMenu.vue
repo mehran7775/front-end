@@ -363,7 +363,7 @@ export default {
         break;
       case "/userpanel/":
         this.active.profile = true;
-        document.getElementById("bows1").click();
+        // document.getElementById("bows1").click();
         break;
       case "/categories/create/variation/":
         this.active.create_category = true;
