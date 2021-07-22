@@ -299,6 +299,7 @@ export default {
         emptyStarColor: "#737373",
         starWidth: 30,
         starHeight: 30,
+        isIndicatorActive: false,
       },
       // config2: {
       //   rating: 3,
@@ -363,6 +364,7 @@ export default {
     },
   },
   mounted() {
+    document.querySelector('.s_rate .rate_star .indicator').style.display="none"
     let last = document.querySelector(".pagination .last");
     last.style.display = "none";
     let first = document.querySelector(".pagination .first");
@@ -383,7 +385,7 @@ export default {
     }
     let active = document.querySelector(".pagination .active");
     active.style.background = "#F5F5F5";
-    document.querySelector('.s_rate .rate_star .indicator').style.display="none"
+    
   },
 };
 </script>
