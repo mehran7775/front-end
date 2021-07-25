@@ -37,7 +37,7 @@
             </li>
             <li :class="[active.my_customer ? 'active' : null, 'single']">
               <a href="/userpanel/products/create">
-                <strong class="pr-1">اضافه کردن محصول</strong>
+                <strong class="pr-1">افزودن محصول</strong>
                  <img
                   class="ico_mypage"
                   src="../../../../assets/images/add-product-1-68ds7275.png"
@@ -47,7 +47,7 @@
             </li>
             <li :class="[active.my_specificPage ? 'active' : null, 'single']">
               <a href="/userpanel/my_page">
-                <strong class="pr-1">مشاهده و ویرایش</strong>
+                <strong class="pr-1">مشاهده/ویرایش</strong>
                 <img
                   class="ico_mypage"
                   src="../../../../assets/images/edit-icon-vector-16.png"
@@ -639,6 +639,10 @@ span {
     margin-bottom: 10px;
     width: 100%;
   }
+  .dddd svg,.ddd img{
+    width: 28px!important;
+    height: 28px!important;
+  }
   ul li,
   .single {
     width: 33%;
@@ -646,6 +650,39 @@ span {
     margin: 0;
     padding: 0;
     /* background-color: aquamarine; */
+  }
+  .dddd li a{
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+  }
+  .dddd li a strong{
+    text-align: center;
+    font-size: 14px!important;
+    padding-right: 0!important;
+    padding-top: 4px;
+
+  }
+  .sideMenuTitle{
+    width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+  .sideMenuTitle{
+    right: 0;
+  }
+  .bows p{
+    right: 0;
+    padding-top: 3px!important;
+  }
+  .sideMenuTitle p strong{
+    text-align: center;
+    font-size: 14px!important;
+
+  }
+  .single a img,#my_customers a svg{
+    /* margin-bottom: 3px; */
   }
   /* .fa-cog{
     font-size: 9px!important;

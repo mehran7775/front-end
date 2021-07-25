@@ -1,38 +1,38 @@
 import axios from 'axios'
 
-const apiClient=axios.create({
-    baseURL:'/',
+const apiClient = axios.create({
+    baseURL: '/',
     // baseURL:'http://damirco.com',
-    withCredentials:false,
-    headers:{
-        'Accept':'application/json',
-       'Content-Type':'applications/json'
+    withCredentials: false,
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'applications/json'
     }
-}) 
+})
 
-export default{
+export default {
     // apiClient,
-    get_mainCategory(){
+    get_mainCategory() {
         return apiClient.get('mainCategories')
     },
-    select_default_msg(payload){
-        let f=new FormData()
-        f.set('note',payload.id)
+    select_default_msg(payload) {
+        let f = new FormData()
+        f.set('note', payload.id)
         // f.set('csrf_token',payload.csrf)
-        return apiClient.post('userpanel/msg',f,{
-            headers:{
-                'X-CSRFToken':payload.csrf
+        return apiClient.post('userpanel/msg', f, {
+            headers: {
+                'X-CSRFToken': payload.csrf
             }
         })
     },
-    send_email_to_number(payload){
+    send_email_to_number(payload) {
         // console.log(payload)
-    //    return payload/0
-    // let data={
-    //     phone_number:payload
-    // }
-    let form=new FormData()
-    form.append('phone_number',JSON.stringify(payload))
-        return apiClient.post('users-api/get-code',form)
+        //    return payload/0
+        // let data={
+        //     phone_number:payload
+        // }
+        let form = new FormData()
+        form.append('phone_number', JSON.stringify(payload))
+        return apiClient.post('users-api/get-code', form)
     }
 }

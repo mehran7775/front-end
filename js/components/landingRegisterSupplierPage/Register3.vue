@@ -94,7 +94,11 @@
                   </section>
                 </div>
                 <div class="w-100 mt-4 end_register">
-                  <input type="hidden" name="code_email" :value="activationKey">
+                  <input
+                    type="hidden"
+                    name="code_email"
+                    :value="activationKey"
+                  />
                   <input
                     :class="[
                       activationKey.length === 5 ? 'active-btn' : null,
@@ -124,7 +128,7 @@
 </template>
 
 <script>
-// import EventService from "../../services/EventService";
+import EventService from "../../services/EventService";
 export default {
   data() {
     return {
@@ -191,20 +195,23 @@ export default {
     },
     async continue_register() {
       try {
-        const re = await this.$store.dispatch(
-          "send_email_to_number",
-          this.$refs.phone_number.value
-        );
-        if (re) {
-          this.again_send_code = true;
-          this.phone_nu = this.$refs.phone_number.value;
-          document.getElementById("verify").style.display = "block";
-          document.getElementById("continue").style.display = "none";
-          var fiveMinutes = 90,
-            display = document.getElementById("counter_time");
-          this.startTimer(fiveMinutes, display);
-          document.querySelector(".end_register").style.display = "block";
-        }
+        // const res=await this.$store.dispatch(
+        //   "send_email_to_number",
+        //   this.$refs.phone_number.value
+        // );
+        // console.log('re',res)
+        EventService.send_email_to_number(this.$refs.phone_number.value).then(
+          (response) => {
+            this.again_send_code = true;
+            this.phone_nu = this.$refs.phone_number.value;
+            document.getElementById("verify").style.display = "block";
+            document.getElementById("continue").style.display = "none";
+            var fiveMinutes = 90,
+              display = document.getElementById("counter_time");
+            this.startTimer(fiveMinutes, display);
+            document.querySelector(".end_register").style.display = "block";
+          }
+        )
       } catch (e) {
         console.log("e", e);
       }
