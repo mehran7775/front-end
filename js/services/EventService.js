@@ -6,7 +6,7 @@ const apiClient=axios.create({
     withCredentials:false,
     headers:{
         'Accept':'application/json',
-    //    'Content-Type':'applications/json'
+       'Content-Type':'applications/json'
     }
 }) 
 
@@ -28,8 +28,12 @@ export default{
     send_email_to_number(payload){
         // console.log(payload)
     //    return payload/0
+    let data={
+        phone_number:payload
+    }
+        console.log(JSON.stringify(data))
         return apiClient.post('users-api/get-code',{
-            payload
+            data
         })
     }
 }
