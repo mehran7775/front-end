@@ -94,9 +94,10 @@
                   </section>
                 </div>
                 <div class="w-100 mt-4 end_register">
+                  <input type="hidden" name="code_email" :value="activationKey">
                   <input
                     :class="[
-                      activationKey.length===5 ? 'active-btn' : null,
+                      activationKey.length === 5 ? 'active-btn' : null,
                       'w-100 text-center form-control font-weight-bold',
                     ]"
                     type="submit"
@@ -123,6 +124,7 @@
 </template>
 
 <script>
+// import EventService from "../../services/EventService";
 export default {
   data() {
     return {
@@ -187,15 +189,31 @@ export default {
         this.$store.dispatch("check_user_exist", phoneNumber);
       }
     },
-    continue_register() {
-      this.again_send_code = true;
-      this.phone_nu = this.$refs.phone_number.value;
-      document.getElementById("verify").style.display = "block";
-      document.getElementById("continue").style.display = "none";
-      var fiveMinutes = 90,
-        display = document.getElementById("counter_time");
-      this.startTimer(fiveMinutes, display);
-      document.querySelector(".end_register").style.display = "block";
+    async continue_register() {
+      try {
+        const re = await this.$store.dispatch(
+          "send_email_to_number",
+          this.$refs.phone_number.value
+        );
+        if (re) {
+          this.again_send_code = true;
+          this.phone_nu = this.$refs.phone_number.value;
+          document.getElementById("verify").style.display = "block";
+          document.getElementById("continue").style.display = "none";
+          var fiveMinutes = 90,
+            display = document.getElementById("counter_time");
+          this.startTimer(fiveMinutes, display);
+          document.querySelector(".end_register").style.display = "block";
+        }
+      } catch (e) {
+        console.log("e", e);
+      }
+
+      // res.then(response =>{
+      //   console.log(response)
+      // }).catch(error =>{
+      //   console.log(error)
+      // })
     },
     handleActivationInput(e) {
       // Grab input's value
@@ -409,7 +427,7 @@ small {
   color: var(--blue) !important;
   border: none;
 }
-.end_register{
-    display: none;
+.end_register {
+  display: none;
 }
 </style>

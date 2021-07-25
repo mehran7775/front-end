@@ -35,12 +35,17 @@
                 <strong class="pr-1">مشتریان من</strong> <customers></customers
               ></a>
             </li>
+            <li :class="[active.my_customer ? 'active' : null, 'single']">
+              <a href="/userpanel/products/create">
+                <strong class="pr-1">اضافه کردن محصول</strong> 
+                </a>
+            </li>
             <li :class="[active.my_specificPage ? 'active' : null, 'single']">
               <a href="/userpanel/my_page">
-                <strong class="pr-1">صفحه من</strong>
+                <strong class="pr-1">مشاهده و ویرایش</strong>
                 <img
                   class="ico_mypage"
-                  src="../../../../assets/images/icons/صفحه من.webp"
+                  src="../../../../assets/images/icons/create_edit.svg"
                   alt=""
                 />
               </a>
@@ -188,6 +193,7 @@ import arrow from "./arrow.vue";
 import finishedPrice from "../icons/finishedPrice.vue";
 import catalog from "../icons/catalog.vue";
 import customers from "../icons/customers.vue";
+import observe from "../icons/observe.vue";
 import factore from "../icons/factore.vue";
 import otherLangCatalog from "../icons/otherLangCatalog.vue";
 import product from "../icons/product.vue";
@@ -208,6 +214,7 @@ export default {
     profile,
     crm,
     warehouse,
+    observe
   },
   data() {
     return {
@@ -559,9 +566,7 @@ li.single {
   position: relative;
   right: 6px;
 }
-li:first-child {
-  /* margin-top: 20px; */
-}
+
 .logoLi a {
   right: 0;
 }
@@ -677,8 +682,8 @@ span {
   background-color: rgb(232, 232, 232);
 }
 .ico_mypage {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

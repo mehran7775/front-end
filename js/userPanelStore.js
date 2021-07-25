@@ -13,7 +13,8 @@ export const store = new Vuex.Store({
             regPassword: /^[\u06F0-\u06F90-9a-zA-Z0-9ضصآثقفغعهخحجچپشسیبلاژتنمکگظطزرذدئو ]{4,20}$/g,
             regEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             reg_phoneNumber: /^[0-9\u06F0-\u06F90-9]{11}$/gi,
-            regNameCompany: /^[ًٌٍ،؛َُِّۀآـ«»,:"ةيژؤإأء<> -؟ضصثقفغعهژخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-Z0-9\u06F0-\u06F90-9]{3,100}$/
+            regNameCompany: /^[ًٌٍ،؛َُِّۀآـ«»,:"ةيژؤإأء<> -؟ضصثقفغعهژخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-Z0-9\u06F0-\u06F90-9]{3,100}$/,
+            description: /^[ًٌٍ،؛َُِّۀآـ«»,:"ةيژؤإأء<> -؟ضصثقفغعهژخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-Z0-9\u06F0-\u06F90-9]{3,1000}$/
         },
         sideMenuOpen: false,
         vars: [],
@@ -62,7 +63,27 @@ export const store = new Vuex.Store({
             id: null,
             el: null
         },
-        toggle_notification_df_msg: false
+        toggle_notification_df_msg: false,
+        multi_forms: {
+            company: {
+                name: "",
+                name_latin: "",
+            },
+            address: {
+                city: '',
+                province: '',
+                ots: ''
+            },
+            cv: '',
+            validated: {
+                name: false,
+                name_latin: false,
+                city: false,
+                province: false,
+                ots:false,
+                cv:false
+            }
+        }
     },
     getters: {
         isSubMenuOpen: state => {
@@ -81,6 +102,43 @@ export const store = new Vuex.Store({
         },
         TOGGLE_NOTIFICATION_DF_MSG: (state, payload) => {
             state.toggle_notification_df_msg = payload
+        },
+        SET_MULTI_FORMS: (state, payload) => {
+            if (payload.name == "name_company") {
+                state.multi_forms.company.name = payload.value
+            }
+            if (payload.name == "name_latin_company") {
+                state.multi_forms.company.name_latin = payload.value
+            }
+            if (payload.name == "province") {
+                state.multi_forms.address.province = payload.value
+            }
+            if (payload.name == "city") {
+                state.multi_forms.address.city = payload.value
+            }
+            if (payload.name == "ots") {
+                state.multi_forms.address.ots = payload.value
+            }
+            if (payload.name == "cv") {
+                state.multi_forms.address.ots = payload.value
+            }
+        },
+        VALIDATED_MULTI_FORMS:(state,payload)=>{
+            if(payload.name==="name"){
+                state.multi_forms.validated.name=payload.value
+            }
+            if(payload.name==="province"){
+                state.multi_forms.validated.province=payload.value
+            }
+            if(payload.name==="city"){
+                state.multi_forms.validated.city=payload.value
+            }
+            if(payload.name==="ots"){
+                state.multi_forms.validated.ots=payload.value
+            }
+            if(payload.name==="cv"){
+                state.multi_forms.validated.cv=payload.value
+            }
         }
     },
     actions: {

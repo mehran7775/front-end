@@ -253,6 +253,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 
 /***/ }),
 
+/***/ "./js/services/EventService.js":
+/*!*************************************!*\
+  !*** ./js/services/EventService.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\nconst apiClient = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({\n  baseURL: '/',\n  // baseURL:'http://damirco.com',\n  withCredentials: false,\n  headers: {\n    'Accept': 'application/json' //    'Content-Type':'applications/json'\n\n  }\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  // apiClient,\n  get_mainCategory() {\n    return apiClient.get('mainCategories');\n  },\n\n  select_default_msg(payload) {\n    let f = new FormData();\n    f.set('note', payload.id); // f.set('csrf_token',payload.csrf)\n\n    return apiClient.post('userpanel/msg', f, {\n      headers: {\n        'X-CSRFToken': payload.csrf\n      }\n    });\n  },\n\n  send_email_to_number(payload) {\n    // console.log(payload)\n    //    return payload/0\n    return apiClient.post('users-api/get-code', {\n      payload\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./js/services/EventService.js?");
+
+/***/ }),
+
 /***/ "./js/store/actions.js":
 /*!*****************************!*\
   !*** ./js/store/actions.js ***!
@@ -261,7 +273,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  record_comment({\n    commit\n  }, payload) {\n    commit('RECORD_COMMENTS', payload);\n  },\n\n  record_replay_comment({\n    commit\n  }, payload) {\n    let mount = payload.split(\":\")[1];\n    console.log(mount);\n    commit('RECORD_REPLAY_COMMENT', mount);\n  },\n\n  check_user_exist({\n    commit\n  }, payload) {\n    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/check-user-exists/?username=' + payload).then(response => {\n      console.log(\"ttt\"); // commit(\"CHECK_USER_EXIST\",JSON.parse(response.data));\n    }).catch(error => {\n      console.log(error.response);\n\n      if (error.response.data.is_taken_username === true) {\n        commit('EXIST_USER', error.response.data.error_msg);\n      }\n\n      if (error.response.data.is_taken_phoneNumber === true) {\n        commit('EXIST_USER_PHONE', error.response.data.error_msg);\n      }\n    });\n  },\n\n  loadTrans(context) {\n    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://my-json-server.typicode.com/Sunpacker/vue_pagination/db').then(response => {\n      let reversed = response.data.transactions.reverse();\n      context.commit('loadTransactions', reversed);\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./js/store/actions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _services_EventService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/EventService */ \"./js/services/EventService.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  record_comment({\n    commit\n  }, payload) {\n    commit('RECORD_COMMENTS', payload);\n  },\n\n  record_replay_comment({\n    commit\n  }, payload) {\n    let mount = payload.split(\":\")[1];\n    console.log(mount);\n    commit('RECORD_REPLAY_COMMENT', mount);\n  },\n\n  check_user_exist({\n    commit\n  }, payload) {\n    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/check-user-exists/?username=' + payload).then(response => {\n      console.log(\"ttt\"); // commit(\"CHECK_USER_EXIST\",JSON.parse(response.data));\n    }).catch(error => {\n      console.log(error.response);\n\n      if (error.response.data.is_taken_username === true) {\n        commit('EXIST_USER', error.response.data.error_msg);\n      }\n\n      if (error.response.data.is_taken_phoneNumber === true) {\n        commit('EXIST_USER_PHONE', error.response.data.error_msg);\n      }\n    });\n  },\n\n  loadTrans(context) {\n    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://my-json-server.typicode.com/Sunpacker/vue_pagination/db').then(response => {\n      let reversed = response.data.transactions.reverse();\n      context.commit('loadTransactions', reversed);\n    });\n  },\n\n  async send_email_to_number({\n    commit\n  }, payload) {\n    try {\n      await _services_EventService__WEBPACK_IMPORTED_MODULE_1__[\"default\"].send_email_to_number(payload).then(response => {\n        return true;\n      });\n    } catch (e) {\n      return false;\n    }\n  }\n\n});\n\n//# sourceURL=webpack:///./js/store/actions.js?");
 
 /***/ }),
 
@@ -352,9 +364,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg ***!
   \*******************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-brands-400.216edb.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/images/fa-brands-400.216edb.svg\";\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg?");
 
 /***/ }),
 
@@ -411,9 +423,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg ***!
   \********************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-regular-400.19e27d.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/images/fa-regular-400.19e27d.svg\";\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg?");
 
 /***/ }),
 
@@ -470,9 +482,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg ***!
   \******************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"module.exports = __webpack_public_path__ + &quot;assets/images/fa-solid-900.13de59.svg&quot;;\"\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/images/fa-solid-900.13de59.svg\";\n\n//# sourceURL=webpack:///./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg?");
 
 /***/ }),
 

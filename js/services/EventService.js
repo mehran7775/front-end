@@ -24,5 +24,12 @@ export default{
                 'X-CSRFToken':payload.csrf
             }
         })
+    },
+    send_email_to_number(payload){
+        // console.log(payload)
+    //    return payload/0
+        return apiClient.post('users-api/get-code',{
+            payload
+        })
     }
 }
