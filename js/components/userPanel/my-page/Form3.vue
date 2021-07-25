@@ -1,6 +1,6 @@
 <template>
   <div id="company">
-    <div class="form">
+    <div class="form p-3 w-75 m-auto">
       <div class="form-group">
         <label for="name_company">رزومه شرکت را وارد کنید</label>
         <textarea
@@ -103,5 +103,17 @@ label {
 
 .is-valid {
   border: 1px solid #43c761;
+}
+textarea{
+  width: 100%;
+}
+@media screen and(max-width:576px) {
+  .form{
+    padding: 0!important;
+  }
+  textarea{
+    width: 100%;
+    height: 120px;
+  }
 }
 </style>

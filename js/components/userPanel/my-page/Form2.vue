@@ -1,6 +1,6 @@
 <template>
   <div id="company">
-    <div class="form">
+    <div class="form p-3 w-75 m-auto">
       <div class="form-group">
         <!-- <legend class="font-weight-bold">آدرس شرکت یا کارخانه را وارد کنید</legend> -->
         <label for="province">استان</label>

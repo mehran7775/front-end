@@ -1,6 +1,6 @@
 <template>
   <div id="company">
-    <div class="form">
+    <div class="form p-3 w-75 m-auto">
       <div class="form-group">
         <label for="name_company">نام شرکت</label>
         <input
@@ -17,7 +17,7 @@
           placeholder="به فارسی وارد کنید"
         />
       </div>
-      <div class="form-group">
+      <div class="form-group mt-2">
         <label for="name_latin_company">نام لاتین شرکت</label>
         <input
           type="text"
@@ -123,4 +123,9 @@ label {
 .is-valid {
   border: 1px solid #43c761;
 }
+// .form input[type=text]{
+//   width: 75%;
+//   margin: auto;
+
+// }
 </style>

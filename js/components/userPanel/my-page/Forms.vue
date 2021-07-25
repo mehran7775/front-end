@@ -145,7 +145,7 @@ export default {
   // background-color: aquamarine;
 }
 .body {
-  width: 80%;
+  width: 75%;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   margin: auto;
@@ -160,5 +160,10 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
   opacity: 0;
+}
+@media screen and (max-width:576px) {
+  .body{
+    width: 90%;
+  }
 }
 </style>
