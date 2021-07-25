@@ -28,12 +28,11 @@ export default{
     send_email_to_number(payload){
         // console.log(payload)
     //    return payload/0
-    let data={
-        phone_number:payload
-    }
-        console.log(JSON.stringify(data))
-        return apiClient.post('users-api/get-code',{
-            data
-        })
+    // let data={
+    //     phone_number:payload
+    // }
+    let form=new FormData()
+    form.append('phone_number',JSON.stringify(payload))
+        return apiClient.post('users-api/get-code',form)
     }
 }
