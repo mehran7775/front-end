@@ -479,6 +479,9 @@ img {
   background-color: #fff;
   /* padding-top: 20px; */
 }
+#sideMenuStickerWrapper{
+  background-color: #50a5ffa1;
+}
 @media (max-width: 1000px) {
   .stickMenu {
     right: -230px;
@@ -660,6 +663,7 @@ span {
   .dddd li a strong{
     text-align: center;
     font-size: 14px!important;
+    color: black;
     padding-right: 0!important;
     padding-top: 4px;
 
@@ -679,6 +683,7 @@ span {
   .sideMenuTitle p strong{
     text-align: center;
     font-size: 14px!important;
+     color: black;
 
   }
   .single a img,#my_customers a svg{
@@ -693,6 +698,9 @@ span {
   }
   .none_arr_se {
     display: none;
+  }
+  #sideMenuStickerWrapper{
+    overflow: hidden;
   }
 }
 .subSettings {
