@@ -37,7 +37,12 @@
             </li>
             <li :class="[active.my_customer ? 'active' : null, 'single']">
               <a href="/userpanel/products/create">
-                <strong class="pr-1">اضافه کردن محصول</strong> 
+                <strong class="pr-1">اضافه کردن محصول</strong>
+                 <img
+                  class="ico_mypage"
+                  src="../../../../assets/images/add-product-1-68ds7275.png"
+                  alt=""
+                />
                 </a>
             </li>
             <li :class="[active.my_specificPage ? 'active' : null, 'single']">
@@ -45,7 +50,7 @@
                 <strong class="pr-1">مشاهده و ویرایش</strong>
                 <img
                   class="ico_mypage"
-                  src="../../../../assets/images/icons/create_edit.svg"
+                  src="../../../../assets/images/edit-icon-vector-16.png"
                   alt=""
                 />
               </a>
@@ -682,8 +687,8 @@ span {
   background-color: rgb(232, 232, 232);
 }
 .ico_mypage {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

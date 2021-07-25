@@ -104,9 +104,7 @@ label {
 .is-valid {
   border: 1px solid #43c761;
 }
-textarea{
-  width: 100%;
-}
+
 @media screen and(max-width:576px) {
   .form{
     padding: 0!important;

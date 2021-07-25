@@ -380,7 +380,7 @@ small {
   /* color: var(--blue); */
   font-weight: bold;
   font-size: 19px;
-  font-style: italic;
+  /* font-style: italic; */
 }
 .disable {
   pointer-events: none;
