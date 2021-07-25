@@ -43,9 +43,11 @@ export default {
         try {
             await EventService.send_email_to_number(payload)
                 .then(response => {
+                    console.log(response)
                     return true
                 })
         } catch (e) {
+            console.log(e)
             return false
         }
     }
