@@ -120,7 +120,7 @@ export const store = new Vuex.Store({
                 state.multi_forms.address.ots = payload.value
             }
             if (payload.name == "cv") {
-                state.multi_forms.address.ots = payload.value
+                state.multi_forms.cv = payload.value
             }
         },
         VALIDATED_MULTI_FORMS:(state,payload)=>{

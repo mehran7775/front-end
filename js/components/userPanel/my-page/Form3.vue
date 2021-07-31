@@ -69,7 +69,7 @@ export default {
           value: value,
           name: "cv",
         };
-        this.$store.commit("SET_MULTI_FORMS", p);
+        this.$store.commit("SET_MULTI_FORMS",p);
       },
     },
     name_latin_company: {

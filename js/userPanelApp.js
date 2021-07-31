@@ -48,7 +48,7 @@ const app=new vue({
 		// MyPage,
 		Forms,
 		'index':()=>import("./components/userPanel/index/index.vue"),
-		'createProduct':()=>import("./components/userPanel/createPRoduct/createProduct.vue"),
+		'createProduct':()=>import("./components/userPanel/createPRoduct/createProduct2.vue"),
 		'editProduct':()=>import("./components/userPanel/editProducts/editProduct.vue"),
 		'createBlogPost':()=>import('./components/userPanel/createBlogPost/createBlogPost.vue'),
 		'addCategory':()=>import('./components/userPanel/addCategory/addCategory.vue'),

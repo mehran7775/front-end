@@ -35,8 +35,8 @@
         name="name_company"
       />
       <input
-        v-if="data_forms.company.name"
-        v-model="data_forms.company.name"
+        v-if="data_forms.company.name_latin"
+        v-model="data_forms.company.name_latin"
         type="hidden"
         name="name_latin_company"
       />

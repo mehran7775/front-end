@@ -480,7 +480,7 @@ img {
   /* padding-top: 20px; */
 }
 #sideMenuStickerWrapper{
-  background-color: #50a5ffa1;
+  /* background-color: #50a5ffa1; */
 }
 @media (max-width: 1000px) {
   .stickMenu {
@@ -736,6 +736,9 @@ span {
   height: 32px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+.stickMenu2 ul{
+  background-color: #50a5ffa1!important;
 }
 /* @media screen and(max-width:440px) {
   .stickMenu {
