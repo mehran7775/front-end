@@ -35,7 +35,7 @@
                 <strong class="pr-1">مشتریان من</strong> <customers></customers
               ></a>
             </li>
-            <li :class="[active.my_customer ? 'active' : null, 'single']">
+            <li :class="[active.create_product ? 'active' : null, 'single']">
               <a href="/userpanel/products/create">
                 <strong class="pr-1">افزودن محصول</strong>
                  <img
@@ -350,7 +350,7 @@ export default {
     switch (window.location.pathname) {
       case "/userpanel/orders/":
         this.active.my_customer = true;
-        this.active.my_estealam = true;
+        // this.active.my_estealam = true;
         break;
       case "/userpanel/products/create/":
         this.active.create_product = true;
