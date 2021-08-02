@@ -16,7 +16,11 @@
         </div>
       </div>
     </div>
-    <div id="myProductsWrapper" class="vue" v-if="JSON.parse(products).length > 0">
+    <div
+      id="myProductsWrapper"
+      class="vue"
+      v-if="JSON.parse(products).length > 0"
+    >
       <template v-for="i in JSON.parse(products)">
         <single-product
           :status="i.is_confirmed"
@@ -28,12 +32,25 @@
           :slug="i.slug"
           :product_image="i.product_image"
           :image_alt="i.image_alt"
-          @verify_delete="verify_delete($event)"
+          @delete_item="deleteItem($event)"
         ></single-product>
       </template>
     </div>
     <div v-else class="text-center display-5 mt-5">
       <strong>شما هنوز محصولی ایجاد نکرده اید</strong>
+    </div>
+    <div class="modal_delete">
+      <div id="modal_delete">
+        <p><strong>آیا میخواهید این مورد را حذف کنید؟</strong></p>
+        <div class="btns">
+          <button @click="verify_delete" class="btn btn-primary ml-1">
+            تایید
+          </button>
+          <button @click="close_modal" class="btn btn-secondary mr-1">
+            انصراف
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -46,23 +63,36 @@ export default {
   data() {
     return {
       shoeMessage: false,
+      id_product:null
     };
   },
   methods: {
-    verify_delete(e) {
-      console.log(e);
+      close_modal() {
+      let el = document.querySelector(".modal_delete");
+      el.style.visibility = "hidden";
+      el.style.opacity = 0;
     },
-    // removeProduct(id){
-    //   console.log("deleteing",id)
-    //   const index=this.allProds.findIndex(product=>{
-    //     return product.id==id
-    //   })
-    //   this.allProds.splice(index,1)
-    //   this.shoeMessage=true
-    //   setTimeout(()=>{
-    //     this.shoeMessage=false
-    //   },5000)
-    // }
+    deleteItem(e) {
+      this.id_product=e
+      let el = document.querySelector(".modal_delete");
+      el.style.transition = "all 0.3s";
+      el.style.visibility = "visible";
+      el.style.opacity = 1;
+    },
+    verify_delete(){
+       let form = document.createElement("form")
+      form.setAttribute("method", "post")
+      let action='/userpanel/products/remove/' + this.id_product
+      form.setAttribute("action",action )
+      let inp = document.createElement("input")
+      inp.setAttribute("type", "text")
+      inp.setAttribute("name", "_method")
+      inp.setAttribute("value", "DELETE")
+      form.appendChild(inp)
+      document.body.appendChild(form)
+      form.submit()
+    }
+    
   },
   props: ["products"],
 };
@@ -117,5 +147,39 @@ export default {
   border: none;
   color: var(--blue);
   font-weight: bold;
+}
+.modal_delete {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.11);
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  text-align: right;
+}
+#modal_delete {
+  width: 50%;
+  height: 140px;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  padding: 20px;
+  border-radius: 3px;
+}
+#modal_delete .btns {
+  text-align: center;
+}
+#icon_close {
+  transition: all 0.2s;
+}
+#icon_close:hover {
+  cursor: pointer;
+  color: red;
 }
 </style>
