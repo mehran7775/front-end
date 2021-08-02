@@ -35,7 +35,17 @@
                 <strong class="pr-1">مشتریان من</strong> <customers></customers
               ></a>
             </li>
-            <li :class="[active.create_product ? 'active' : null, 'single']">
+            <li :class="[active.my_product ? 'active' : null, 'single']">
+              <a href="/userpanel/products">
+                <strong class="pr-1">محصولات من</strong>
+                 <img
+                  class="ico_mypage"
+                  src="../../../../assets/images/add-product-1-68ds7275.png"
+                  alt=""
+                />
+                </a>
+            </li>
+            <!-- <li :class="[active.create_product ? 'active' : null, 'single']">
               <a href="/userpanel/products/create">
                 <strong class="pr-1">افزودن محصول</strong>
                  <img
@@ -44,8 +54,8 @@
                   alt=""
                 />
                 </a>
-            </li>
-            <li :class="[active.my_specificPage ? 'active' : null, 'single']">
+            </li> -->
+            <!-- <li :class="[active.my_specificPage ? 'active' : null, 'single']">
               <a href="/userpanel/my_page">
                 <strong class="pr-1">مشاهده/ویرایش</strong>
                 <img
@@ -54,7 +64,7 @@
                   alt=""
                 />
               </a>
-            </li>
+            </li> -->
             <li class="head">
               <div class="bows" @click="openSub($event)" id="bows1">
                 <div class="bowsWrapper" id="bowsWrapper1">
@@ -357,9 +367,9 @@ export default {
         // document.getElementById("bows1").click();
         // this.openSub(el)
         break;
-      case "/users/profile/my_products/":
+      case "/userpanel/my_products/":
         this.active.my_product = true;
-        document.getElementById("bows1").click();
+        // document.getElementById("bows1").click();
         break;
       case "/userpanel/cal_netprice/":
         this.active.finish_cost = true;

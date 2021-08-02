@@ -1,16 +1,15 @@
 <template>
   <div ref="singleProduct" class="singleProduct">
-    <div class="singleProductWrapper">
-      <div id="allDescs">
-        <div class="status">
-          <div v-if="status == 'true'" class="accept">
-            <p class="accept">تایید شده</p>
-          </div>
-          <div v-else class="pending">
-            <p class="pending">در انتظار تایید</p>
-          </div>
-          <!--        <p>دو روز پیش</p>-->
-          <!-- <div class="dots" @click="openToolTip($event)">
+    <div id="allDescs">
+      <div class="status">
+        <div v-if="status == 'true'" class="accept">
+          <p class="accept">تایید شده</p>
+        </div>
+        <div v-else class="pending">
+          <p class="pending">در انتظار تایید</p>
+        </div>
+        <!--        <p>دو روز پیش</p>-->
+        <!-- <div class="dots" @click="openToolTip($event)">
             <div class="dot"></div>
             <div class="dot"></div>
             <div class="dot"></div>
@@ -25,24 +24,26 @@
               </ul>
             </div>
           </div> -->
-        </div>
-        <div class="descs">
-          <a :href="'/products/product-detial/' + slug"
-            ><p>{{ descs }}</p></a
-          >
-        </div>
-        <div class="sees">
-          <p>بازدید:{{ sees }}</p>
-        </div>
-        <div class="cat">
-          <p>
-            دسته بندی:<a :href="'/categories/' + cat">{{ cat }}</a>
-          </p>
-        </div>
       </div>
-      <div id="productImage">
-        <img :src="product_image" :alt="image_alt" />
+      <div class="descs">
+        <a :href="'/products/product-detial/' + slug"
+          ><p>
+            <!-- {{ descs }} -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde tenetur quia aperiam illum, assumenda harum vel illo nulla neque doloribus commodi, iusto soluta blanditiis, atque obcaecati ipsa accusamus! Molestias?
+            </p></a
+        >
       </div>
+      <div class="sees">
+        <p>بازدید:{{ sees }}</p>
+      </div>
+      <div class="cat">
+        <p>
+          دسته بندی:<a :href="'/categories/' + cat">{{ cat }}</a>
+        </p>
+      </div>
+    </div>
+    <div id="productImage">
+      <img :src="product_image" :alt="image_alt" />
     </div>
     <notf
       @deleteProduct="deleteProduct"
@@ -51,14 +52,18 @@
     ></notf>
     <div class="crud">
       <div>
-        <form  @click="delete_item" name="delete-product" :action="'/userpanel/products/remove/' + id" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <i
+        <form
+          @click="delete_item"
+          name="delete-product"
+          :action="'/userpanel/products/remove/' + id"
+          method="post"
+        >
+          <input type="hidden" name="_method" value="DELETE" />
+          <i
             class="fa fa-trash hover-active"
             style="font-size: 24px"
             title="حذف"
-          ></i
-        >
+          ></i>
         </form>
       </div>
       <div>
@@ -145,9 +150,9 @@ export default {
         tool.style.display = "none";
       });
     },
-    delete_item(){
-     document.forms['delete-product'].submit()
-    }
+    delete_item() {
+      document.forms["delete-product"].submit();
+    },
   },
 };
 </script>
@@ -155,17 +160,19 @@ export default {
 <style scoped>
 .singleProduct {
   width: 250px;
-  background: white;
+  background: #fff;
   border-radius: 15px;
   /*position: relative;*/
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
 }
-.singleProductWrapper {
+/* .singleProductWrapper {
   padding: 10px;
   display: flex;
   flex-direction: column;
-}
+} */
 .status {
   display: flex;
   justify-content: space-between;
@@ -235,6 +242,14 @@ li {
   width: 100%;
   height: 100%;
 }
+.descs{
+  height: 85px;
+  padding: 5px;
+  /* background-color: aquamarine; */
+  overflow: hidden;
+  text-overflow: clip;
+  /* white-space: nowrap; */
+}
 .descs p {
   direction: rtl;
 }
@@ -242,6 +257,7 @@ li {
   width: 60px;
   margin-left: 5%;
   margin-bottom: 5px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -250,11 +266,14 @@ li {
 .crud a {
   color: var(--blue);
 }
-.hover-active{
-  color: var(--blue)!important;
+.hover-active {
+  color: var(--blue) !important;
 }
 .hover-active:hover {
-  color: red!important;
+  color: red !important;
   cursor: pointer;
+}
+.cat{
+  height: 45px;
 }
 </style>

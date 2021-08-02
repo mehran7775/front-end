@@ -42,9 +42,9 @@
                   </div>
                 </div>
                 <div
+                style="height:5px"
                   :class="[
-                    messages_response.exist_user.phoneNumber ? 'mt-4' : null,
-                    'form-group',
+                    messages_response.exist_user.phoneNumber ? 'mt-4' : null
                   ]"
                 ></div>
                 <div class="w-100 mt-4">
@@ -56,7 +56,7 @@
                     ]"
                     type="button"
                     value="ادامه"
-                    :disabled="btnStatus1"
+                    :disabled="btnStatus1 && !messages_response.exist_user.phoneNumber"
                     @click="continue_register()"
                   />
                 </div>
