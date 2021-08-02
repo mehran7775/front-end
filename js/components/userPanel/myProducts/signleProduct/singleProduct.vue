@@ -28,9 +28,8 @@
       <div class="descs">
         <a :href="'/products/product-detial/' + slug"
           ><p>
-            <!-- {{ descs }} -->
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde tenetur quia aperiam illum, assumenda harum vel illo nulla neque doloribus commodi, iusto soluta blanditiis, atque obcaecati ipsa accusamus! Molestias?
-            </p></a
+            {{ descs }}
+          </p></a
         >
       </div>
       <div class="sees">
@@ -52,19 +51,13 @@
     ></notf>
     <div class="crud">
       <div>
-        <form
-          @click="delete_item"
-          name="delete-product"
-          :action="'/userpanel/products/remove/' + id"
-          method="post"
-        >
-          <input type="hidden" name="_method" value="DELETE" />
+        <span @click="delete_item">
           <i
             class="fa fa-trash hover-active"
             style="font-size: 24px"
             title="حذف"
           ></i>
-        </form>
+        </span>
       </div>
       <div>
         <a :href="'/userpanel/products/edit/' + id">
@@ -75,6 +68,19 @@
           >
           </i
         ></a>
+      </div>
+    </div>
+    <div class="modal_delete">
+      <div id="modal_delete">
+        <p><strong>آیا میخواهید این مورد را حذف کنید؟</strong></p>
+        <div class="btns">
+          <button @click="verify_delete()" class="btn btn-primary ml-1">
+            تایید
+          </button>
+          <button @click="close_modal" class="btn btn-secondary mr-1">
+            انصراف
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +111,7 @@ export default {
     };
   },
   created() {
+    console.log(this.id)
     window.addEventListener("click", (e) => {
       const el = e.target;
       if (!el.classList.contains("dots") && !el.classList.contains("dot")) {
@@ -150,8 +157,32 @@ export default {
         tool.style.display = "none";
       });
     },
+    close_modal() {
+      let el = document.querySelector(".modal_delete");
+      el.style.visibility = "hidden";
+      el.style.opacity = 0;
+    },
     delete_item() {
-      document.forms["delete-product"].submit();
+      console.log("g");
+      let el = document.querySelector(".modal_delete");
+      el.style.transition = "all 0.3s";
+      el.style.visibility = "visible";
+      el.style.opacity = 1;
+    },
+    verify_delete() {
+      this.$emit('verify_delete',this.id)
+      // console.log(this.slug)
+      // let form = document.createElement("form")
+      // form.setAttribute("method", "post")
+      // let action='/userpanel/products/remove/' + id
+      // form.setAttribute("action",action )
+      // let inp = document.createElement("input")
+      // inp.setAttribute("type", "text")
+      // inp.setAttribute("name", "_method")
+      // inp.setAttribute("value", "DELETE")
+      // form.appendChild(inp)
+      // document.body.appendChild(form)
+      // form.submit()
     },
   },
 };
@@ -242,7 +273,7 @@ li {
   width: 100%;
   height: 100%;
 }
-.descs{
+.descs {
   height: 85px;
   padding: 5px;
   /* background-color: aquamarine; */
@@ -273,7 +304,40 @@ li {
   color: red !important;
   cursor: pointer;
 }
-.cat{
+.cat {
   height: 45px;
+}
+.modal_delete {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.11);
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+}
+#modal_delete {
+  width: 50%;
+  height: 140px;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  padding: 20px;
+  border-radius: 3px;
+}
+#modal_delete .btns {
+  text-align: center;
+}
+#icon_close {
+  transition: all 0.2s;
+}
+#icon_close:hover {
+  cursor: pointer;
+  color: red;
 }
 </style>

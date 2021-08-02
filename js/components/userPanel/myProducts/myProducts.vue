@@ -16,20 +16,21 @@
         </div>
       </div>
     </div>
-    <div id="myProductsWrapper" class="vue" v-if="getProducts.length > 0">
-      <single-product
-        v-for="(i, ind) in getProducts"
-        :status="i.is_confirmed"
-        :descs="i.title"
-        :sees="i.hit_count"
-        :cat="i.category[0].title"
-        :key="ind"
-        :id="i.id"
-        :slug="i.slug"
-        :product_image="i.product_image"
-        :image_alt="i.image_alt"
-        @removeProduct="removeProduct"
-      ></single-product>
+    <div id="myProductsWrapper" class="vue" v-if="JSON.parse(products).length > 0">
+      <template v-for="i in JSON.parse(products)">
+        <single-product
+          :status="i.is_confirmed"
+          :descs="i.title"
+          :sees="i.hit_count"
+          :cat="i.category[0].title"
+          :key="i.id"
+          :id="i.id"
+          :slug="i.slug"
+          :product_image="i.product_image"
+          :image_alt="i.image_alt"
+          @verify_delete="verify_delete($event)"
+        ></single-product>
+      </template>
     </div>
     <div v-else class="text-center display-5 mt-5">
       <strong>شما هنوز محصولی ایجاد نکرده اید</strong>
@@ -44,11 +45,13 @@ export default {
   components: { singleProduct },
   data() {
     return {
-      allProds: JSON.parse(this.products),
       shoeMessage: false,
     };
   },
   methods: {
+    verify_delete(e) {
+      console.log(e);
+    },
     // removeProduct(id){
     //   console.log("deleteing",id)
     //   const index=this.allProds.findIndex(product=>{
@@ -62,17 +65,6 @@ export default {
     // }
   },
   props: ["products"],
-  created() {
-    console.log(this.allProds);
-  },
-  computed: {
-    getProducts() {
-      return this.allProds;
-    },
-  },
-  created() {
-    console.log(JSON.parse(this.products));
-  },
 };
 </script>
 
@@ -110,10 +102,10 @@ export default {
 @keyframes blinker {
   0%,
   100% {
-     border: 2px solid #fff;
+    border: 2px solid #fff;
   }
   50% {
-     border: 2px solid var(--blue);
+    border: 2px solid var(--blue);
   }
 }
 #btn_create {
